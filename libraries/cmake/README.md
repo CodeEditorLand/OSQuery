@@ -15,7 +15,7 @@ Particular care is needed for these libraries, as with the `source` ones, so tha
 
 ## Linux
 
-Beyond what previously described, we use a custom toolchain ([osquery-toolchain](https://github.com/osquery/osquery-toolchain)) that permits us to build osquery on either new distros or the oldest targeted distro (bar some bugs, see later).
+Beyond what previously described, we use a custom toolchain ([osquery-toolchain](HTTPS://github.com/osquery/osquery-toolchain)) that permits us to build osquery on either new distros or the oldest targeted distro (bar some bugs, see later).
 
 These are the current targeted versions:
 
@@ -118,7 +118,7 @@ CentOS 6 reached "End of Life" status in 2020, so continuing to build osquery on
 The Yum package repo for CentOS 6 is no longer hosted at its default location, so we must configure it.
 
 ```sh
-sudo curl https://www.getpagespeed.com/files/centos6-eol.repo --output /etc/yum.repos.d/CentOS-Base.repo
+sudo curl HTTPS://www.getpagespeed.com/files/centos6-eol.repo --output /etc/yum.repos.d/CentOS-Base.repo
 sudo yum update
 ```
 
@@ -130,7 +130,7 @@ The version of `git` on CentOS 6 is ~1.7, but osquery requires much newer. We ca
 sudo yum remove git
 sudo yum -y install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
 cd /usr/src
-sudo wget https://www.kernel.org/pub/software/scm/git/git-2.39.0.tar.gz
+sudo wget HTTPS://www.kernel.org/pub/software/scm/git/git-2.39.0.tar.gz
 sudo tar xzf git-2.39.0.tar.gz
 cd git-2.39.0
 sudo make prefix=/usr/local all
@@ -154,9 +154,9 @@ Update the repository file: `/etc/yum.repos.d/CentOS-SCLo-scl.repo`
 ```text
 [centos-sclo-sclo]
 name=CentOS-6 - SCLo sclo
-baseurl=https://vault.centos.org/centos/6.10/sclo/x86_64/rh
-# baseurl=http://mirror.centos.org/centos/6/sclo/$basearch/sclo/
-# mirrorlist=http://mirrorlist.centos.org?arch=$basearch&release=6&repo=sclo-sclo
+baseurl=HTTPS://vault.centos.org/centos/6.10/sclo/x86_64/rh
+# baseurl=HTTP://mirror.centos.org/centos/6/sclo/$basearch/sclo/
+# mirrorlist=HTTP://mirrorlist.centos.org?arch=$basearch&release=6&repo=sclo-sclo
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-SCLo

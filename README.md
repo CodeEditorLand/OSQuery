@@ -2,7 +2,7 @@
 
 <p align="center">
 <img alt="osquery logo" width="200"
-src="https://github.com/osquery/osquery/raw/master/docs/img/logo-2x-dark.png" />
+src="HTTPS://github.com/osquery/osquery/raw/master/docs/img/logo-2x-dark.png" />
 </p>
 
 <p align="center">
@@ -13,15 +13,15 @@ Available for Linux, macOS, and Windows.
 
 ## Information and resources
 
-- Homepage: [osquery.io](https://osquery.io)
-- Downloads: [osquery.io/downloads](https://osquery.io/downloads)
-- Documentation: [ReadTheDocs](https://osquery.readthedocs.org)
-- Stack Overflow: [Stack Overflow questions](https://stackoverflow.com/questions/tagged/osquery)
-- Table Schema: [osquery.io/schema](https://osquery.io/schema)
-- Query Packs: [osquery.io/packs](https://github.com/osquery/osquery/tree/master/packs)
-- Slack: [Browse the archives](https://chat.osquery.io/c/general) or [Join the conversation](https://join.slack.com/t/osquery/shared_invite/zt-1wi6cdgf7-zR2wt7FZ0ClHj6tEym6KFQ)
-- Build Status: [![GitHub Actions Build x86 Status](https://github.com/osquery/osquery/actions/workflows/hosted_runners.yml/badge.svg?branch=master)](https://github.com/osquery/osquery/actions/workflows/hosted_runners.yml) [![GitHub Actions Build AArch64 Status](https://github.com/osquery/osquery/actions/workflows/self_hosted_runners.yml/badge.svg?branch=master)](https://github.com/osquery/osquery/actions/workflows/self_hosted_runners.yml) [![Documentation Status](https://readthedocs.org/projects/osquery/badge/?version=latest)](https://osquery.readthedocs.io/en/latest/?badge=latest)
-- CII Best Practices: [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3125/badge)](https://bestpractices.coreinfrastructure.org/projects/3125)
+- Homepage: [osquery.io](HTTPS://osquery.io)
+- Downloads: [osquery.io/downloads](HTTPS://osquery.io/downloads)
+- Documentation: [ReadTheDocs](HTTPS://osquery.readthedocs.org)
+- Stack Overflow: [Stack Overflow questions](HTTPS://stackoverflow.com/questions/tagged/osquery)
+- Table Schema: [osquery.io/schema](HTTPS://osquery.io/schema)
+- Query Packs: [osquery.io/packs](HTTPS://github.com/osquery/osquery/tree/master/packs)
+- Slack: [Browse the archives](HTTPS://chat.osquery.io/c/general) or [Join the conversation](HTTPS://join.slack.com/t/osquery/shared_invite/zt-1wi6cdgf7-zR2wt7FZ0ClHj6tEym6KFQ)
+- Build Status: [![GitHub Actions Build x86 Status](HTTPS://github.com/osquery/osquery/actions/workflows/hosted_runners.yml/badge.svg?branch=master)](HTTPS://github.com/osquery/osquery/actions/workflows/hosted_runners.yml) [![GitHub Actions Build AArch64 Status](HTTPS://github.com/osquery/osquery/actions/workflows/self_hosted_runners.yml/badge.svg?branch=master)](HTTPS://github.com/osquery/osquery/actions/workflows/self_hosted_runners.yml) [![Documentation Status](HTTPS://readthedocs.org/projects/osquery/badge/?version=latest)](HTTPS://osquery.readthedocs.io/en/latest/?badge=latest)
+- CII Best Practices: [![CII Best Practices](HTTPS://bestpractices.coreinfrastructure.org/projects/3125/badge)](HTTPS://bestpractices.coreinfrastructure.org/projects/3125)
 
 ## What is osquery?
 
@@ -31,17 +31,17 @@ abstract concepts such as running processes, loaded kernel modules, open network
 browser plugins, hardware events or file hashes.
 
 SQL tables are implemented via a simple plugin and extensions API. A variety of tables already exist
-and more are being written: [https://osquery.io/schema](https://osquery.io/schema/). To best
+and more are being written: [HTTPS://osquery.io/schema](HTTPS://osquery.io/schema/). To best
 understand the expressiveness that is afforded to you by osquery, consider the following SQL
 queries:
 
-List the [`users`](https://osquery.io/schema/current#users):
+List the [`users`](HTTPS://osquery.io/schema/current#users):
 
 ```sql
 SELECT * FROM users;
 ```
 
-Check the [`processes`](https://osquery.io/schema/current#processes) that have a deleted executable:
+Check the [`processes`](HTTPS://osquery.io/schema/current#processes) that have a deleted executable:
 
 ```sql
 SELECT * FROM processes WHERE on_disk = 0;
@@ -84,8 +84,8 @@ SELECT address, mac, mac_count
 These queries can be:
 
 - performed on an ad-hoc basis to explore operating system state using the
-  [osqueryi](https://osquery.readthedocs.org/en/latest/introduction/using-osqueryi/) shell
-- executed via a [scheduler](https://osquery.readthedocs.org/en/latest/introduction/using-osqueryd/)
+  [osqueryi](HTTPS://osquery.readthedocs.org/en/latest/introduction/using-osqueryi/) shell
+- executed via a [scheduler](HTTPS://osquery.readthedocs.org/en/latest/introduction/using-osqueryd/)
   to monitor operating system state across a set of hosts
 - launched from custom applications using osquery Thrift APIs
 
@@ -93,23 +93,23 @@ These queries can be:
 
 To download the latest stable builds and for repository information
 and installation instructions visit
-[https://osquery.io/downloads](https://osquery.io/downloads/).
+[HTTPS://osquery.io/downloads](HTTPS://osquery.io/downloads/).
 
 We use a simple numbered versioning scheme `X.Y.Z`, where X is a major version, Y is a minor, and Z is a patch.
-We plan minor releases roughly every two months. These releases are tracked on our [Milestones](https://github.com/osquery/osquery/milestones) page. A patch release is used when there are unforeseen bugs with our minor release and we need to quickly patch.
+We plan minor releases roughly every two months. These releases are tracked on our [Milestones](HTTPS://github.com/osquery/osquery/milestones) page. A patch release is used when there are unforeseen bugs with our minor release and we need to quickly patch.
 A rare 'revision' release might be used if we need to change build configurations.
 
-Major, minor, and patch releases are tagged on GitHub and can be viewed on the [Releases](https://github.com/osquery/osquery/releases) page.
-We open a new [Release Checklist](https://github.com/osquery/osquery/blob/master/.github/ISSUE_TEMPLATE/New_Release.md) issue when we prepare a minor release. If you are interested in the status of a release, please find the corresponding checklist issue, and note that the issue will be marked closed when we are finished the checklist.
+Major, minor, and patch releases are tagged on GitHub and can be viewed on the [Releases](HTTPS://github.com/osquery/osquery/releases) page.
+We open a new [Release Checklist](HTTPS://github.com/osquery/osquery/blob/master/.github/ISSUE_TEMPLATE/New_Release.md) issue when we prepare a minor release. If you are interested in the status of a release, please find the corresponding checklist issue, and note that the issue will be marked closed when we are finished the checklist.
 We consider a release 'in testing' during the period of hosting new downloads on our website and adding them to our hosted repositories.
 We will mark the release as 'stable' on GitHub when enough testing has occurred, this usually takes two weeks.
 
 ## Build from source
 
 Building osquery from source is encouraged! Check out our [build
-guide](https://osquery.readthedocs.io/en/latest/development/building/). Also
+guide](HTTPS://osquery.readthedocs.io/en/latest/development/building/). Also
 check out our [contributing guide](CONTRIBUTING.md) and join the
-community on [Slack](https://join.slack.com/t/osquery/shared_invite/zt-1wi6cdgf7-zR2wt7FZ0ClHj6tEym6KFQ).
+community on [Slack](HTTPS://join.slack.com/t/osquery/shared_invite/zt-1wi6cdgf7-zR2wt7FZ0ClHj6tEym6KFQ).
 
 ## Osquery fleet managers
 
@@ -117,10 +117,10 @@ There are many osquery fleet managers out there. The osquery project does not en
 
 | Project                                                 | License     |
 | ------------------------------------------------------- | ----------- |
-| [Fleet](https://github.com/fleetdm/fleet)               | Open Core   |
-| [Kolide](https://www.kolide.com)                        | Commercial    |
-| [OSCTRL](https://github.com/jmpsec/osctrl)              | Open Source |
-| [Zentral](https://github.com/zentralopensource/zentral) | Open Source |
+| [Fleet](HTTPS://github.com/fleetdm/fleet)               | Open Core   |
+| [Kolide](HTTPS://www.kolide.com)                        | Commercial    |
+| [OSCTRL](HTTPS://github.com/jmpsec/osctrl)              | Open Source |
+| [Zentral](HTTPS://github.com/zentralopensource/zentral) | Open Source |
 
 ## License
 
@@ -136,15 +136,15 @@ too.
 ## Learn more
 
 The osquery documentation is available
-[online](https://osquery.readthedocs.org). Documentation for older
+[online](HTTPS://osquery.readthedocs.org). Documentation for older
 releases can be found by version number, [as
-well](https://readthedocs.org/projects/osquery/).
+well](HTTPS://readthedocs.org/projects/osquery/).
 
 If you're interested in learning more about osquery read the [launch
 blog
-post](https://code.facebook.com/posts/844436395567983/introducing-osquery/)
+post](HTTPS://code.facebook.com/posts/844436395567983/introducing-osquery/)
 for background on the project, visit the [users
-guide](https://osquery.readthedocs.org/).
+guide](HTTPS://osquery.readthedocs.org/).
 
 Development and usage discussion is happening in the osquery Slack, grab an invite
-[here](https://join.slack.com/t/osquery/shared_invite/zt-1wi6cdgf7-zR2wt7FZ0ClHj6tEym6KFQ)!
+[here](HTTPS://join.slack.com/t/osquery/shared_invite/zt-1wi6cdgf7-zR2wt7FZ0ClHj6tEym6KFQ)!

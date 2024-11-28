@@ -9,17 +9,17 @@ you time later on when your code is under review.
 ## Contributing 101
 
 All contributions are submitted via pull requests (PRs) open against
-the osquery's [master](https://github.com/osquery/osquery/tree/master)
+the osquery's [master](HTTPS://github.com/osquery/osquery/tree/master)
 branch on GitHub. After being reviewed by the _core team_ and tested
 by CI, if all is well, they will be pushed to master and the
 corresponding PR closed.
 
 You can see who the _core team_ is by viewing the [team
-page](https://github.com/orgs/osquery/teams) on the osquery GitHub
+page](HTTPS://github.com/orgs/osquery/teams) on the osquery GitHub
 organization.
 
-If you need help, both the core team and community members are on the osquery [Slack](https://osquery.slack.com).
-Feel free to register using the following [shared invite](https://join.slack.com/t/osquery/shared_invite/zt-1wi6cdgf7-zR2wt7FZ0ClHj6tEym6KFQ).
+If you need help, both the core team and community members are on the osquery [Slack](HTTPS://osquery.slack.com).
+Feel free to register using the following [shared invite](HTTPS://join.slack.com/t/osquery/shared_invite/zt-1wi6cdgf7-zR2wt7FZ0ClHj6tEym6KFQ).
 The `#code-review` Slack channel has been set up to handle urgent review needs as well as questions about your PR.
 Note: prefer to keep discussion about code changes in the GitHub pull request thread.
 
@@ -32,7 +32,7 @@ welcome to join. Office hours are announced on our Slack on the
 
 For documentation on building, testing, and formatting code, please
 review the ReadTheDocs article on [building
-osquery](https://osquery.readthedocs.io/en/latest/development/building/).
+osquery](HTTPS://osquery.readthedocs.io/en/latest/development/building/).
 This CONTRIBUTING guide focuses more on concepts and high level
 workflow.
 
@@ -40,11 +40,11 @@ workflow.
 
 If you plan to submit a change to the osquery core, a new big feature,
 or in general a change that merits discussion, start by opening a
-[Blueprint](https://github.com/osquery/osquery/issues/new?template=Blueprint.md)
+[Blueprint](HTTPS://github.com/osquery/osquery/issues/new?template=Blueprint.md)
 issue.
 
 A blueprint issue is a standard GitHub issue, tagged with the label
-[#blueprint](https://github.com/osquery/osquery/labels/blueprint),
+[#blueprint](HTTPS://github.com/osquery/osquery/labels/blueprint),
 which describes your idea, the problem you are solving and how you
 plan to implement your solution. The goal of the blueprint is to allow
 both the core team and the community to discuss whether a certain
@@ -72,7 +72,7 @@ on the pull request.
 Please remember that blueprints are mostly designed to save **you**
 time by preventing you from implementing code which won't be accepted
 or will need to be extensively modified later on. Please use the right
-[template](https://github.com/osquery/osquery/issues/new?template=Blueprint.md)
+[template](HTTPS://github.com/osquery/osquery/issues/new?template=Blueprint.md)
 for the issue. Feel free to advertise your blueprint and ask for
 feedback on Slack.
 
@@ -86,18 +86,18 @@ also do so. This is of utmost importance to allow fast reviews and to
 simplify regression tracking, reverts and references.
 
 Start by developing your feature on a [feature
-branch](https://guides.github.com/introduction/flow/), possibly
+branch](HTTPS://guides.github.com/introduction/flow/), possibly
 formatting your code before each commit, and when ready submit a pull
 request against the osquery master branch.  The initial PR should
 preferably **contain a single commit**.  If you are unfamiliar with
 GitHub or how pull requests work, GitHub has a very easy to follow
 guide that teaches you [how to fork the project and submit your first
-PR] (https://guides.github.com/activities/forking/).
+PR] (HTTPS://guides.github.com/activities/forking/).
 
 It is helpful if you tag the GitHub issues you are addressing on the
 body of your PR description. If your PR is intended to close an issue
 keywords (like `fixes` or `closes`) as defined on [GitHub
-Help](https://help.github.com/articles/closing-issues-using-keywords/).
+Help](HTTPS://help.github.com/articles/closing-issues-using-keywords/).
 
 Once you submit your PR, a formatting check and continuous integration
 tests will be triggered on the CI systems for the multiple platforms
@@ -108,7 +108,7 @@ commits** to your feature branch. **Avoid amending old commits** as
 that makes it harder for the reviewer to track your updates. If you
 need to keep your PR up-to-date with master the preferred way is to
 [rebase your
-branch](https://help.github.com/en/articles/about-git-rebase) on
+branch](HTTPS://help.github.com/en/articles/about-git-rebase) on
 `master` and `git push` with the `--force` option. Finally, the core
 team might help you with getting your PR accepted by pushing directly
 to your branch when that makes sense.
@@ -127,7 +127,7 @@ If your PR is stale we will close it, however if you want to get back to it at a
 
 The core team uses labels to tag each and every pull request. If you
 care about their meaning take a look at
-[labels](https://github.com/osquery/osquery/labels) on
+[labels](HTTPS://github.com/osquery/osquery/labels) on
 GitHub. However, only the core team can label issues and PRs, so you
 don't need to care too much about this.
 
@@ -137,14 +137,14 @@ We currently do not use a strict release schedule and we tag new minor versions 
 Otherwise, we may tag a release if it makes sense according to the new features implemented or if critical bug-fixes where merged.
 We keep several near-future milestones open and try to tag PRs with the milestone when appropriate.
 
-[Milestones](https://github.com/osquery/osquery/milestones) are used for the planned minor releases.
+[Milestones](HTTPS://github.com/osquery/osquery/milestones) are used for the planned minor releases.
 If your PR is tagged with the next milestone you can expect it to be merged as soon as it is ready.
 We may keep PRs open and wait for a major release milestone if the code changes features that are not backwards-compatible.
 
 ### Branches and tags
 
 The osquery repo contains only the
-[master](https://github.com/osquery/osquery/tree/master) branch which
+[master](HTTPS://github.com/osquery/osquery/tree/master) branch which
 we do our best to keep stable. We don't keep feature or release
 branches. The master branch will always keep a linear history and no
 merge commits are allowed. All our releases are tagged.
@@ -157,9 +157,9 @@ appreciated.
 
 We use GitHub issues to track bugs and feature requests. To submit a
 bug report follow the [Bug
-Report](https://github.com/osquery/osquery/issues/new?template=Bug_Report.md)
+Report](HTTPS://github.com/osquery/osquery/issues/new?template=Bug_Report.md)
 template, to submit a feature request use the [Feature
-Request](https://github.com/osquery/osquery/issues/new?template=Feature_Request.md)
+Request](HTTPS://github.com/osquery/osquery/issues/new?template=Feature_Request.md)
 template.
 
 **Please only use issues for bug reports or feature requests**. If you
@@ -189,7 +189,7 @@ following osquery guiding principles in order to be accepted:
 For new features that do not align with the mission principles of
 core, you may build outside of osquery core in separate integrated
 processes called extensions:
-https://osquery.readthedocs.io/en/stable/development/osquery-sdk/.
+HTTPS://osquery.readthedocs.io/en/stable/development/osquery-sdk/.
 
 ### Does my contribution belong in Core or in an Extension?
 
@@ -217,23 +217,23 @@ comment appropriately on your PR.
 ## Technical Steering Committee
 
 As defined by the [the osquery
-charter](https://github.com/osquery/foundation/blob/master/CHARTER.md),
+charter](HTTPS://github.com/osquery/foundation/blob/master/CHARTER.md),
 the Technical Steering Committee (or TSC for short) is responsible for
 oversight of the osquery project.
 
 The [GitHub
-Team](https://github.com/orgs/osquery/teams/technical-steering-committee)
+Team](HTTPS://github.com/orgs/osquery/teams/technical-steering-committee)
 is the authoritative source, though we maintain the list here as well.
 
 Current Members (in alphabetical order):
 
-* Alessandro -- [@alessandrogario](https://github.com/alessandrogario)
-* Nick -- [@muffins](https://github.com/muffins)
-* seph -- [@directionless](https://github.com/directionless)
-* Sharvil -- [@sharvilshah](https://github.com/sharvilshah)
-* Teddy -- [@theopolis](https://github.com/theopolis)
-* Victor -- [@groob](https://github.com/groob)
-* Zach -- [@zwass](https://github.com/zwass)
+* Alessandro -- [@alessandrogario](HTTPS://github.com/alessandrogario)
+* Nick -- [@muffins](HTTPS://github.com/muffins)
+* seph -- [@directionless](HTTPS://github.com/directionless)
+* Sharvil -- [@sharvilshah](HTTPS://github.com/sharvilshah)
+* Teddy -- [@theopolis](HTTPS://github.com/theopolis)
+* Victor -- [@groob](HTTPS://github.com/groob)
+* Zach -- [@zwass](HTTPS://github.com/zwass)
 
 The Technical Steering Commit is chaired by seph. 
 
