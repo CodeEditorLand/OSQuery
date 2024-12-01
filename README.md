@@ -2,7 +2,7 @@
 
 <p align="center">
 <img alt="osquery logo" width="200"
-src="HTTPS://github.com/osquery/osquery/raw/master/docs/img/logo-2x-dark.png" />
+src="https://github.com/osquery/osquery/raw/master/docs/img/logo-2x-dark.png" />
 </p>
 
 <p align="center">
