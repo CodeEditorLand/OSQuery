@@ -15,7 +15,7 @@ Particular care is needed for these libraries, as with the `source` ones, so tha
 
 ## Linux
 
-Beyond what previously described, we use a custom toolchain ([osquery-toolchain](HTTPS://github.com/osquery/osquery-toolchain)) that permits us to build osquery on either new distros or the oldest targeted distro (bar some bugs, see later).
+Beyond what previously described, we use a custom toolchain ([osquery-toolchain](https://github.com/osquery/osquery-toolchain)) that permits us to build osquery on either new distros or the oldest targeted distro (bar some bugs, see later).
 
 These are the current targeted versions:
 

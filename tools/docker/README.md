@@ -4,7 +4,7 @@ This configuration generates a matrix of osquery versions across different (Linu
 
 ## Download Images
 
-Generated images can be accessed at [HTTPS://hub.docker.com/r/osquery/osquery](HTTPS://hub.docker.com/r/osquery/osquery).
+Generated images can be accessed at [HTTPS://hub.docker.com/r/osquery/osquery](https://hub.docker.com/r/osquery/osquery).
 
 To run an image:
 
