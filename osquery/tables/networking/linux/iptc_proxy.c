@@ -8,9 +8,9 @@
  */
 
 #include <arpa/inet.h>
-#include <netinet/in.h>
 #include <libiptc/libiptc.h>
 #include <net/if.h>
+#include <netinet/in.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -25,8 +25,7 @@ struct iptcproxy_handle {
   const struct ipt_entry* prev_rule;
 };
 
-const iptcproxy_handle* iptcproxy_init(const char* filter)
-{
+const iptcproxy_handle* iptcproxy_init(const char* filter) {
   iptcproxy_handle* handle = calloc(1, sizeof(iptcproxy_handle));
   if (handle == NULL) {
     return NULL;
@@ -41,8 +40,7 @@ const iptcproxy_handle* iptcproxy_init(const char* filter)
   return handle;
 }
 
-void iptcproxy_free(const iptcproxy_handle* handle)
-{
+void iptcproxy_free(const iptcproxy_handle* handle) {
   if (handle == NULL) {
     return;
   }
@@ -54,10 +52,8 @@ void iptcproxy_free(const iptcproxy_handle* handle)
   free((void*)handle);
 }
 
-static iptcproxy_chain* get_chain_data(
-    const char* chain,
-    struct iptcproxy_handle* handle)
-{
+static iptcproxy_chain* get_chain_data(const char* chain,
+                                       struct iptcproxy_handle* handle) {
   if (chain == NULL) {
     return NULL;
   }
@@ -73,24 +69,18 @@ static iptcproxy_chain* get_chain_data(
   return &(handle->chain_data);
 }
 
-const iptcproxy_chain* iptcproxy_first_chain(const iptcproxy_handle* handle)
-{
-  return get_chain_data(
-      iptc_first_chain(handle->handle),
-      (iptcproxy_handle*)handle);
+const iptcproxy_chain* iptcproxy_first_chain(const iptcproxy_handle* handle) {
+  return get_chain_data(iptc_first_chain(handle->handle),
+                        (iptcproxy_handle*)handle);
 }
 
-const iptcproxy_chain* iptcproxy_next_chain(const iptcproxy_handle* handle)
-{
-  return get_chain_data(
-      iptc_next_chain(handle->handle),
-      (iptcproxy_handle*)handle);
+const iptcproxy_chain* iptcproxy_next_chain(const iptcproxy_handle* handle) {
+  return get_chain_data(iptc_next_chain(handle->handle),
+                        (iptcproxy_handle*)handle);
 }
 
-static void parse_entry_match(
-    const struct ipt_entry* rule,
-    iptcproxy_handle* handle)
-{
+static void parse_entry_match(const struct ipt_entry* rule,
+                              iptcproxy_handle* handle) {
   // Get rule port details from the xt_entry_match object
 
   // m will never be NULL, elems is an array
@@ -118,44 +108,23 @@ static void parse_entry_match(
   }
 }
 
-static void parse_ip_entry(
-    const struct ipt_entry* rule,
-    iptcproxy_handle* handle)
-{
-  const struct ipt_ip *ip = &(rule->ip);
+static void parse_ip_entry(const struct ipt_entry* rule,
+                           iptcproxy_handle* handle) {
+  const struct ipt_ip* ip = &(rule->ip);
 
+  memcpy(&(handle->rule_data.ip_data.src), &(ip->src), sizeof(struct in_addr));
+  memcpy(&(handle->rule_data.ip_data.dst), &(ip->dst), sizeof(struct in_addr));
   memcpy(
-      &(handle->rule_data.ip_data.src),
-      &(ip->src),
-      sizeof(struct in_addr));
+      &(handle->rule_data.ip_data.smsk), &(ip->smsk), sizeof(struct in_addr));
   memcpy(
-      &(handle->rule_data.ip_data.dst),
-      &(ip->dst),
-      sizeof(struct in_addr));
+      &(handle->rule_data.ip_data.dmsk), &(ip->dmsk), sizeof(struct in_addr));
+  memcpy(&(handle->rule_data.ip_data.iniface), &(ip->iniface), IFNAMSIZ);
+  memcpy(&(handle->rule_data.ip_data.outiface), &(ip->outiface), IFNAMSIZ);
   memcpy(
-      &(handle->rule_data.ip_data.smsk),
-      &(ip->smsk),
-      sizeof(struct in_addr));
-  memcpy(
-      &(handle->rule_data.ip_data.dmsk),
-      &(ip->dmsk),
-      sizeof(struct in_addr));
-  memcpy(
-      &(handle->rule_data.ip_data.iniface),
-      &(ip->iniface),
-      IFNAMSIZ);
-  memcpy(
-      &(handle->rule_data.ip_data.outiface),
-      &(ip->outiface),
-      IFNAMSIZ);
-  memcpy(
-      &(handle->rule_data.ip_data.iniface_mask),
-      &(ip->iniface_mask),
-      IFNAMSIZ);
-  memcpy(
-      &(handle->rule_data.ip_data.outiface_mask),
-      &(ip->outiface_mask),
-      IFNAMSIZ);
+      &(handle->rule_data.ip_data.iniface_mask), &(ip->iniface_mask), IFNAMSIZ);
+  memcpy(&(handle->rule_data.ip_data.outiface_mask),
+         &(ip->outiface_mask),
+         IFNAMSIZ);
 
   handle->rule_data.ip_data.proto = ip->proto;
   handle->rule_data.ip_data.flags = ip->flags;
@@ -164,10 +133,8 @@ static void parse_ip_entry(
   handle->rule_data.ip_data.proto = ip->proto;
 }
 
-static iptcproxy_rule* get_rule_data(
-    const struct ipt_entry* rule,
-    struct iptcproxy_handle* handle)
-{
+static iptcproxy_rule* get_rule_data(const struct ipt_entry* rule,
+                                     struct iptcproxy_handle* handle) {
   handle->prev_rule = rule;
   if (rule == NULL) {
     return NULL;
@@ -186,19 +153,13 @@ static iptcproxy_rule* get_rule_data(
   return &(handle->rule_data);
 }
 
-const iptcproxy_rule* iptcproxy_first_rule(
-    const char* chain,
-    const iptcproxy_handle* handle)
-{
-  return get_rule_data(
-      iptc_first_rule(chain, handle->handle),
-      (iptcproxy_handle*) handle);
+const iptcproxy_rule* iptcproxy_first_rule(const char* chain,
+                                           const iptcproxy_handle* handle) {
+  return get_rule_data(iptc_first_rule(chain, handle->handle),
+                       (iptcproxy_handle*)handle);
 }
 
-const iptcproxy_rule* iptcproxy_next_rule(
-    const iptcproxy_handle* handle)
-{
-  return get_rule_data(
-      iptc_next_rule(handle->prev_rule, handle->handle),
-      (iptcproxy_handle*) handle);
+const iptcproxy_rule* iptcproxy_next_rule(const iptcproxy_handle* handle) {
+  return get_rule_data(iptc_next_rule(handle->prev_rule, handle->handle),
+                       (iptcproxy_handle*)handle);
 }

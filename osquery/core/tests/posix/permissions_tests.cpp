@@ -292,4 +292,4 @@ TEST_F(PermissionsTests, test_multi_thread_poll) {
   Dispatcher::stopServices();
   Dispatcher::joinServices();
 }
-}
+} // namespace osquery

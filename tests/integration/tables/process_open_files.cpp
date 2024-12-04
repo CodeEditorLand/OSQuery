@@ -46,16 +46,16 @@ class ProcessOpenFilesTest : public testing::Test {
 
 namespace {
 
-bool checkProcessOpenFilePath(std::string const& value){
-    // Some processes could have opened file with unlinked pathname
-    if (value.find("(deleted)") != std::string::npos) {
-      return true;
-    }
-    auto const path = boost::filesystem::path(value);
-    return !path.empty() && path.is_absolute();
+bool checkProcessOpenFilePath(std::string const& value) {
+  // Some processes could have opened file with unlinked pathname
+  if (value.find("(deleted)") != std::string::npos) {
+    return true;
+  }
+  auto const path = boost::filesystem::path(value);
+  return !path.empty() && path.is_absolute();
 }
 
-}
+} // namespace
 
 TEST_F(ProcessOpenFilesTest, test_sanity) {
   QueryData data = execute_query("select * from process_open_files");

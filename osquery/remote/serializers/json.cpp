@@ -28,4 +28,4 @@ Status JSONSerializer::deserialize(const std::string& serialized, JSON& json) {
 
   return json.fromString(serialized);
 }
-}
+} // namespace osquery

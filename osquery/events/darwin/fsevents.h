@@ -190,4 +190,4 @@ class FSEventsEventPublisher
   FRIEND_TEST(FSEventsTests, test_fsevents_embedded_wildcards);
   FRIEND_TEST(FSEventsTests, test_fsevents_match_subscription);
 };
-}
+} // namespace osquery

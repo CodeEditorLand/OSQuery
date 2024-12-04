@@ -147,5 +147,5 @@ QueryData genKernelInfo(QueryContext& context) {
   results.push_back(r);
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

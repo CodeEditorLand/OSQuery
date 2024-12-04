@@ -74,5 +74,5 @@ QueryData genArpCache(QueryContext& context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

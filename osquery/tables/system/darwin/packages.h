@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include <vector>
 #include <map>
 #include <string>
+#include <vector>
 
 namespace osquery {
 namespace tables {
@@ -117,7 +117,9 @@ class BOM {
   BOM(const char* data, size_t size);
 
   /// Helper to check if the header parsing completed.
-  bool isValid() const { return valid_; }
+  bool isValid() const {
+    return valid_;
+  }
 
   /// Lookup a BOM pointer and optionally, its size.
   const char* getPointer(int index, size_t* length = nullptr) const;
@@ -140,5 +142,5 @@ class BOM {
   const BOMBlockTable* Table{nullptr};
   const BOMVars* Vars{nullptr};
 };
-}
-}
+} // namespace tables
+} // namespace osquery

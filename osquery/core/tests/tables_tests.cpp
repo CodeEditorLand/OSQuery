@@ -7,8 +7,8 @@
  * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
  */
 
-#include <gtest/gtest.h>
 #include <gflags/gflags.h>
+#include <gtest/gtest.h>
 
 #include <osquery/core/system.h>
 #include <osquery/core/tables.h>
@@ -18,12 +18,12 @@
 namespace osquery {
 
 class TablesTests : public testing::Test {
-protected:
- void SetUp() {
-   platformSetup();
-   registryAndPluginInit();
-   initDatabasePluginForTesting();
- }
+ protected:
+  void SetUp() {
+    platformSetup();
+    registryAndPluginInit();
+    initDatabasePluginForTesting();
+  }
 };
 
 TEST_F(TablesTests, test_constraint) {
@@ -189,4 +189,4 @@ TEST_F(TablesTests, test_caching) {
   EXPECT_TRUE(test.testIsCached(6));
   EXPECT_FALSE(test.testIsCached(7));
 }
-}
+} // namespace osquery

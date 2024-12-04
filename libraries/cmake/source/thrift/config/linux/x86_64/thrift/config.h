@@ -22,7 +22,6 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-
 /* Name of package */
 /* #undef PACKAGE */
 
@@ -60,13 +59,12 @@
 #define SIGNED_RIGHT_SHIFT_IS 1
 
 /* Use *.h extension for parser header file */
-/* TODO: This might now be necessary anymore as it is set only for automake < 1.11
-   see: aclocal/ac_prog_bison.m4 */
+/* TODO: This might now be necessary anymore as it is set only for automake
+   < 1.11 see: aclocal/ac_prog_bison.m4 */
 /* #undef BISON_USE_PARSER_H_EXTENSION */
 
 /* Define to 1 if strerror_r returns char *. */
 #define STRERROR_R_CHAR_P 1
-
 
 /************************** HEADER FILES *************************/
 
@@ -152,7 +150,6 @@
 
 /* Define to 1 if you have the `sched_get_priority_min' function. */
 #define HAVE_SCHED_GET_PRIORITY_MIN 1
-
 
 /* Define to 1 if strerror_r returns char *. */
 #define STRERROR_R_CHAR_P 1

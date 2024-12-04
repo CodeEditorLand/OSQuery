@@ -16,11 +16,11 @@
 #include <sstream>
 
 #include <osquery/config/config.h>
-#include <plugins/config/parsers/prometheus_targets.h>
-#include <osquery/logger/logger.h>
 #include <osquery/core/tables.h>
+#include <osquery/logger/logger.h>
 #include <osquery/tables/applications/posix/prometheus_metrics.h>
 #include <osquery/utils/conversions/split.h>
+#include <plugins/config/parsers/prometheus_targets.h>
 
 namespace osquery {
 namespace tables {
@@ -113,5 +113,5 @@ QueryData genPrometheusMetrics(QueryContext& context) {
 
   return result;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

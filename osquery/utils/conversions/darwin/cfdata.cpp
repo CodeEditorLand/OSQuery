@@ -42,5 +42,4 @@ std::string stringFromCFData(const CFDataRef& cf_data) {
   return result.str();
 }
 
-
-}
+} // namespace osquery

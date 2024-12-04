@@ -25,14 +25,13 @@
 #pragma GCC system_header
 #endif
 
-
 /* The include_next requires a split double-inclusion guard.  We must
    also inform the replacement unistd.h to not recursively use
    <getopt.h>; our definitions will be present soon enough.  */
 #if 1
-# define _GL_SYSTEM_GETOPT
-# include_next <getopt.h>
-# undef _GL_SYSTEM_GETOPT
+#define _GL_SYSTEM_GETOPT
+#include_next <getopt.h>
+#undef _GL_SYSTEM_GETOPT
 #endif
 
 #define _GL_GETOPT_H 1
@@ -44,13 +43,13 @@
    cause confusion if included after this file (if the system had
    <getopt.h>, we have already included it).  */
 #if defined __GETOPT_PREFIX
-# if !1
-#  define __need_system_stdlib_h
-#  include <stdlib.h>
-#  undef __need_system_stdlib_h
-#  include <stdio.h>
-#  include <unistd.h>
-# endif
+#if !1
+#define __need_system_stdlib_h
+#include <stdlib.h>
+#undef __need_system_stdlib_h
+#include <stdio.h>
+#include <unistd.h>
+#endif
 #endif
 
 /* The definition of _GL_ARG_NONNULL is copied here.  */
@@ -74,11 +73,11 @@
    that the values passed as arguments n, ..., m must be non-NULL pointers.
    n = 1 stands for the first argument, n = 2 for the second argument etc.  */
 #ifndef _GL_ARG_NONNULL
-# if (__GNUC__ == 3 && __GNUC_MINOR__ >= 3) || __GNUC__ > 3
-#  define _GL_ARG_NONNULL(params) __attribute__ ((__nonnull__ params))
-# else
-#  define _GL_ARG_NONNULL(params)
-# endif
+#if (__GNUC__ == 3 && __GNUC_MINOR__ >= 3) || __GNUC__ > 3
+#define _GL_ARG_NONNULL(params) __attribute__((__nonnull__ params))
+#else
+#define _GL_ARG_NONNULL(params)
+#endif
 #endif
 
 #include <getopt-cdefs.h>

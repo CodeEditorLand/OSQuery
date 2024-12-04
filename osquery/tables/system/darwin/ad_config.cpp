@@ -49,10 +49,8 @@ void genADConfig(const std::string& path, QueryData& results) {
     }
     const auto& key = row.at("key");
     const auto& subkey = row.at("subkey");
-    if (key == "trustoptions" ||
-        key == "trustkerberosprincipal" ||
-        key == "trustaccount" ||
-        key == "trusttype") {
+    if (key == "trustoptions" || key == "trustkerberosprincipal" ||
+        key == "trustaccount" || key == "trusttype") {
       r["option"] = key;
       r["value"] = row.count("value") > 0 ? row.at("value") : "";
       results.push_back(r);
@@ -89,5 +87,5 @@ QueryData genADConfig(QueryContext& context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

@@ -127,4 +127,4 @@ class UdevEventPublisher
   /// Helper function to create an EventContext using a udev_device pointer.
   UdevEventContextRef createEventContextFrom(struct udev_device* device);
 };
-}
+} // namespace osquery

@@ -17,13 +17,13 @@
 #include <cfgmgr32.h>
 // clang-format on
 
+#include <osquery/core/windows/wmi.h>
 #include <osquery/logger/logger.h>
 #include <osquery/sql/sql.h>
+#include <osquery/tables/system/windows/registry.h>
 #include <osquery/utils/conversions/tryto.h>
-#include <osquery/core/windows/wmi.h>
 #include <osquery/utils/conversions/windows/strings.h>
 #include <osquery/utils/conversions/windows/windows_time.h>
-#include <osquery/tables/system/windows/registry.h>
 
 #include <boost/algorithm/string/case_conv.hpp>
 #include <boost/filesystem.hpp>

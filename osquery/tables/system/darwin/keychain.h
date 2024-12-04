@@ -77,5 +77,5 @@ CFArrayRef CreateKeychainItems(CFMutableArrayRef keychains,
                                const CFTypeRef& item_type);
 
 std::set<std::string> getKeychainPaths();
-}
-}
+} // namespace tables
+} // namespace osquery

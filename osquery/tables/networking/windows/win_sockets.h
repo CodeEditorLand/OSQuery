@@ -48,5 +48,5 @@ class WinSockets : private boost::noncopyable {
   /// Helper function to allocate a table based off of family and protocol
   void* allocateSocketTable(unsigned long protocol, unsigned long family);
 };
-}
-}
+} // namespace tables
+} // namespace osquery

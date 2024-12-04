@@ -16,4 +16,4 @@ namespace osquery {
 namespace tables {
 QueryData genInterfaceDetails(QueryContext& context);
 }
-}
+} // namespace osquery

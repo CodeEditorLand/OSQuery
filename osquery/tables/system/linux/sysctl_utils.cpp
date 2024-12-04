@@ -115,5 +115,5 @@ void genControlInfoFromName(const std::string& name,
 
   genControlInfo(mib_path.string(), results, config);
 }
-}
-}
+} // namespace tables
+} // namespace osquery

@@ -84,5 +84,5 @@ QueryData genEtcProtocols(QueryContext& context) {
     return {};
   }
 }
-}
-}
+} // namespace tables
+} // namespace osquery

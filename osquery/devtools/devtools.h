@@ -137,4 +137,4 @@ std::string generateHeader(const std::map<std::string, size_t>& lengths,
 std::string generateRow(const Row& r,
                         const std::map<std::string, size_t>& lengths,
                         const std::vector<std::string>& columns);
-}
+} // namespace osquery

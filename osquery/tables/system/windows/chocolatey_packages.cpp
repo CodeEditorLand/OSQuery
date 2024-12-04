@@ -81,5 +81,5 @@ QueryData genChocolateyPackages(QueryContext& context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

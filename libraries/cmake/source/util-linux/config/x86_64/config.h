@@ -53,7 +53,7 @@
 #define HAVE_CRYPT_H 1
 
 /* Define if the GNU dcgettext() function is already present or preinstalled.
-   */
+ */
 #define HAVE_DCGETTEXT 1
 
 /* Define to 1 if you have the declaration of `CPU_ALLOC', and to 0 if you
@@ -61,11 +61,11 @@
 #define HAVE_DECL_CPU_ALLOC 1
 
 /* Define to 1 if you have the declaration of `dirfd', and to 0 if you don't.
-   */
+ */
 /* #undef HAVE_DECL_DIRFD */
 
 /* Define to 1 if you have the declaration of `tzname', and to 0 if you don't.
-   */
+ */
 /* #undef HAVE_DECL_TZNAME */
 
 /* Define to 1 if you have the declaration of `_NL_TIME_WEEK_1STDAY', and to 0
@@ -717,7 +717,7 @@
 /* #undef LOGIN_STAT_MAIL */
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+ */
 #define LT_OBJDIR ".libs/"
 
 /* "Multi-arch triplet for whereis library search path" */
@@ -821,25 +821,24 @@
 
 /* Enable extensions on AIX 3, Interix.  */
 #ifndef _ALL_SOURCE
-# define _ALL_SOURCE 1
+#define _ALL_SOURCE 1
 #endif
 /* Enable GNU extensions on systems that have them.  */
 #ifndef _GNU_SOURCE
-# define _GNU_SOURCE 1
+#define _GNU_SOURCE 1
 #endif
 /* Enable threading extensions on Solaris.  */
 #ifndef _POSIX_PTHREAD_SEMANTICS
-# define _POSIX_PTHREAD_SEMANTICS 1
+#define _POSIX_PTHREAD_SEMANTICS 1
 #endif
 /* Enable extensions on HP NonStop.  */
 #ifndef _TANDEM_SOURCE
-# define _TANDEM_SOURCE 1
+#define _TANDEM_SOURCE 1
 #endif
 /* Enable general extensions on Solaris.  */
 #ifndef __EXTENSIONS__
-# define __EXTENSIONS__ 1
+#define __EXTENSIONS__ 1
 #endif
-
 
 /* Should wall and write be installed setgid tty? */
 #define USE_TTY_GROUP 1
@@ -853,13 +852,13 @@
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
    significant byte first (like Motorola and SPARC, unlike Intel). */
 #if defined AC_APPLE_UNIVERSAL_BUILD
-# if defined __BIG_ENDIAN__
-#  define WORDS_BIGENDIAN 1
-# endif
+#if defined __BIG_ENDIAN__
+#define WORDS_BIGENDIAN 1
+#endif
 #else
-# ifndef WORDS_BIGENDIAN
+#ifndef WORDS_BIGENDIAN
 /* #  undef WORDS_BIGENDIAN */
-# endif
+#endif
 #endif
 
 /* Enable MAP_ANON in sys/mman.h on Mac OS X */
@@ -867,7 +866,7 @@
 
 /* Enable large inode numbers on Mac OS X 10.5.  */
 #ifndef _DARWIN_USE_64_BIT_INODE
-# define _DARWIN_USE_64_BIT_INODE 1
+#define _DARWIN_USE_64_BIT_INODE 1
 #endif
 
 /* Number of bits in a file offset, on hosts where this is settable. */

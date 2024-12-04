@@ -20,11 +20,13 @@ namespace osquery {
 namespace tables {
 
 const std::map<long, const std::string> kMapOfAddressFamily = {
-    {2, "IPv4"}, {23, "IPv6"},
+    {2, "IPv4"},
+    {23, "IPv6"},
 };
 
 const std::map<unsigned char, const std::string> kMapOfStore = {
-    {0, "Persistent"}, {1, "Active"},
+    {0, "Persistent"},
+    {1, "Active"},
 };
 
 const std::map<unsigned char, const std::string> kMapOfState = {
@@ -46,7 +48,6 @@ QueryData genIPv4ArpCache(QueryContext& context) {
   };
 
   for (const auto& iface : interfaces) {
-
     if (iface.count("interface") > 0) {
       long interface_index = tryTo<long>(iface.at("interface"), 10).takeOr(0l);
       mapOfInterfaces[interface_index] =

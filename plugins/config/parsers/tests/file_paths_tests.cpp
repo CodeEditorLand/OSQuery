@@ -45,8 +45,10 @@ class FilePathsConfigParserPluginTests : public testing::Test {
 
   size_t numFiles() {
     size_t count = 0;
-    Config::get().files(([&count](
-        const std::string&, const std::vector<std::string>&) { count++; }));
+    Config::get().files(
+        ([&count](const std::string&, const std::vector<std::string>&) {
+          count++;
+        }));
     return count;
   }
 
@@ -114,4 +116,4 @@ TEST_F(FilePathsConfigParserPluginTests, test_remove_source) {
   Config::get().update(config_data_);
   EXPECT_EQ(numFiles(), 0U);
 }
-}
+} // namespace osquery

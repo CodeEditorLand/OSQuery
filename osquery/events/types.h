@@ -60,7 +60,7 @@ using EventContextRef = std::shared_ptr<EventContext>;
  * process name, parent pid, etc.
  */
 struct SubscriptionContext : private boost::noncopyable {
-  virtual ~SubscriptionContext(){};
+  virtual ~SubscriptionContext() {};
 };
 
 using SubscriptionContextRef = std::shared_ptr<SubscriptionContext>;

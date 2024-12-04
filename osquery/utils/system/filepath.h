@@ -16,4 +16,4 @@ namespace osquery {
 /// Safer way to do realpath
 const std::string canonicalize_file_name(const char* name);
 
-}
+} // namespace osquery

@@ -9,13 +9,13 @@
 
 #include <gtest/gtest.h>
 
-#include <linux/audit.h>
 #include <cstdint>
 #include <cstdio>
 #include <ctime>
+#include <linux/audit.h>
+#include <sstream>
 #include <string>
 #include <vector>
-#include <sstream>
 
 #include <osquery/core/flags.h>
 #include <osquery/core/tables.h>

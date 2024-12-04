@@ -31,7 +31,7 @@ apt upgrade -y
 
 ```bash
 apt install -y make \
-               m4
+	m4
 ```
 
 ### Initialize the environment (x86 + AArch64)
@@ -53,7 +53,10 @@ curl HTTPS://www.cpan.org/src/5.0/perl-5.34.1.tar.gz -L -O
 tar xzf perl-5.34.1.tar.gz
 ```
 
-Then, run the `./Configure` script and follow the instructions. Make sure to pass `/usr/local/osquery-toolchain/usr/bin/clang --sysroot=/usr/local/osquery-toolchain` as compiler.
+Then, run the `./Configure` script and follow the instructions. Make sure to
+pass
+`/usr/local/osquery-toolchain/usr/bin/clang --sysroot=/usr/local/osquery-toolchain`
+as compiler.
 
 And finally
 
@@ -134,7 +137,8 @@ make install
 ### Build the osquery dependencies: zlib, liblzma, libbz2 (x86 + AArch64)
 
 1. Install CMake and configure osquery
-2. Build the following targets: `thirdparty_zlib`, `thirdparty_lzma`, `thirdparty_bzip2`
+2. Build the following targets: `thirdparty_zlib`, `thirdparty_lzma`,
+   `thirdparty_bzip2`
 
 ```bash
 cmake --build build --target thirdparty_zlib thirdparty_lzma thirdparty_bzip2
@@ -155,15 +159,20 @@ ln -sf "${OSQUERY_BUILD_ROOT}/libs/src/zlib/libthirdparty_zlib.a" "${OSQUERY_BUI
 ln -sf "${OSQUERY_BUILD_ROOT}/libs/src/lzma/libthirdparty_lzma.a" "${OSQUERY_BUILD_ROOT}/libs/src/lzma/liblzma.a"
 ```
 
-Open the `CMakeLists.txt` files for each library, and take note of the `SYSTEM INTERFACE` include directories:
+Open the `CMakeLists.txt` files for each library, and take note of the
+`SYSTEM INTERFACE` include directories:
 
-* zlib: `${OSQUERY_SOURCE_ROOT}/libraries/cmake/source/zlib/src`
-* bzip2: `${OSQUERY_SOURCE_ROOT}/libraries/cmake/source/bzip2/src`
-* liblzma: `${OSQUERY_SOURCE_ROOT}/libraries/cmake/source/lzma/src/src/liblzma/api`
+- zlib: `${OSQUERY_SOURCE_ROOT}/libraries/cmake/source/zlib/src`
+- bzip2: `${OSQUERY_SOURCE_ROOT}/libraries/cmake/source/bzip2/src`
+- liblzma:
+  `${OSQUERY_SOURCE_ROOT}/libraries/cmake/source/lzma/src/src/liblzma/api`
 
 ### Build libdpkg
 
-Update the environment we prepared previously, so that it can link back to the osquery dependencies that we have just built. Variable names are important when it comes to the library paths; make sure to checkout the output of `./configure --help`.
+Update the environment we prepared previously, so that it can link back to the
+osquery dependencies that we have just built. Variable names are important when
+it comes to the library paths; make sure to checkout the output of
+`./configure --help`.
 
 ```bash
 export PKG_CONFIG_LIBDIR=${TOOLCHAIN}/usr/lib/pkgconfig
@@ -191,7 +200,9 @@ Generate the configure script
 autoreconf -f -i
 ```
 
-The configure script may fail if the `patch --version` output does not contain the `GNU patch` string at the start of a new line. Update the check to just look for GNU, since we already know we have a good `patch` binary.
+The configure script may fail if the `patch --version` output does not contain
+the `GNU patch` string at the start of a new line. Update the check to just look
+for GNU, since we already know we have a good `patch` binary.
 
 ```bash
 sed -i 's/\^GNU patch/GNU/g' configure

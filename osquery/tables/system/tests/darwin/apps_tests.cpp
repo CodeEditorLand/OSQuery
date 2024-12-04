@@ -99,5 +99,5 @@ TEST_F(AppsTests, test_sanity_check) {
 
   EXPECT_TRUE(found_safari);
 }
-}
-}
+} // namespace tables
+} // namespace osquery

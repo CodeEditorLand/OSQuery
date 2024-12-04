@@ -11,8 +11,8 @@
 
 #include <net/if.h>
 #include <netinet/in.h>
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 
 struct iptcproxy_handle;
 typedef struct iptcproxy_handle iptcproxy_handle;
@@ -66,8 +66,6 @@ void iptcproxy_free(const iptcproxy_handle* handle);
 const iptcproxy_chain* iptcproxy_first_chain(const iptcproxy_handle* handle);
 const iptcproxy_chain* iptcproxy_next_chain(const iptcproxy_handle* handle);
 
-const iptcproxy_rule* iptcproxy_first_rule(
-    const char* chain,
-    const iptcproxy_handle* handle);
-const iptcproxy_rule* iptcproxy_next_rule(
-    const iptcproxy_handle* handle);
+const iptcproxy_rule* iptcproxy_first_rule(const char* chain,
+                                           const iptcproxy_handle* handle);
+const iptcproxy_rule* iptcproxy_next_rule(const iptcproxy_handle* handle);

@@ -5,16 +5,16 @@ version: 2
 
 # We run out of memory on the RTD builder.
 submodules:
-  exclude: all
+    exclude: all
 
 mkdocs:
-  configuration: mkdocs.yml
+    configuration: mkdocs.yml
 
 build:
-  os: "ubuntu-22.04"
-  tools:
-    python: "3.11"
+    os: "ubuntu-22.04"
+    tools:
+        python: "3.11"
 
 python:
-  install:
-    - requirements: docs/requirements.txt
+    install:
+        - requirements: docs/requirements.txt

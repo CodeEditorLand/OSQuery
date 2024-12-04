@@ -25,20 +25,20 @@ TEST_F(platformInfo, test_sanity) {
   auto const data = execute_query("select * from platform_info");
 
   ValidationMap row_map = {
-    {"vendor", NormalType},
-    {"version", NormalType},
-    {"extra", NormalType},
-    {"date", NormalType},
-    {"revision", NormalType},
+      {"vendor", NormalType},
+      {"version", NormalType},
+      {"extra", NormalType},
+      {"date", NormalType},
+      {"revision", NormalType},
 
 #ifndef OSQUERY_WINDOWS
-    {"address", NormalType},
-    {"size", IntOrEmpty},
-    {"volume_size", NonNegativeInt},
+      {"address", NormalType},
+      {"size", IntOrEmpty},
+      {"volume_size", NonNegativeInt},
 #endif
 
 #if defined(__APPLE__) || defined(OSQUERY_WINDOWS)
-    {"firmware_type", NonEmptyString},
+      {"firmware_type", NonEmptyString},
 #endif
   };
 

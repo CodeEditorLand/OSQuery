@@ -16,11 +16,11 @@
 namespace osquery {
 
 class SyslogLoggerTests : public testing::Test {
-protected:
- void SetUp() {
-   platformSetup();
-   registryAndPluginInit();
- }
+ protected:
+  void SetUp() {
+    platformSetup();
+    registryAndPluginInit();
+  }
 };
 
 TEST_F(SyslogLoggerTests, test_syslog) {
@@ -31,4 +31,4 @@ TEST_F(SyslogLoggerTests, test_syslog) {
   EXPECT_TRUE(Registry::get().plugin("logger", "syslog")->setUp());
   Registry::get().setActive("logger", active);
 }
-}
+} // namespace osquery

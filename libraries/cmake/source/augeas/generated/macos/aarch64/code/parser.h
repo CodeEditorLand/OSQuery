@@ -36,10 +36,10 @@
    private implementation details that can be changed or removed.  */
 
 #ifndef YY_AUGL_PARSER_H_INCLUDED
-# define YY_AUGL_PARSER_H_INCLUDED
+#define YY_AUGL_PARSER_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
-# define YYDEBUG 0
+#define YYDEBUG 0
 #endif
 #if YYDEBUG
 extern int augl_debug;
@@ -47,33 +47,32 @@ extern int augl_debug;
 
 /* Token kinds.  */
 #ifndef YYTOKENTYPE
-# define YYTOKENTYPE
-  enum yytokentype
-  {
-    YYEMPTY = -2,
-    YYEOF = 0,                     /* "end of file"  */
-    YYerror = 256,                 /* error  */
-    YYUNDEF = 257,                 /* "invalid token"  */
-    DQUOTED = 258,                 /* DQUOTED  */
-    REGEXP = 259,                  /* REGEXP  */
-    LIDENT = 260,                  /* LIDENT  */
-    UIDENT = 261,                  /* UIDENT  */
-    QIDENT = 262,                  /* QIDENT  */
-    ARROW = 263,                   /* ARROW  */
-    KW_MODULE = 264,               /* KW_MODULE  */
-    KW_AUTOLOAD = 265,             /* KW_AUTOLOAD  */
-    KW_LET = 266,                  /* KW_LET  */
-    KW_LET_REC = 267,              /* KW_LET_REC  */
-    KW_IN = 268,                   /* KW_IN  */
-    KW_STRING = 269,               /* KW_STRING  */
-    KW_REGEXP = 270,               /* KW_REGEXP  */
-    KW_LENS = 271,                 /* KW_LENS  */
-    KW_TEST = 272,                 /* KW_TEST  */
-    KW_GET = 273,                  /* KW_GET  */
-    KW_PUT = 274,                  /* KW_PUT  */
-    KW_AFTER = 275                 /* KW_AFTER  */
-  };
-  typedef enum yytokentype yytoken_kind_t;
+#define YYTOKENTYPE
+enum yytokentype {
+  YYEMPTY = -2,
+  YYEOF = 0, /* "end of file"  */
+  YYerror = 256, /* error  */
+  YYUNDEF = 257, /* "invalid token"  */
+  DQUOTED = 258, /* DQUOTED  */
+  REGEXP = 259, /* REGEXP  */
+  LIDENT = 260, /* LIDENT  */
+  UIDENT = 261, /* UIDENT  */
+  QIDENT = 262, /* QIDENT  */
+  ARROW = 263, /* ARROW  */
+  KW_MODULE = 264, /* KW_MODULE  */
+  KW_AUTOLOAD = 265, /* KW_AUTOLOAD  */
+  KW_LET = 266, /* KW_LET  */
+  KW_LET_REC = 267, /* KW_LET_REC  */
+  KW_IN = 268, /* KW_IN  */
+  KW_STRING = 269, /* KW_STRING  */
+  KW_REGEXP = 270, /* KW_REGEXP  */
+  KW_LENS = 271, /* KW_LENS  */
+  KW_TEST = 272, /* KW_TEST  */
+  KW_GET = 273, /* KW_GET  */
+  KW_PUT = 274, /* KW_PUT  */
+  KW_AFTER = 275 /* KW_AFTER  */
+};
+typedef enum yytokentype yytoken_kind_t;
 #endif
 /* Token kinds.  */
 #define YYEMPTY -2
@@ -100,49 +99,43 @@ extern int augl_debug;
 #define KW_AFTER 275
 
 /* Value type.  */
-#if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-union YYSTYPE
-{
+#if !defined YYSTYPE && !defined YYSTYPE_IS_DECLARED
+union YYSTYPE {
 #line 89 "parser.y"
 
-  struct term    *term;
-  struct type    *type;
-  struct ident   *ident;
-  struct tree    *tree;
-  char           *string;
+  struct term* term;
+  struct type* type;
+  struct ident* ident;
+  struct tree* tree;
+  char* string;
   struct {
-    int             nocase;
-    char           *pattern;
+    int nocase;
+    char* pattern;
   } regexp;
-  int            intval;
+  int intval;
   enum quant_tag quant;
 
 #line 121 "parser.h"
-
 };
 typedef union YYSTYPE YYSTYPE;
-# define YYSTYPE_IS_TRIVIAL 1
-# define YYSTYPE_IS_DECLARED 1
+#define YYSTYPE_IS_TRIVIAL 1
+#define YYSTYPE_IS_DECLARED 1
 #endif
 
 /* Location type.  */
-#if ! defined YYLTYPE && ! defined YYLTYPE_IS_DECLARED
+#if !defined YYLTYPE && !defined YYLTYPE_IS_DECLARED
 typedef struct YYLTYPE YYLTYPE;
-struct YYLTYPE
-{
+struct YYLTYPE {
   int first_line;
   int first_column;
   int last_line;
   int last_column;
 };
-# define YYLTYPE_IS_DECLARED 1
-# define YYLTYPE_IS_TRIVIAL 1
+#define YYLTYPE_IS_DECLARED 1
+#define YYLTYPE_IS_TRIVIAL 1
 #endif
 
-
-
-
-int augl_parse (struct term **term, yyscan_t scanner);
+int augl_parse(struct term** term, yyscan_t scanner);
 
 /* "%code provides" blocks.  */
 #line 46 "parser.y"
@@ -151,10 +144,9 @@ int augl_parse (struct term **term, yyscan_t scanner);
 
 /* Track custom scanner state */
 struct state {
-  struct info *info;
+  struct info* info;
   unsigned int comment_depth;
 };
-
 
 #line 160 "parser.h"
 

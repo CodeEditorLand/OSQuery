@@ -27,7 +27,6 @@
 #include <string>
 #include <vector>
 
-
 namespace osquery {
 
 extern size_t getMachineShard(const std::string& hostname = "",
@@ -269,4 +268,4 @@ TEST_F(PacksTests, test_restore_splay) {
   EXPECT_LE(splay3, 3600U * 10 + (360 * 10));
   EXPECT_NE(splay, splay3);
 }
-}
+} // namespace osquery

@@ -6,13 +6,12 @@
 #
 # SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
 
-
 # Cleanup any lingering ec2 runners
 name: cleanup_ec2_runners
 
 on:
     schedule:
-     - cron: "0 */1 * * *"
+        - cron: "0 */1 * * *"
     workflow_dispatch:
 
 jobs:
@@ -24,22 +23,24 @@ jobs:
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v4
               with:
-                aws-access-key-id: ${{ secrets.EC2_GITHUB_RUNNER_AWS_ACCESS_KEY_ID }}
-                aws-secret-access-key: ${{ secrets.EC2_GITHUB_RUNNER_AWS_SECRET_ACCESS_KEY }}
-                aws-region: ${{ secrets.EC2_GITHUB_RUNNER_AWS_REGION }}
+                  aws-access-key-id:
+                      ${{ secrets.EC2_GITHUB_RUNNER_AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key:
+                      ${{ secrets.EC2_GITHUB_RUNNER_AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ secrets.EC2_GITHUB_RUNNER_AWS_REGION }}
 
             - name: Find Instances
               run: |
-                cutoff=$(date -u --date="-2 hours" "+%Y-%m-%dT%H:%M")
+                  cutoff=$(date -u --date="-2 hours" "+%Y-%m-%dT%H:%M")
 
-                aws ec2 describe-instances \
-                    --filters Name=instance-state-name,Values=running Name=instance.group-id,Values=sg-0757a3162c999331b \
-                    --query "Reservations[].Instances[?LaunchTime<=\`$cutoff\`][].{id: InstanceId, type: InstanceType, launched: LaunchTime}" \
-                    | tee instances.json
+                  aws ec2 describe-instances \
+                      --filters Name=instance-state-name,Values=running Name=instance.group-id,Values=sg-0757a3162c999331b \
+                      --query "Reservations[].Instances[?LaunchTime<=\`$cutoff\`][].{id: InstanceId, type: InstanceType, launched: LaunchTime}" \
+                      | tee instances.json
 
             - name: Terminate Instances
               run: |
-                # This is a for loop, so that any failures don't stop all the instances from terminating
-                for i in $(jq -r '.[].id' instances.json); do
-                    aws ec2 terminate-instances --instance-ids "$i"
-                done
+                  # This is a for loop, so that any failures don't stop all the instances from terminating
+                  for i in $(jq -r '.[].id' instances.json); do
+                      aws ec2 terminate-instances --instance-ids "$i"
+                  done

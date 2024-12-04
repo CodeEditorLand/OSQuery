@@ -20,7 +20,6 @@
    Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
    02111-1307, USA.  */
 
-
 /* The purpose of this complex string table is to produce
    optimal code with a minimum of relocations.  */
 
@@ -49,39 +48,14 @@ static const char msgstr[] =
   gettext_noop ("User defined source 4") "\0"
   gettext_noop ("Unknown source");
 
-static const int msgidx[] =
-  {
-    0,
-    19,
-    26,
-    32,
-    38,
-    48,
-    57,
-    61,
-    67,
-    74,
-    79,
-    87,
-    92,
-    96,
-    106,
-    110,
-    117,
-    121,
-    132,
-    154,
-    176,
-    198,
-    220
-  };
+static const int msgidx[] = {0,   19,  26,  32,  38,  48,  57,  61,
+                             67,  74,  79,  87,  92,  96,  106, 110,
+                             117, 121, 132, 154, 176, 198, 220};
 
-static GPG_ERR_INLINE int
-msgidxof (int code)
-{
-  return (0 ? 0
-  : ((code >= 0) && (code <= 15)) ? (code - 0)
-  : ((code >= 17) && (code <= 17)) ? (code - 1)
-  : ((code >= 31) && (code <= 35)) ? (code - 14)
-  : 36 - 14);
+static GPG_ERR_INLINE int msgidxof(int code) {
+  return (0                                ? 0
+          : ((code >= 0) && (code <= 15))  ? (code - 0)
+          : ((code >= 17) && (code <= 17)) ? (code - 1)
+          : ((code >= 31) && (code <= 35)) ? (code - 14)
+                                           : 36 - 14);
 }

@@ -16,10 +16,10 @@ namespace osquery {
 namespace table_tests {
 
 class selinuxEvents : public testing::Test {
-  protected:
-    void SetUp() override {
-      setUpEnvironment();
-    }
+ protected:
+  void SetUp() override {
+    setUpEnvironment();
+  }
 };
 
 TEST_F(selinuxEvents, test_sanity) {

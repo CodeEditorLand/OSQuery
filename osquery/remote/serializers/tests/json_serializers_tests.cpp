@@ -38,4 +38,4 @@ TEST_F(JSONSerializersTests, test_deserialize) {
   EXPECT_TRUE(s.ok());
   EXPECT_EQ(params.doc(), expected.doc());
 }
-}
+} // namespace osquery

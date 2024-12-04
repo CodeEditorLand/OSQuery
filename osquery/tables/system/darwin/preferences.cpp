@@ -134,9 +134,8 @@ void genOSXDomainPrefs(const CFStringRef& username,
                        const CFStringRef& domain,
                        bool current_host,
                        QueryData& results) {
-  const auto* user = (username != nullptr)
-                         ? &username
-                         : (isUserAdmin()) ? &kCFPreferencesAnyUser
+  const auto* user = (username != nullptr) ? &username
+                     : (isUserAdmin())     ? &kCFPreferencesAnyUser
                                            : &kCFPreferencesCurrentUser;
   const auto* host =
       (current_host) ? &kCFPreferencesCurrentHost : &kCFPreferencesAnyHost;
@@ -206,9 +205,8 @@ QueryData genOSXDefaultPreferences(QueryContext& context) {
         kCFAllocatorDefault, (*users.begin()).c_str(), kCFStringEncodingUTF8);
   }
 
-  const auto* user = (username != nullptr)
-                         ? &username
-                         : (isUserAdmin()) ? &kCFPreferencesAnyUser
+  const auto* user = (username != nullptr) ? &username
+                     : (isUserAdmin())     ? &kCFPreferencesAnyUser
                                            : &kCFPreferencesCurrentUser;
 
   // Need lambda to iterate the map.
@@ -337,5 +335,5 @@ QueryData genOSXPlist(QueryContext& context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

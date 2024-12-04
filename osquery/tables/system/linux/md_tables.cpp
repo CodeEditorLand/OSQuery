@@ -121,9 +121,8 @@ std::string MD::getPathByDevName(const std::string& name) {
   std::string devPath;
 
   walkUdevDevices("block", [&](udev_device* const& device) {
-    auto const devName = std::string(
-      udev_device_get_property_value(device, "DEVNAME")
-    );
+    auto const devName =
+        std::string(udev_device_get_property_value(device, "DEVNAME"));
     if (boost::ends_with(devName, name)) {
       if (!boost::starts_with(devPath, "/")) {
         devPath = "/dev/" + devPath;

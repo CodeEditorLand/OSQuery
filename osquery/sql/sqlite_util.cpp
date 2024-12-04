@@ -71,10 +71,8 @@ const std::map<std::string, std::string> kMemoryDBSettings = {
 };
 // clang-format on
 
-#define OpComparator(x)                                                        \
-  { x, QueryPlanner::Opcode(OpReg::P2, INTEGER_TYPE) }
-#define Arithmetic(x)                                                          \
-  { x, QueryPlanner::Opcode(OpReg::P3, BIGINT_TYPE) }
+#define OpComparator(x) {x, QueryPlanner::Opcode(OpReg::P2, INTEGER_TYPE)}
+#define Arithmetic(x) {x, QueryPlanner::Opcode(OpReg::P3, BIGINT_TYPE)}
 
 /**
  * @brief A map from opcode to pair of result register and resultant type.

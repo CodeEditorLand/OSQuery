@@ -30,4 +30,4 @@ extern const std::set<std::string> kCommonFileColumns;
  * @param r The output parameter row structure.
  */
 void decorateFileEvent(const std::string& path, bool hash, Row& r);
-}
+} // namespace osquery

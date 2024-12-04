@@ -85,5 +85,5 @@ QueryData genDNSResolvers(QueryContext& context) {
     return genDNSResolversImpl(context, logger);
   }
 }
-}
-}
+} // namespace tables
+} // namespace osquery

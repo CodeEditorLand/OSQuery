@@ -11,8 +11,8 @@
 
 #include <string>
 
-#include <ifaddrs.h>
 #include <arpa/inet.h>
+#include <ifaddrs.h>
 
 namespace osquery {
 namespace tables {
@@ -25,10 +25,10 @@ namespace tables {
 #endif
 
 // Return a string representation for an IPv4/IPv6 struct.
-std::string ipAsString(const struct sockaddr *in);
-std::string ipAsString(const struct in_addr *in);
-std::string macAsString(const struct ifaddrs *addr);
-std::string macAsString(const char *addr);
-int netmaskFromIP(const struct sockaddr *in);
-}
-}
+std::string ipAsString(const struct sockaddr* in);
+std::string ipAsString(const struct in_addr* in);
+std::string macAsString(const struct ifaddrs* addr);
+std::string macAsString(const char* addr);
+int netmaskFromIP(const struct sockaddr* in);
+} // namespace tables
+} // namespace osquery

@@ -27,8 +27,8 @@ export CXX=clang++
 Then copy
 
 ```sh
-for header in aarch64_tables actiontabs arm_tables errtabs fieldtabs flagtabs ftypetabs gen_tables i386_tables ia64_tables machinetabs msg_typetabs optabs ppc_tables s390_tables s390x_tables x86_64_tables; \
- do cp ./lib/${header}.h ../generated/${header}.h; \
+for header in aarch64_tables actiontabs arm_tables errtabs fieldtabs flagtabs ftypetabs gen_tables i386_tables ia64_tables machinetabs msg_typetabs optabs ppc_tables s390_tables s390x_tables x86_64_tables; do
+	cp ./lib/${header}.h ../generated/${header}.h
 done
 
 cp ./config.h ../config/ARCH/config.h

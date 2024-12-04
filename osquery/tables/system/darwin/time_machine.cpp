@@ -89,5 +89,5 @@ QueryData genTimeMachineDestinations(QueryContext& context) {
   }
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

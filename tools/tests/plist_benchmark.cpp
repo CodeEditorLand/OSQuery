@@ -62,7 +62,7 @@ TEST_F(PlistBenchmark, bench_parse_plist_content) {
   LOG(ERROR) << "Benchmark executed in " << (getUnixTime() - time)
              << " seconds";
 }
-}
+} // namespace osquery
 
 int main(int argc, char* argv[]) {
   google::ParseCommandLineFlags(&argc, &argv, true);

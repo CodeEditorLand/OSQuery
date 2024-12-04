@@ -20,4 +20,4 @@ extern const std::string kTopLevelMockFolderName;
 // generate a small directory structure for testing
 boost::filesystem::path createMockFileStructure();
 
-} // namespace
+} // namespace osquery

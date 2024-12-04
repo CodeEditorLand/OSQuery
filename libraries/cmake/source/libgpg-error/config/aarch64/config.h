@@ -23,7 +23,7 @@
 /* #undef HAVE_CFPREFERENCESCOPYAPPVALUE */
 
 /* Define if the GNU dcgettext() function is already present or preinstalled.
-   */
+ */
 #define HAVE_DCGETTEXT 1
 
 /* Define to 1 if you have the declaration of `strerror_r', and to 0 if you
@@ -130,7 +130,7 @@
 #define HOST_TRIPLET_STRING "aarch64-unknown-linux-gnu"
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+ */
 #define LT_OBJDIR ".libs/"
 
 /* Name of package */
@@ -206,25 +206,24 @@
 
 /* Enable extensions on AIX 3, Interix.  */
 #ifndef _ALL_SOURCE
-# define _ALL_SOURCE 1
+#define _ALL_SOURCE 1
 #endif
 /* Enable GNU extensions on systems that have them.  */
 #ifndef _GNU_SOURCE
-# define _GNU_SOURCE 1
+#define _GNU_SOURCE 1
 #endif
 /* Enable threading extensions on Solaris.  */
 #ifndef _POSIX_PTHREAD_SEMANTICS
-# define _POSIX_PTHREAD_SEMANTICS 1
+#define _POSIX_PTHREAD_SEMANTICS 1
 #endif
 /* Enable extensions on HP NonStop.  */
 #ifndef _TANDEM_SOURCE
-# define _TANDEM_SOURCE 1
+#define _TANDEM_SOURCE 1
 #endif
 /* Enable general extensions on Solaris.  */
 #ifndef __EXTENSIONS__
-# define __EXTENSIONS__ 1
+#define __EXTENSIONS__ 1
 #endif
-
 
 /* Define if the native Windows multithreading API can be used. */
 /* #undef USE_WINDOWS_THREADS */
@@ -234,7 +233,7 @@
 
 /* Enable large inode numbers on Mac OS X 10.5.  */
 #ifndef _DARWIN_USE_64_BIT_INODE
-# define _DARWIN_USE_64_BIT_INODE 1
+#define _DARWIN_USE_64_BIT_INODE 1
 #endif
 
 /* Number of bits in a file offset, on hosts where this is settable. */
@@ -264,7 +263,6 @@
    do not define. */
 /* #undef uintmax_t */
 
-
 /* Force using of NLS for W32 even if no libintl has been found.  This is
    okay because we have our own gettext implementation for W32.  */
 #if defined(HAVE_W32_SYSTEM) && !defined(ENABLE_NLS)
@@ -279,4 +277,3 @@
 #define GPG_ERR_ENABLE_GETTEXT_MACROS 1
 #define GPG_ERR_ENABLE_ERRNO_MACROS 1
 #define GPGRT_ENABLE_ES_MACROS 1
-

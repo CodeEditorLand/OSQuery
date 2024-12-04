@@ -54,8 +54,8 @@ TEST_F(ProcessEnvs, test_sanity) {
         };
 
         ASSERT_NE(std::find(data.begin(), data.end(), r), data.end())
-            << "Env variable " << boost::io::quoted(var_key)
-            << " with value " << boost::io::quoted(var_value) << " not found";
+            << "Env variable " << boost::io::quoted(var_key) << " with value "
+            << boost::io::quoted(var_value) << " not found";
       }
     }
   }

@@ -25,5 +25,5 @@ namespace tables {
 QueryData genOperaExtensions(QueryContext& context) {
   return genChromeBasedExtensions(context, {(kOperaPath kOperaExtensionsPath)});
 }
-}
-}
+} // namespace tables
+} // namespace osquery

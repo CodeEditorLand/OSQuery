@@ -117,4 +117,4 @@ REGISTER_INTERNAL(ExternalSQLPlugin, "sql", "sql");
 #define CREATE_REGISTRY "Do not CREATE_REGISTRY in the osquery SDK"
 #undef CREATE_LAZY_REGISTRY
 #define CREATE_LAZY_REGISTRY "Do not CREATE_LAZY_REGISTRY in the osquery SDK"
-}
+} // namespace osquery

@@ -38,7 +38,7 @@ class PkgArray final {
   PkgArray& operator=(const ModstatDB&) = delete;
 
  private:
-  struct pkg_array array {};
+  struct pkg_array array{};
 
   PkgArray() {
     pkg_array_init_from_hash(&array);

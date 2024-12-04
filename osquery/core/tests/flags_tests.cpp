@@ -168,4 +168,4 @@ TEST_F(FlagsTests, test_platform) {
   EXPECT_FALSE(isPlatform(PlatformType::TYPE_LINUX, mPlatformType));
   EXPECT_FALSE(isPlatform(PlatformType::TYPE_OSX, mPlatformType));
 }
-}
+} // namespace osquery

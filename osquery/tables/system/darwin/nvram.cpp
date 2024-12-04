@@ -146,5 +146,5 @@ QueryData genNVRAM(QueryContext& context) {
   IOObjectRelease(options);
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

@@ -12,17 +12,17 @@
 #include "osquery/remote/transports/tls.h"
 // clang-format on
 
-#include <vector>
 #include <sstream>
+#include <vector>
 
-#include <osquery/distributed/distributed.h>
-#include <osquery/remote/enroll/enroll.h>
 #include <osquery/core/flags.h>
+#include <osquery/distributed/distributed.h>
 #include <osquery/registry/registry.h>
+#include <osquery/remote/enroll/enroll.h>
 
-#include <osquery/utils/json/json.h>
 #include <osquery/remote/serializers/json.h>
 #include <osquery/remote/utility.h>
+#include <osquery/utils/json/json.h>
 
 namespace osquery {
 
@@ -84,4 +84,4 @@ Status TLSDistributedPlugin::writeResults(const std::string& json) {
   return TLSRequestHelper::go<JSONSerializer>(
       write_uri_, params, response, FLAGS_distributed_tls_max_attempts);
 }
-}
+} // namespace osquery

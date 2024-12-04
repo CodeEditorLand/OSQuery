@@ -100,4 +100,4 @@ bool SimpleUpdate(size_t t, const StringMap& f, StringMap& m) {
   return true;
 }
 
-}
+} // namespace osquery

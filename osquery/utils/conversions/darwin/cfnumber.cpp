@@ -49,4 +49,4 @@ std::string stringFromCFNumber(const CFDataRef& cf_number, CFNumberType type) {
   return "0";
 }
 
-}
+} // namespace osquery

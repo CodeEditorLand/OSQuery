@@ -18,16 +18,16 @@
 #include <vector>
 
 #include <osquery/config/config.h>
-#include <osquery/database/database.h>
 #include <osquery/core/flags.h>
-#include <osquery/sql/sql.h>
 #include <osquery/core/system.h>
+#include <osquery/database/database.h>
 #include <osquery/registry/registry_factory.h>
+#include <osquery/sql/sql.h>
 
 #include "osquery/remote/requests.h"
 #include "osquery/remote/serializers/json.h"
-#include <osquery/remote/tests/test_utils.h>
 #include "osquery/tests/test_util.h"
+#include <osquery/remote/tests/test_utils.h>
 
 #include <plugins/remote/enroll/tls_enroll.h>
 

@@ -220,8 +220,9 @@ void genControlInfo(int* oid,
   }
 }
 
-void genControlInfoFromName(const std::string& name, QueryData& results,
-                    const std::map<std::string, std::string>& config) {
+void genControlInfoFromName(const std::string& name,
+                            QueryData& results,
+                            const std::map<std::string, std::string>& config) {
   int request[CTL_DEBUG_MAXID + 2] = {0};
   size_t oid_size = CTL_DEBUG_MAXID;
   if (sysctlnametomib(name.c_str(), request, &oid_size) != 0) {
@@ -278,5 +279,5 @@ void genAllControls(QueryData& results,
     request_size = response_size + 2;
   }
 }
-}
-}
+} // namespace tables
+} // namespace osquery

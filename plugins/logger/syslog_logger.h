@@ -33,6 +33,4 @@ class SyslogLoggerPlugin : public LoggerPlugin {
 };
 
 REGISTER(SyslogLoggerPlugin, "logger", "syslog");
-}
-
-
+} // namespace osquery

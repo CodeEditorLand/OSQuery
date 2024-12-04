@@ -74,7 +74,7 @@
 #define DEFAULT_ETC_DIR "/etc"
 
 /* Fall back to LVM1 by default if device-mapper is missing from the kernel.
-   */
+ */
 #define DEFAULT_FALLBACK_TO_LVM1 0
 
 /* Name of default locking directory. */
@@ -159,7 +159,7 @@
 #define HAVE_ALLOCA 1
 
 /* Define to 1 if you have <alloca.h> and it should be used (not on Ultrix).
-   */
+ */
 #define HAVE_ALLOCA_H 1
 
 /* Define to 1 if you have the <arpa/inet.h> header file. */
@@ -490,7 +490,7 @@
 #define HAVE_SYSLOG_H 1
 
 /* Define to 1 if you have the <sys/dir.h> header file, and it defines `DIR'.
-   */
+ */
 /* #undef HAVE_SYS_DIR_H */
 
 /* Define to 1 if you have the <sys/disk.h> header file. */
@@ -515,7 +515,7 @@
 /* #undef HAVE_SYS_MOUNT_H */
 
 /* Define to 1 if you have the <sys/ndir.h> header file, and it defines `DIR'.
-   */
+ */
 /* #undef HAVE_SYS_NDIR_H */
 
 /* Define to 1 if you have the <sys/param.h> header file. */
@@ -644,13 +644,15 @@
 /* #undef LVMPOLLD_SUPPORT */
 
 /* configure command line used */
-#define LVM_CONFIGURE_LINE "./configure --with-lvm1=none --disable-selinux --disable-readline --enable-static_link"
+#define LVM_CONFIGURE_LINE                                                     \
+  "./configure --with-lvm1=none --disable-selinux --disable-readline "         \
+  "--enable-static_link"
 
 /* Path to lvm binary. */
 #define LVM_PATH "/sbin/lvm"
 
 /* Define to 1 if `major', `minor', and `makedev' are declared in <mkdev.h>.
-   */
+ */
 /* #undef MAJOR_IN_MKDEV */
 
 /* Define to 1 if `major', `minor', and `makedev' are declared in
@@ -717,9 +719,9 @@
 /* If using the C implementation of alloca, define if you know the
    direction of stack growth for your system; otherwise it will be
    automatically deduced at runtime.
-	STACK_DIRECTION > 0 => grows toward higher addresses
-	STACK_DIRECTION < 0 => grows toward lower addresses
-	STACK_DIRECTION = 0 => direction of growth unknown */
+        STACK_DIRECTION > 0 => grows toward higher addresses
+        STACK_DIRECTION < 0 => grows toward lower addresses
+        STACK_DIRECTION = 0 => direction of growth unknown */
 /* #undef STACK_DIRECTION */
 
 /* Define to 1 if you have the ANSI C header files. */

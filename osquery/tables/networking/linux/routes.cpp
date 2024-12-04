@@ -270,5 +270,5 @@ QueryData genRoutes(QueryContext& context) {
   free(netlink_buffer);
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

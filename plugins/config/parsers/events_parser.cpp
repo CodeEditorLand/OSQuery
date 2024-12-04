@@ -46,4 +46,4 @@ Status EventsConfigParserPlugin::update(const std::string& source,
 }
 
 REGISTER_INTERNAL(EventsConfigParserPlugin, "config_parser", "events");
-}
+} // namespace osquery

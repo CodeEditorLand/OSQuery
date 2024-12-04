@@ -15,7 +15,14 @@
 namespace osquery {
 
 const std::set<std::string> kCommonFileColumns = {
-    "inode", "uid", "gid", "mode", "size", "atime", "mtime", "ctime",
+    "inode",
+    "uid",
+    "gid",
+    "mode",
+    "size",
+    "atime",
+    "mtime",
+    "ctime",
 };
 
 void decorateFileEvent(const std::string& path, bool hash, Row& r) {
@@ -42,4 +49,4 @@ void decorateFileEvent(const std::string& path, bool hash, Row& r) {
     r["hashed"] = "0";
   }
 }
-}
+} // namespace osquery

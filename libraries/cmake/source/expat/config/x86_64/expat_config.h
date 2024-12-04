@@ -97,7 +97,7 @@
    point, 0 to disable. */
 #define XML_CONTEXT_BYTES 1024
 
-#if ! defined(_WIN32)
+#if !defined(_WIN32)
 /* Define to include code reading entropy from `/dev/urandom'. */
 /* #undef XML_DEV_URANDOM */
 #endif
@@ -113,7 +113,7 @@
 
 /* Define to __FUNCTION__ or "" if `__func__' does not conform to ANSI C. */
 #ifdef _MSC_VER
-#  define __func__ __FUNCTION__
+#define __func__ __FUNCTION__
 #endif
 
 /* Define to `long' if <sys/types.h> does not define. */

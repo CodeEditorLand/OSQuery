@@ -18,7 +18,9 @@ namespace tables {
 
 /// A set of common IOKit properties used to store firmware versions.
 const std::set<std::string> kFirmwareProperties{
-    "Firmware Revision", "IOFirmwareVersion", "FirmwareVersionString",
+    "Firmware Revision",
+    "IOFirmwareVersion",
+    "FirmwareVersionString",
 };
 
 /**
@@ -193,5 +195,5 @@ QueryData genIOKitRegistry(QueryContext& context) {
 
   return qd;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

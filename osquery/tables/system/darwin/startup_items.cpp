@@ -22,7 +22,8 @@ namespace osquery {
 namespace tables {
 
 const std::vector<std::string> kLibraryStartupItemPaths = {
-    "/System/Library/StartupItems/", "/Library/StartupItems/",
+    "/System/Library/StartupItems/",
+    "/Library/StartupItems/",
 };
 
 // Path (after /Users/foo) where the login items plist will be found
@@ -31,7 +32,8 @@ const std::string kLoginItemsPlistPath =
 
 // Key to the array within the Login Items plist containing the items
 const std::vector<std::string> kLoginItemsKeyPaths = {
-    "SessionItems.CustomListItems", "privilegedlist.CustomListItems",
+    "SessionItems.CustomListItems",
+    "privilegedlist.CustomListItems",
 };
 
 void genLibraryStartupItems(const std::string& sysdir, QueryData& results) {
@@ -111,5 +113,5 @@ QueryData genStartupItems(QueryContext& context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

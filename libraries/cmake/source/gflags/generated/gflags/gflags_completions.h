@@ -108,7 +108,6 @@ $ complete -o bashdefault -o default -o nospace -C                            \
 // Assuming that "binary" is a newly compiled binary, this should still
 // produce the expected completion output.
 
-
 #ifndef GFLAGS_COMPLETIONS_H_
 #define GFLAGS_COMPLETIONS_H_
 
@@ -118,4 +117,4 @@ extern void HandleCommandLineCompletions(void);
 
 }
 
-#endif  // GFLAGS_COMPLETIONS_H_
+#endif // GFLAGS_COMPLETIONS_H_

@@ -6,22 +6,24 @@
 #define HAVE_ATOMICS_32_SYNC 0
 
 #if (HAVE_ATOMICS_32)
-# if (HAVE_ATOMICS_32_SYNC)
-#  define ATOMIC_OP32(OP1,OP2,PTR,VAL) __sync_ ## OP1 ## _and_ ## OP2(PTR, VAL)
-# else
-#  define ATOMIC_OP32(OP1,OP2,PTR,VAL) __atomic_ ## OP1 ## _ ## OP2(PTR, VAL, __ATOMIC_SEQ_CST)
-# endif
+#if (HAVE_ATOMICS_32_SYNC)
+#define ATOMIC_OP32(OP1, OP2, PTR, VAL) __sync_##OP1##_and_##OP2(PTR, VAL)
+#else
+#define ATOMIC_OP32(OP1, OP2, PTR, VAL)                                        \
+  __atomic_##OP1##_##OP2(PTR, VAL, __ATOMIC_SEQ_CST)
+#endif
 #endif
 
 #define HAVE_ATOMICS_64 0
 #define HAVE_ATOMICS_64_SYNC 0
 
 #if (HAVE_ATOMICS_64)
-# if (HAVE_ATOMICS_64_SYNC)
-#  define ATOMIC_OP64(OP1,OP2,PTR,VAL) __sync_ ## OP1 ## _and_ ## OP2(PTR, VAL)
-# else
-#  define ATOMIC_OP64(OP1,OP2,PTR,VAL) __atomic_ ## OP1 ## _ ## OP2(PTR, VAL, __ATOMIC_SEQ_CST)
-# endif
+#if (HAVE_ATOMICS_64_SYNC)
+#define ATOMIC_OP64(OP1, OP2, PTR, VAL) __sync_##OP1##_and_##OP2(PTR, VAL)
+#else
+#define ATOMIC_OP64(OP1, OP2, PTR, VAL)                                        \
+  __atomic_##OP1##_##OP2(PTR, VAL, __ATOMIC_SEQ_CST)
+#endif
 #endif
 
 #define WITH_PKGCONFIG 0
@@ -47,4 +49,6 @@
 #define WITH_C11THREADS 0
 #define WITH_CRC32C_HW 0
 #define SOLIB_EXT ".dll"
-#define BUILT_WITH  "CMAKE MSVC MSVC ZLIB ZSTD PLUGINS SSL SASL_SCRAM SASL_OAUTHBEARER SNAPPY SOCKEM"
+#define BUILT_WITH                                                             \
+  "CMAKE MSVC MSVC ZLIB ZSTD PLUGINS SSL SASL_SCRAM SASL_OAUTHBEARER SNAPPY "  \
+  "SOCKEM"

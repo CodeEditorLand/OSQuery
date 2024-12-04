@@ -181,5 +181,5 @@ std::string convertLikeRegex(const std::string& like_str) {
 }
 
 _Pragma("clang diagnostic pop");
-}
-}
+} // namespace tables
+} // namespace osquery

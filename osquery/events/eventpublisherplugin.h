@@ -168,8 +168,7 @@ class EventPublisherPlugin : public Plugin,
   // clang-format off
   [[deprecated("Do not check for interrupted, instead use isEnding.")]]
   // clang-format on
-  virtual bool
-  interrupted() override;
+  virtual bool interrupted() override;
 
   /// Enable event factory "callins" through static publisher callbacks.
   friend class EventFactory;

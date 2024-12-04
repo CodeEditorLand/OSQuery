@@ -47,8 +47,7 @@ class EventSubscriberPlugin : public Plugin, public Eventer {
   // clang-format off
   [[deprecated("Group events together and use addBatch() instead.")]]
   // clang-format on
-  Status
-  add(const Row& r);
+  Status add(const Row& r);
 
   /**
    * @brief Store parsed event data from an EventCallback in a backing store.

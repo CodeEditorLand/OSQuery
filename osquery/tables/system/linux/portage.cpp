@@ -60,8 +60,8 @@ class PortagePackage : boost::noncopyable {
  * @brief split a package string with version into package name and package
  * version.
  *
- * we need to split a package stirring which includes the version it affects into
- * a pair of package name (first) and package version (second).
+ * we need to split a package stirring which includes the version it affects
+ * into a pair of package name (first) and package version (second).
  */
 std::pair<std::string, std::string> portageSplitPackageVersion(
     const std::string& pkg_str) {
@@ -320,5 +320,5 @@ QueryData genPortageKeywordSummary(QueryContext& context) {
     return {};
   }
 }
-}
-}
+} // namespace tables
+} // namespace osquery

@@ -12,7 +12,7 @@
 namespace osquery {
 
 Subscription::Subscription(std::string name)
-    : subscriber_name(std::move(name)){};
+    : subscriber_name(std::move(name)) {};
 
 SubscriptionRef Subscription::create(const std::string& name) {
   return std::make_shared<Subscription>(name);

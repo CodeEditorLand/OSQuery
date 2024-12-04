@@ -15,17 +15,15 @@
    You should have received a copy of the GNU Lesser General Public License
    along with this program; if not, see <https://www.gnu.org/licenses/>.  */
 
-
 #ifndef _GL_SYS_WAIT_H
 
 #if __GNUC__ >= 3
 #pragma GCC system_header
 #endif
 
-
 /* The include_next requires a split double-inclusion guard.  */
-#if !(defined _WIN32 && ! defined __CYGWIN__)
-# include_next <sys/wait.h>
+#if !(defined _WIN32 && !defined __CYGWIN__)
+#include_next <sys/wait.h>
 #endif
 
 #ifndef _GL_SYS_WAIT_H
@@ -33,7 +31,6 @@
 
 /* Get pid_t.  */
 #include <sys/types.h>
-
 
 /* The definitions of _GL_FUNCDECL_RPL etc. are copied here.  */
 /* C++ compatible function declaration macros.
@@ -57,11 +54,11 @@
 
 /* Begin/end the GNULIB_NAMESPACE namespace.  */
 #if defined __cplusplus && defined GNULIB_NAMESPACE
-# define _GL_BEGIN_NAMESPACE namespace GNULIB_NAMESPACE {
-# define _GL_END_NAMESPACE }
+#define _GL_BEGIN_NAMESPACE namespace GNULIB_NAMESPACE {
+#define _GL_END_NAMESPACE }
 #else
-# define _GL_BEGIN_NAMESPACE
-# define _GL_END_NAMESPACE
+#define _GL_BEGIN_NAMESPACE
+#define _GL_END_NAMESPACE
 #endif
 
 /* The three most frequent use cases of these macros are:
@@ -126,9 +123,9 @@
 /* _GL_EXTERN_C declaration;
    performs the declaration with C linkage.  */
 #if defined __cplusplus
-# define _GL_EXTERN_C extern "C"
+#define _GL_EXTERN_C extern "C"
 #else
-# define _GL_EXTERN_C extern
+#define _GL_EXTERN_C extern
 #endif
 
 /* _GL_FUNCDECL_RPL (func, rettype, parameters_and_attributes);
@@ -138,9 +135,9 @@
      _GL_FUNCDECL_RPL (open, int, (const char *filename, int flags, ...)
                                   _GL_ARG_NONNULL ((1)));
  */
-#define _GL_FUNCDECL_RPL(func,rettype,parameters_and_attributes) \
-  _GL_FUNCDECL_RPL_1 (rpl_##func, rettype, parameters_and_attributes)
-#define _GL_FUNCDECL_RPL_1(rpl_func,rettype,parameters_and_attributes) \
+#define _GL_FUNCDECL_RPL(func, rettype, parameters_and_attributes)             \
+  _GL_FUNCDECL_RPL_1(rpl_##func, rettype, parameters_and_attributes)
+#define _GL_FUNCDECL_RPL_1(rpl_func, rettype, parameters_and_attributes)       \
   _GL_EXTERN_C rettype rpl_func parameters_and_attributes
 
 /* _GL_FUNCDECL_SYS (func, rettype, parameters_and_attributes);
@@ -150,7 +147,7 @@
      _GL_FUNCDECL_SYS (open, int, (const char *filename, int flags, ...)
                                   _GL_ARG_NONNULL ((1)));
  */
-#define _GL_FUNCDECL_SYS(func,rettype,parameters_and_attributes) \
+#define _GL_FUNCDECL_SYS(func, rettype, parameters_and_attributes)             \
   _GL_EXTERN_C rettype func parameters_and_attributes
 
 /* _GL_CXXALIAS_RPL (func, rettype, parameters);
@@ -162,26 +159,23 @@
    Wrapping rpl_func in an object with an inline conversion operator
    avoids a reference to rpl_func unless GNULIB_NAMESPACE::func is
    actually used in the program.  */
-#define _GL_CXXALIAS_RPL(func,rettype,parameters) \
-  _GL_CXXALIAS_RPL_1 (func, rpl_##func, rettype, parameters)
+#define _GL_CXXALIAS_RPL(func, rettype, parameters)                            \
+  _GL_CXXALIAS_RPL_1(func, rpl_##func, rettype, parameters)
 #if defined __cplusplus && defined GNULIB_NAMESPACE
-# define _GL_CXXALIAS_RPL_1(func,rpl_func,rettype,parameters) \
-    namespace GNULIB_NAMESPACE                                \
-    {                                                         \
-      static const struct _gl_ ## func ## _wrapper            \
-      {                                                       \
-        typedef rettype (*type) parameters;                   \
-                                                              \
-        inline operator type () const                         \
-        {                                                     \
-          return ::rpl_func;                                  \
-        }                                                     \
-      } func = {};                                            \
-    }                                                         \
-    _GL_EXTERN_C int _gl_cxxalias_dummy
+#define _GL_CXXALIAS_RPL_1(func, rpl_func, rettype, parameters)                \
+  namespace GNULIB_NAMESPACE {                                                 \
+  static const struct _gl_##func##_wrapper {                                   \
+    typedef rettype(*type) parameters;                                         \
+                                                                               \
+    inline operator type() const {                                             \
+      return ::rpl_func;                                                       \
+    }                                                                          \
+  } func = {};                                                                 \
+  }                                                                            \
+  _GL_EXTERN_C int _gl_cxxalias_dummy
 #else
-# define _GL_CXXALIAS_RPL_1(func,rpl_func,rettype,parameters) \
-    _GL_EXTERN_C int _gl_cxxalias_dummy
+#define _GL_CXXALIAS_RPL_1(func, rpl_func, rettype, parameters)                \
+  _GL_EXTERN_C int _gl_cxxalias_dummy
 #endif
 
 /* _GL_CXXALIAS_RPL_CAST_1 (func, rpl_func, rettype, parameters);
@@ -190,23 +184,20 @@
    declaration.  A cast is used to silence the "invalid conversion" error
    that would otherwise occur.  */
 #if defined __cplusplus && defined GNULIB_NAMESPACE
-# define _GL_CXXALIAS_RPL_CAST_1(func,rpl_func,rettype,parameters) \
-    namespace GNULIB_NAMESPACE                                     \
-    {                                                              \
-      static const struct _gl_ ## func ## _wrapper                 \
-      {                                                            \
-        typedef rettype (*type) parameters;                        \
-                                                                   \
-        inline operator type () const                              \
-        {                                                          \
-          return reinterpret_cast<type>(::rpl_func);               \
-        }                                                          \
-      } func = {};                                                 \
-    }                                                              \
-    _GL_EXTERN_C int _gl_cxxalias_dummy
+#define _GL_CXXALIAS_RPL_CAST_1(func, rpl_func, rettype, parameters)           \
+  namespace GNULIB_NAMESPACE {                                                 \
+  static const struct _gl_##func##_wrapper {                                   \
+    typedef rettype(*type) parameters;                                         \
+                                                                               \
+    inline operator type() const {                                             \
+      return reinterpret_cast<type>(::rpl_func);                               \
+    }                                                                          \
+  } func = {};                                                                 \
+  }                                                                            \
+  _GL_EXTERN_C int _gl_cxxalias_dummy
 #else
-# define _GL_CXXALIAS_RPL_CAST_1(func,rpl_func,rettype,parameters) \
-    _GL_EXTERN_C int _gl_cxxalias_dummy
+#define _GL_CXXALIAS_RPL_CAST_1(func, rpl_func, rettype, parameters)           \
+  _GL_EXTERN_C int _gl_cxxalias_dummy
 #endif
 
 /* _GL_CXXALIAS_SYS (func, rettype, parameters);
@@ -220,23 +211,20 @@
    avoids a reference to func unless GNULIB_NAMESPACE::func is
    actually used in the program.  */
 #if defined __cplusplus && defined GNULIB_NAMESPACE
-# define _GL_CXXALIAS_SYS(func,rettype,parameters)            \
-    namespace GNULIB_NAMESPACE                                \
-    {                                                         \
-      static const struct _gl_ ## func ## _wrapper            \
-      {                                                       \
-        typedef rettype (*type) parameters;                   \
-                                                              \
-        inline operator type () const                         \
-        {                                                     \
-          return ::func;                                      \
-        }                                                     \
-      } func = {};                                            \
-    }                                                         \
-    _GL_EXTERN_C int _gl_cxxalias_dummy
+#define _GL_CXXALIAS_SYS(func, rettype, parameters)                            \
+  namespace GNULIB_NAMESPACE {                                                 \
+  static const struct _gl_##func##_wrapper {                                   \
+    typedef rettype(*type) parameters;                                         \
+                                                                               \
+    inline operator type() const {                                             \
+      return ::func;                                                           \
+    }                                                                          \
+  } func = {};                                                                 \
+  }                                                                            \
+  _GL_EXTERN_C int _gl_cxxalias_dummy
 #else
-# define _GL_CXXALIAS_SYS(func,rettype,parameters) \
-    _GL_EXTERN_C int _gl_cxxalias_dummy
+#define _GL_CXXALIAS_SYS(func, rettype, parameters)                            \
+  _GL_EXTERN_C int _gl_cxxalias_dummy
 #endif
 
 /* _GL_CXXALIAS_SYS_CAST (func, rettype, parameters);
@@ -245,23 +233,20 @@
    A cast is used to silence the "invalid conversion" error that would
    otherwise occur.  */
 #if defined __cplusplus && defined GNULIB_NAMESPACE
-# define _GL_CXXALIAS_SYS_CAST(func,rettype,parameters) \
-    namespace GNULIB_NAMESPACE                          \
-    {                                                   \
-      static const struct _gl_ ## func ## _wrapper      \
-      {                                                 \
-        typedef rettype (*type) parameters;             \
-                                                        \
-        inline operator type () const                   \
-        {                                               \
-          return reinterpret_cast<type>(::func);        \
-        }                                               \
-      } func = {};                                      \
-    }                                                   \
-    _GL_EXTERN_C int _gl_cxxalias_dummy
+#define _GL_CXXALIAS_SYS_CAST(func, rettype, parameters)                       \
+  namespace GNULIB_NAMESPACE {                                                 \
+  static const struct _gl_##func##_wrapper {                                   \
+    typedef rettype(*type) parameters;                                         \
+                                                                               \
+    inline operator type() const {                                             \
+      return reinterpret_cast<type>(::func);                                   \
+    }                                                                          \
+  } func = {};                                                                 \
+  }                                                                            \
+  _GL_EXTERN_C int _gl_cxxalias_dummy
 #else
-# define _GL_CXXALIAS_SYS_CAST(func,rettype,parameters) \
-    _GL_EXTERN_C int _gl_cxxalias_dummy
+#define _GL_CXXALIAS_SYS_CAST(func, rettype, parameters)                       \
+  _GL_EXTERN_C int _gl_cxxalias_dummy
 #endif
 
 /* _GL_CXXALIAS_SYS_CAST2 (func, rettype, parameters, rettype2, parameters2);
@@ -271,28 +256,27 @@
    are used to silence the "cannot find a match" and "invalid conversion"
    errors that would otherwise occur.  */
 #if defined __cplusplus && defined GNULIB_NAMESPACE
-  /* The outer cast must be a reinterpret_cast.
-     The inner cast: When the function is defined as a set of overloaded
-     functions, it works as a static_cast<>, choosing the designated variant.
-     When the function is defined as a single variant, it works as a
-     reinterpret_cast<>. The parenthesized cast syntax works both ways.  */
-# define _GL_CXXALIAS_SYS_CAST2(func,rettype,parameters,rettype2,parameters2) \
-    namespace GNULIB_NAMESPACE                                                \
-    {                                                                         \
-      static const struct _gl_ ## func ## _wrapper                            \
-      {                                                                       \
-        typedef rettype (*type) parameters;                                   \
-                                                                              \
-        inline operator type () const                                         \
-        {                                                                     \
-          return reinterpret_cast<type>((rettype2 (*) parameters2)(::func));  \
-        }                                                                     \
-      } func = {};                                                            \
-    }                                                                         \
-    _GL_EXTERN_C int _gl_cxxalias_dummy
+/* The outer cast must be a reinterpret_cast.
+   The inner cast: When the function is defined as a set of overloaded
+   functions, it works as a static_cast<>, choosing the designated variant.
+   When the function is defined as a single variant, it works as a
+   reinterpret_cast<>. The parenthesized cast syntax works both ways.  */
+#define _GL_CXXALIAS_SYS_CAST2(                                                \
+    func, rettype, parameters, rettype2, parameters2)                          \
+  namespace GNULIB_NAMESPACE {                                                 \
+  static const struct _gl_##func##_wrapper {                                   \
+    typedef rettype(*type) parameters;                                         \
+                                                                               \
+    inline operator type() const {                                             \
+      return reinterpret_cast<type>((rettype2(*) parameters2)(::func));        \
+    }                                                                          \
+  } func = {};                                                                 \
+  }                                                                            \
+  _GL_EXTERN_C int _gl_cxxalias_dummy
 #else
-# define _GL_CXXALIAS_SYS_CAST2(func,rettype,parameters,rettype2,parameters2) \
-    _GL_EXTERN_C int _gl_cxxalias_dummy
+#define _GL_CXXALIAS_SYS_CAST2(                                                \
+    func, rettype, parameters, rettype2, parameters2)                          \
+  _GL_EXTERN_C int _gl_cxxalias_dummy
 #endif
 
 /* _GL_CXXALIASWARN (func);
@@ -300,55 +284,58 @@
    GNULIB_NAMESPACE::func is used.  func must be defined without overloaded
    variants.  */
 #if defined __cplusplus && defined GNULIB_NAMESPACE
-# define _GL_CXXALIASWARN(func) \
-   _GL_CXXALIASWARN_1 (func, GNULIB_NAMESPACE)
-# define _GL_CXXALIASWARN_1(func,namespace) \
-   _GL_CXXALIASWARN_2 (func, namespace)
+#define _GL_CXXALIASWARN(func) _GL_CXXALIASWARN_1(func, GNULIB_NAMESPACE)
+#define _GL_CXXALIASWARN_1(func, namespace) _GL_CXXALIASWARN_2(func, namespace)
 /* To work around GCC bug <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=43881>,
    we enable the warning only when not optimizing.  */
-# if !__OPTIMIZE__
-#  define _GL_CXXALIASWARN_2(func,namespace) \
-    _GL_WARN_ON_USE (func, \
-                     "The symbol ::" #func " refers to the system function. " \
-                     "Use " #namespace "::" #func " instead.")
-# elif __GNUC__ >= 3 && GNULIB_STRICT_CHECKING
-#  define _GL_CXXALIASWARN_2(func,namespace) \
-     extern __typeof__ (func) func
-# else
-#  define _GL_CXXALIASWARN_2(func,namespace) \
-     _GL_EXTERN_C int _gl_cxxalias_dummy
-# endif
+#if !__OPTIMIZE__
+#define _GL_CXXALIASWARN_2(func, namespace)                                    \
+  _GL_WARN_ON_USE(func,                                                        \
+                  "The symbol ::" #func                                        \
+                  " refers to the system function. "                           \
+                  "Use " #namespace "::" #func " instead.")
+#elif __GNUC__ >= 3 && GNULIB_STRICT_CHECKING
+#define _GL_CXXALIASWARN_2(func, namespace) extern __typeof__(func) func
 #else
-# define _GL_CXXALIASWARN(func) \
-    _GL_EXTERN_C int _gl_cxxalias_dummy
+#define _GL_CXXALIASWARN_2(func, namespace) _GL_EXTERN_C int _gl_cxxalias_dummy
+#endif
+#else
+#define _GL_CXXALIASWARN(func) _GL_EXTERN_C int _gl_cxxalias_dummy
 #endif
 
 /* _GL_CXXALIASWARN1 (func, rettype, parameters_and_attributes);
    causes a warning to be emitted when the given overloaded variant of ::func
    is used but not when GNULIB_NAMESPACE::func is used.  */
 #if defined __cplusplus && defined GNULIB_NAMESPACE
-# define _GL_CXXALIASWARN1(func,rettype,parameters_and_attributes) \
-   _GL_CXXALIASWARN1_1 (func, rettype, parameters_and_attributes, \
-                        GNULIB_NAMESPACE)
-# define _GL_CXXALIASWARN1_1(func,rettype,parameters_and_attributes,namespace) \
-   _GL_CXXALIASWARN1_2 (func, rettype, parameters_and_attributes, namespace)
+#define _GL_CXXALIASWARN1(func, rettype, parameters_and_attributes)            \
+  _GL_CXXALIASWARN1_1(                                                         \
+      func, rettype, parameters_and_attributes, GNULIB_NAMESPACE)
+#define _GL_CXXALIASWARN1_1(                                                   \
+    func, rettype, parameters_and_attributes, namespace)                       \
+  _GL_CXXALIASWARN1_2(func, rettype, parameters_and_attributes, namespace)
 /* To work around GCC bug <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=43881>,
    we enable the warning only when not optimizing.  */
-# if !__OPTIMIZE__
-#  define _GL_CXXALIASWARN1_2(func,rettype,parameters_and_attributes,namespace) \
-    _GL_WARN_ON_USE_CXX (func, rettype, parameters_and_attributes, \
-                         "The symbol ::" #func " refers to the system function. " \
-                         "Use " #namespace "::" #func " instead.")
-# elif __GNUC__ >= 3 && GNULIB_STRICT_CHECKING
-#  define _GL_CXXALIASWARN1_2(func,rettype,parameters_and_attributes,namespace) \
-     extern __typeof__ (func) func
-# else
-#  define _GL_CXXALIASWARN1_2(func,rettype,parameters_and_attributes,namespace) \
-     _GL_EXTERN_C int _gl_cxxalias_dummy
-# endif
+#if !__OPTIMIZE__
+#define _GL_CXXALIASWARN1_2(                                                   \
+    func, rettype, parameters_and_attributes, namespace)                       \
+  _GL_WARN_ON_USE_CXX(func,                                                    \
+                      rettype,                                                 \
+                      parameters_and_attributes,                               \
+                      "The symbol ::" #func                                    \
+                      " refers to the system function. "                       \
+                      "Use " #namespace "::" #func " instead.")
+#elif __GNUC__ >= 3 && GNULIB_STRICT_CHECKING
+#define _GL_CXXALIASWARN1_2(                                                   \
+    func, rettype, parameters_and_attributes, namespace)                       \
+  extern __typeof__(func) func
 #else
-# define _GL_CXXALIASWARN1(func,rettype,parameters_and_attributes) \
-    _GL_EXTERN_C int _gl_cxxalias_dummy
+#define _GL_CXXALIASWARN1_2(                                                   \
+    func, rettype, parameters_and_attributes, namespace)                       \
+  _GL_EXTERN_C int _gl_cxxalias_dummy
+#endif
+#else
+#define _GL_CXXALIASWARN1(func, rettype, parameters_and_attributes)            \
+  _GL_EXTERN_C int _gl_cxxalias_dummy
 #endif
 
 #endif /* _GL_CXXDEFS_H */
@@ -437,22 +424,19 @@
    */
 #ifndef _GL_WARN_ON_USE
 
-# if 4 < __GNUC__ || (__GNUC__ == 4 && 3 <= __GNUC_MINOR__)
+#if 4 < __GNUC__ || (__GNUC__ == 4 && 3 <= __GNUC_MINOR__)
 /* A compiler attribute is available in gcc versions 4.3.0 and later.  */
-#  define _GL_WARN_ON_USE(function, message) \
-extern __typeof__ (function) function __attribute__ ((__warning__ (message)))
-#  define _GL_WARN_ON_USE_ATTRIBUTE(message) \
-  __attribute__ ((__warning__ (message)))
-# elif __GNUC__ >= 3 && GNULIB_STRICT_CHECKING
+#define _GL_WARN_ON_USE(function, message)                                     \
+  extern __typeof__(function) function __attribute__((__warning__(message)))
+#define _GL_WARN_ON_USE_ATTRIBUTE(message) __attribute__((__warning__(message)))
+#elif __GNUC__ >= 3 && GNULIB_STRICT_CHECKING
 /* Verify the existence of the function.  */
-#  define _GL_WARN_ON_USE(function, message) \
-extern __typeof__ (function) function
-#  define _GL_WARN_ON_USE_ATTRIBUTE(message)
-# else /* Unsupported.  */
-#  define _GL_WARN_ON_USE(function, message) \
-_GL_WARN_EXTERN_C int _gl_warn_on_use
-#  define _GL_WARN_ON_USE_ATTRIBUTE(message)
-# endif
+#define _GL_WARN_ON_USE(function, message) extern __typeof__(function) function
+#define _GL_WARN_ON_USE_ATTRIBUTE(message)
+#else /* Unsupported.  */
+#define _GL_WARN_ON_USE(function, message) _GL_WARN_EXTERN_C int _gl_warn_on_use
+#define _GL_WARN_ON_USE_ATTRIBUTE(message)
+#endif
 #endif
 
 /* _GL_WARN_ON_USE_CXX (function, rettype, parameters_and_attributes, "string")
@@ -462,32 +446,31 @@ _GL_WARN_EXTERN_C int _gl_warn_on_use
    This variant is useful for overloaded functions in C++. _GL_WARN_ON_USE does
    not work in this case.  */
 #ifndef _GL_WARN_ON_USE_CXX
-# if 4 < __GNUC__ || (__GNUC__ == 4 && 3 <= __GNUC_MINOR__)
-#  define _GL_WARN_ON_USE_CXX(function,rettype,parameters_and_attributes,msg) \
-extern rettype function parameters_and_attributes \
-     __attribute__ ((__warning__ (msg)))
-# elif __GNUC__ >= 3 && GNULIB_STRICT_CHECKING
+#if 4 < __GNUC__ || (__GNUC__ == 4 && 3 <= __GNUC_MINOR__)
+#define _GL_WARN_ON_USE_CXX(function, rettype, parameters_and_attributes, msg) \
+  extern rettype function parameters_and_attributes                            \
+      __attribute__((__warning__(msg)))
+#elif __GNUC__ >= 3 && GNULIB_STRICT_CHECKING
 /* Verify the existence of the function.  */
-#  define _GL_WARN_ON_USE_CXX(function,rettype,parameters_and_attributes,msg) \
-extern rettype function parameters_and_attributes
-# else /* Unsupported.  */
-#  define _GL_WARN_ON_USE_CXX(function,rettype,parameters_and_attributes,msg) \
-_GL_WARN_EXTERN_C int _gl_warn_on_use
-# endif
+#define _GL_WARN_ON_USE_CXX(function, rettype, parameters_and_attributes, msg) \
+  extern rettype function parameters_and_attributes
+#else /* Unsupported.  */
+#define _GL_WARN_ON_USE_CXX(function, rettype, parameters_and_attributes, msg) \
+  _GL_WARN_EXTERN_C int _gl_warn_on_use
+#endif
 #endif
 
 /* _GL_WARN_EXTERN_C declaration;
    performs the declaration with C linkage.  */
 #ifndef _GL_WARN_EXTERN_C
-# if defined __cplusplus
-#  define _GL_WARN_EXTERN_C extern "C"
-# else
-#  define _GL_WARN_EXTERN_C extern
-# endif
+#if defined __cplusplus
+#define _GL_WARN_EXTERN_C extern "C"
+#else
+#define _GL_WARN_EXTERN_C extern
+#endif
 #endif
 
-
-#if !(defined _WIN32 && ! defined __CYGWIN__)
+#if !(defined _WIN32 && !defined __CYGWIN__)
 /* Unix API.  */
 
 /* The following macros apply to an argument x, that is a status of a process,
@@ -498,80 +481,79 @@ _GL_WARN_EXTERN_C int _gl_warn_on_use
 
 /* For valid x, exactly one of WIFSIGNALED(x), WIFEXITED(x), WIFSTOPPED(x)
    is true.  */
-# ifndef WIFSIGNALED
-#  define WIFSIGNALED(x) (WTERMSIG (x) != 0 && WTERMSIG(x) != 0x7f)
-# endif
-# ifndef WIFEXITED
-#  define WIFEXITED(x) (WTERMSIG (x) == 0)
-# endif
-# ifndef WIFSTOPPED
-#  define WIFSTOPPED(x) (WTERMSIG (x) == 0x7f)
-# endif
+#ifndef WIFSIGNALED
+#define WIFSIGNALED(x) (WTERMSIG(x) != 0 && WTERMSIG(x) != 0x7f)
+#endif
+#ifndef WIFEXITED
+#define WIFEXITED(x) (WTERMSIG(x) == 0)
+#endif
+#ifndef WIFSTOPPED
+#define WIFSTOPPED(x) (WTERMSIG(x) == 0x7f)
+#endif
 
 /* The termination signal. Only to be accessed if WIFSIGNALED(x) is true.  */
-# ifndef WTERMSIG
-#  define WTERMSIG(x) ((x) & 0x7f)
-# endif
+#ifndef WTERMSIG
+#define WTERMSIG(x) ((x) & 0x7f)
+#endif
 
 /* The exit status. Only to be accessed if WIFEXITED(x) is true.  */
-# ifndef WEXITSTATUS
-#  define WEXITSTATUS(x) (((x) >> 8) & 0xff)
-# endif
+#ifndef WEXITSTATUS
+#define WEXITSTATUS(x) (((x) >> 8) & 0xff)
+#endif
 
 /* The stopping signal. Only to be accessed if WIFSTOPPED(x) is true.  */
-# ifndef WSTOPSIG
-#  define WSTOPSIG(x) (((x) >> 8) & 0x7f)
-# endif
+#ifndef WSTOPSIG
+#define WSTOPSIG(x) (((x) >> 8) & 0x7f)
+#endif
 
 /* True if the process dumped core.  Not standardized by POSIX.  */
-# ifndef WCOREDUMP
-#  define WCOREDUMP(x) ((x) & 0x80)
-# endif
+#ifndef WCOREDUMP
+#define WCOREDUMP(x) ((x) & 0x80)
+#endif
 
 #else
 /* Native Windows API.  */
 
-# include <signal.h> /* for SIGTERM */
+#include <signal.h> /* for SIGTERM */
 
 /* The following macros apply to an argument x, that is a status of a process,
    as returned by waitpid() or, equivalently, _cwait() or GetExitCodeProcess().
    This value is simply an 'int', not composed of bit fields.  */
 
 /* When an unhandled fatal signal terminates a process, the exit code is 3.  */
-# define WIFSIGNALED(x) ((x) == 3)
-# define WIFEXITED(x) ((x) != 3)
-# define WIFSTOPPED(x) 0
+#define WIFSIGNALED(x) ((x) == 3)
+#define WIFEXITED(x) ((x) != 3)
+#define WIFSTOPPED(x) 0
 
 /* The signal that terminated a process is not known posthum.  */
-# define WTERMSIG(x) SIGTERM
+#define WTERMSIG(x) SIGTERM
 
-# define WEXITSTATUS(x) (x)
+#define WEXITSTATUS(x) (x)
 
 /* There are no stopping signals.  */
-# define WSTOPSIG(x) 0
+#define WSTOPSIG(x) 0
 
 /* There are no core dumps.  */
-# define WCOREDUMP(x) 0
+#define WCOREDUMP(x) 0
 
 #endif
-
 
 /* Declarations of functions.  */
 
 #if 0
-# if defined _WIN32 && ! defined __CYGWIN__
+#if defined _WIN32 && !defined __CYGWIN__
 _GL_FUNCDECL_SYS (waitpid, pid_t, (pid_t pid, int *statusp, int options));
-# endif
+#endif
 _GL_CXXALIAS_SYS (waitpid, pid_t, (pid_t pid, int *statusp, int options));
 _GL_CXXALIASWARN (waitpid);
 #elif defined GNULIB_POSIXCHECK
-# undef waitpid
-# if HAVE_RAW_DECL_WAITPID
-_GL_WARN_ON_USE (waitpid, "waitpid is unportable - "
-                 "use gnulib module sys_wait for portability");
-# endif
+#undef waitpid
+#if HAVE_RAW_DECL_WAITPID
+_GL_WARN_ON_USE(waitpid,
+                "waitpid is unportable - "
+                "use gnulib module sys_wait for portability");
 #endif
-
+#endif
 
 #endif /* _GL_SYS_WAIT_H */
 #endif /* _GL_SYS_WAIT_H */

@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include <string>
 #include <CoreFoundation/CoreFoundation.h>
+#include <string>
 
 namespace osquery {
 

@@ -56,4 +56,4 @@ Status HardwareEventSubscriber::Callback(
   add(r);
   return Status::success();
 }
-}
+} // namespace osquery

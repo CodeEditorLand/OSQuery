@@ -39,4 +39,4 @@ Status PrometheusMetricsConfigParserPlugin::update(const std::string& source,
 REGISTER_INTERNAL(PrometheusMetricsConfigParserPlugin,
                   "config_parser",
                   "prometheus_targets");
-}
+} // namespace osquery

@@ -85,7 +85,6 @@ class Plugin : private boost::noncopyable {
   }
 
  public:
-
   /**
    * @brief Bind this plugin to an external plugin reference.
    *

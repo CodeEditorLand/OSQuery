@@ -23,7 +23,6 @@ namespace tables {
 /// The Linux device node added by the mei driver.
 const std::string kIntelME{"/dev/mei0"};
 
-
 void genIntelMEVersion(int mei_fd, QueryData& results) {
   uint8_t buffer[18] = {0};
   memcpy(buffer, kMEIUpdateGUID.data(), kMEIUpdateGUID.size());
@@ -77,5 +76,5 @@ QueryData getIntelMEInfo(QueryContext& context) {
   close(mei_fd);
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

@@ -485,4 +485,4 @@ bool INotifyEventPublisher::isPathMonitored(const std::string& path) const {
   auto path_iterator = path_descriptors_.find(parent_path);
   return (path_iterator != path_descriptors_.end());
 }
-}
+} // namespace osquery

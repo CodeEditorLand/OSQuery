@@ -7,8 +7,8 @@
  * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
  */
 
-#include <plugins/logger/windows_event_log.h>
 #include <plugins/logger/generated_wel.h>
+#include <plugins/logger/windows_event_log.h>
 
 #include <osquery/core/flags.h>
 #include <osquery/logger/logger.h>

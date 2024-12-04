@@ -16,10 +16,10 @@ namespace osquery {
 namespace table_tests {
 
 class sharedMemory : public testing::Test {
-  protected:
-    void SetUp() override {
-      setUpEnvironment();
-    }
+ protected:
+  void SetUp() override {
+    setUpEnvironment();
+  }
 };
 
 TEST_F(sharedMemory, test_sanity) {

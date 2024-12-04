@@ -135,5 +135,5 @@ QueryData genSystemInfo(QueryContext& context) {
   r["hardware_version"] = "-1";
   return {r};
 }
-}
-}
+} // namespace tables
+} // namespace osquery

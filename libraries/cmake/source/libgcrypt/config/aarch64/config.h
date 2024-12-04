@@ -1,13 +1,11 @@
 /* config.h.  Generated from config.h.in by configure.  */
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
-
 #ifndef _GCRYPT_CONFIG_H_INCLUDED
 #define _GCRYPT_CONFIG_H_INCLUDED
 
 /* Enable gpg-error's strerror macro for W32CE.  */
 #define GPG_ERR_ENABLE_ERRNO_MACROS 1
-
 
 /* Define if building universal (internal helper macro) */
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
@@ -167,7 +165,7 @@
 #define HAVE_GCC_ATTRIBUTE_MAY_ALIAS 1
 
 /* Defined if compiler supports "__attribute__ ((ms_abi))" function attribute
-   */
+ */
 /* #undef HAVE_GCC_ATTRIBUTE_MS_ABI */
 
 /* Defined if a GCC style "__attribute__ ((packed))" is supported */
@@ -184,11 +182,11 @@
 /* #undef HAVE_GCC_DEFAULT_ABI_IS_SYSV_ABI */
 
 /* Defined if inline assembler supports AArch32 Crypto Extension instructions
-   */
+ */
 /* #undef HAVE_GCC_INLINE_ASM_AARCH32_CRYPTO */
 
 /* Defined if inline assembler supports AArch64 Crypto Extension instructions
-   */
+ */
 #define HAVE_GCC_INLINE_ASM_AARCH64_CRYPTO 1
 
 /* Defined if inline assembler supports AArch64 NEON instructions */
@@ -256,7 +254,7 @@
 /* #undef HAVE_PTH */
 
 /* Define if we have pthread. */
-#define HAVE_PTHREAD 1 
+#define HAVE_PTHREAD 1
 
 /* Define to 1 if you have the `raise' function. */
 #define HAVE_RAISE 1
@@ -367,10 +365,14 @@
 /* #undef IS_DEVELOPMENT_VERSION */
 
 /* List of available cipher algorithms */
-#define LIBGCRYPT_CIPHERS "arcfour:blowfish:cast5:des:aes:twofish:serpent:rfc2268:seed:camellia:idea:salsa20:gost28147:chacha20"
+#define LIBGCRYPT_CIPHERS                                                      \
+  "arcfour:blowfish:cast5:des:aes:twofish:serpent:rfc2268:seed:camellia:idea:" \
+  "salsa20:gost28147:chacha20"
 
 /* List of available digest algorithms */
-#define LIBGCRYPT_DIGESTS "crc:gostr3411-94::md4:md5:rmd160:sha1:sha256:sha512:sha3:tiger:whirlpool:stribog:blake2"
+#define LIBGCRYPT_DIGESTS                                                      \
+  "crc:gostr3411-94::md4:md5:rmd160:sha1:sha256:sha512:sha3:tiger:whirlpool:"  \
+  "stribog:blake2"
 
 /* List of available KDF algorithms */
 #define LIBGCRYPT_KDFS "s2k:pkdf2:scrypt"
@@ -379,7 +381,7 @@
 #define LIBGCRYPT_PUBKEY_CIPHERS "dsa:elgamal:rsa:ecc"
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+ */
 #define LT_OBJDIR ".libs/"
 
 /* Define to use the (obsolete) malloc guarding feature */
@@ -558,25 +560,24 @@
 
 /* Enable extensions on AIX 3, Interix.  */
 #ifndef _ALL_SOURCE
-# define _ALL_SOURCE 1
+#define _ALL_SOURCE 1
 #endif
 /* Enable GNU extensions on systems that have them.  */
 #ifndef _GNU_SOURCE
-# define _GNU_SOURCE 1
+#define _GNU_SOURCE 1
 #endif
 /* Enable threading extensions on Solaris.  */
 #ifndef _POSIX_PTHREAD_SEMANTICS
-# define _POSIX_PTHREAD_SEMANTICS 1
+#define _POSIX_PTHREAD_SEMANTICS 1
 #endif
 /* Enable extensions on HP NonStop.  */
 #ifndef _TANDEM_SOURCE
-# define _TANDEM_SOURCE 1
+#define _TANDEM_SOURCE 1
 #endif
 /* Enable general extensions on Solaris.  */
 #ifndef __EXTENSIONS__
-# define __EXTENSIONS__ 1
+#define __EXTENSIONS__ 1
 #endif
-
 
 /* Defined if this module should be included */
 #define USE_TIGER 1
@@ -596,13 +597,13 @@
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
    significant byte first (like Motorola and SPARC, unlike Intel). */
 #if defined AC_APPLE_UNIVERSAL_BUILD
-# if defined __BIG_ENDIAN__
-#  define WORDS_BIGENDIAN 1
-# endif
+#if defined __BIG_ENDIAN__
+#define WORDS_BIGENDIAN 1
+#endif
 #else
-# ifndef WORDS_BIGENDIAN
+#ifndef WORDS_BIGENDIAN
 /* #  undef WORDS_BIGENDIAN */
-# endif
+#endif
 #endif
 
 /* Expose all libc features (__DARWIN_C_FULL). */
@@ -621,9 +622,8 @@
 /* To allow the use of Libgcrypt in multithreaded programs we have to use
     special features from the library. */
 #ifndef _REENTRANT
-# define _REENTRANT 1
+#define _REENTRANT 1
 #endif
-
 
 /* Define to supported assembler block keyword, if plain 'asm' was not
    supported */
@@ -651,19 +651,18 @@
    pointer, if such a type exists, and if the system does not define it. */
 /* #undef uintptr_t */
 
-
 #define _GCRYPT_IN_LIBGCRYPT 1
 
 /* If the configure check for endianness has been disabled, get it from
    OS macros.  This is intended for making fat binary builds on OS X.  */
 #ifdef DISABLED_ENDIAN_CHECK
-# if defined(__BIG_ENDIAN__)
-#  define WORDS_BIGENDIAN 1
-# elif defined(__LITTLE_ENDIAN__)
+#if defined(__BIG_ENDIAN__)
+#define WORDS_BIGENDIAN 1
+#elif defined(__LITTLE_ENDIAN__)
 /* #  undef WORDS_BIGENDIAN */
-# else
-#  error "No endianness found"
-# endif
+#else
+#error "No endianness found"
+#endif
 #endif /*DISABLED_ENDIAN_CHECK*/
 
 /* We basically use the original Camellia source.  Make sure the symbols
@@ -671,4 +670,3 @@
 #define CAMELLIA_EXT_SYM_PREFIX _gcry_
 
 #endif /*_GCRYPT_CONFIG_H_INCLUDED*/
-

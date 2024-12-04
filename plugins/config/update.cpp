@@ -36,4 +36,4 @@ class UpdateConfigPlugin : public ConfigPlugin {
 };
 
 REGISTER(UpdateConfigPlugin, "config", "update");
-}
+} // namespace osquery

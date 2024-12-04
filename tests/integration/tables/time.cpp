@@ -18,10 +18,10 @@ namespace osquery {
 namespace table_tests {
 
 class Time : public testing::Test {
-  protected:
-    void SetUp() override {
-      setUpEnvironment();
-    }
+ protected:
+  void SetUp() override {
+    setUpEnvironment();
+  }
 };
 
 TEST_F(Time, test_sanity) {

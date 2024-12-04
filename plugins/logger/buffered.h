@@ -98,7 +98,7 @@ class BufferedLogForwarder : public InternalRunnable {
    *
    * This base class setUp() **MUST** be called by subclasses of
    * BufferedLogForwarder in order to properly initialize the buffer count.
-  */
+   */
   virtual Status setUp();
 
   /**
@@ -232,4 +232,4 @@ class BufferedLogForwarder : public InternalRunnable {
   /// Protects the count of buffered logs
   RecursiveMutex count_mutex_;
 };
-}
+} // namespace osquery

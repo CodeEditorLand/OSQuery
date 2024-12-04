@@ -9,8 +9,8 @@
 
 #pragma once
 
- #include <string>
- #include <CoreFoundation/CoreFoundation.h>
+#include <CoreFoundation/CoreFoundation.h>
+#include <string>
 
 namespace osquery {
 
@@ -19,5 +19,4 @@ namespace osquery {
  */
 std::string stringFromCFAbsoluteTime(const CFDataRef& cf_abstime);
 
-
-}
+} // namespace osquery

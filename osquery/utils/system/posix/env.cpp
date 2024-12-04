@@ -9,11 +9,10 @@
 
 #include <osquery/utils/system/env.h>
 
-#include <string>
 #include <boost/optional.hpp>
+#include <string>
 
 #include <stdlib.h>
-
 
 namespace osquery {
 

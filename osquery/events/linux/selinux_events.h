@@ -11,8 +11,8 @@
 
 #include <linux/audit.h>
 
-#include <set>
 #include <map>
+#include <set>
 
 // This map must contain exactly the same elements that
 // SELinuxEventSubscriber::GetEventSet() returns!

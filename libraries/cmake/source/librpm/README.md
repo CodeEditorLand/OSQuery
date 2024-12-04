@@ -2,9 +2,12 @@
 
 ## Linux
 
-You will need to build the following osquery targets first: thirdparty_popt, thirdparty_libmagic, thirdparty_lzma, thirdparty_sqlite, thirdparty_zlib, thirdparty_zstd, openssl.
+You will need to build the following osquery targets first: thirdparty_popt,
+thirdparty_libmagic, thirdparty_lzma, thirdparty_sqlite, thirdparty_zlib,
+thirdparty_zstd, openssl.
 
-Then create the following symlinks for each library, excluded openssl, from the root of the build folder:
+Then create the following symlinks for each library, excluded openssl, from the
+root of the build folder:
 
 ```
 ln -s libthirdparty_popt.a libs/src/popt/libpopt.a
@@ -15,11 +18,14 @@ ln -s libthirdparty_zlib.a libs/src/zlib/libz.a
 ln -s libthirdparty_zstd.a libs/src/zstd/libzstd.a
 ```
 
-
 Then:
-1. Copy the build folder to the target machine and point the `LIBS_BUILD` env var to it
-2. Clone the latest version of osquery to the target machine and point the `LIBS_SRC` env var to it
-3. Copy the patches under `libraries/cmake/source/librpm/build-patches` and `libraries/cmake/source/librpm/patches` to the target machine
+
+1. Copy the build folder to the target machine and point the `LIBS_BUILD` env
+   var to it
+2. Clone the latest version of osquery to the target machine and point the
+   `LIBS_SRC` env var to it
+3. Copy the patches under `libraries/cmake/source/librpm/build-patches` and
+   `libraries/cmake/source/librpm/patches` to the target machine
 4. Move inside the librpm source code and apply with `git apply` the patches
 
 Then run the following commands:
@@ -51,30 +57,30 @@ export LIBS="-llzma -lz -lrt"
 
 autoreconf -i
 ./configure \
-  --enable-static \
-  --disable-shared \
-  --with-crypto=openssl \
-  --without-archive \
-  --enable-bdb-ro \
-  --enable-sqlite \
-  --enable-ndb \
-  --disable-plugins \
-  --disable-openmp \
-  --disable-libelf \
-  --without-acl \
-  --without-imaevm \
-  --without-selinux \
-  --without-fsverity \
-  --without-fapolicyd \
-  --without-audit \
-  --without-cap \
-  --without-readline
+	--enable-static \
+	--disable-shared \
+	--with-crypto=openssl \
+	--without-archive \
+	--enable-bdb-ro \
+	--enable-sqlite \
+	--enable-ndb \
+	--disable-plugins \
+	--disable-openmp \
+	--disable-libelf \
+	--without-acl \
+	--without-imaevm \
+	--without-selinux \
+	--without-fsverity \
+	--without-fapolicyd \
+	--without-audit \
+	--without-cap \
+	--without-readline
 ```
 
 Then copy these files to the osquery source
 
-`./config.h` -> `config/<arch>/config.h`
-`./lib/rpmhash.C` -> `/generated/<arch>/lib/`
+`./config.h` -> `config/<arch>/config.h` `./lib/rpmhash.C` ->
+`/generated/<arch>/lib/`
 
 Run `make` and then copy this additional generated file:
 
@@ -82,16 +88,25 @@ Run `make` and then copy this additional generated file:
 
 ## Linux x86_64
 
-Make sure that the `config.h` file does not have defined `HAVE_SECURE_GETENV`, `HAVE_GETAUXVAL`, and `HAVE_SYNCFS`.
+Make sure that the `config.h` file does not have defined `HAVE_SECURE_GETENV`,
+`HAVE_GETAUXVAL`, and `HAVE_SYNCFS`.
 
 ### Additional Notes
 
-The build time patch is required to have the configure.ac script work with the version of GETTEXT it's present on CentOS 6.
-Furthermore, librpm has removed the ability to disable the use of Lua, which is not useful for osquery, since we only want to read, so we have to patch it out.
+The build time patch is required to have the configure.ac script work with the
+version of GETTEXT it's present on CentOS 6. Furthermore, librpm has removed the
+ability to disable the use of Lua, which is not useful for osquery, since we
+only want to read, so we have to patch it out.
 
-Finally there are two additional patches which are instead applied when we build osquery.
-One, the `remove-lua.patch`, which only touches source code, is a part of the bigger build patch. So when having to update this first generate the build patch, then remove the parts from it that touch build files and the result is this patch.
+Finally there are two additional patches which are instead applied when we build
+osquery. One, the `remove-lua.patch`, which only touches source code, is a part
+of the bigger build patch. So when having to update this first generate the
+build patch, then remove the parts from it that touch build files and the result
+is this patch.
 
-To regenerate the `centos6-support-and-remove-lua.patch`, make all the necessary changes to the build files and then use `git diff -- '*.ac' '*.am'`.
-To regenerate the `remove-lua.patch` make all the necessary changes to the source code to remove lua and then use `git diff -- '*.c' '*.h'`.
-To regenerate the `open-only-pkgs.patch`, the idea is to only open the Packages database, which in the current version can be done by setting the `justPkgs` to 1.
+To regenerate the `centos6-support-and-remove-lua.patch`, make all the necessary
+changes to the build files and then use `git diff -- '*.ac' '*.am'`. To
+regenerate the `remove-lua.patch` make all the necessary changes to the source
+code to remove lua and then use `git diff -- '*.c' '*.h'`. To regenerate the
+`open-only-pkgs.patch`, the idea is to only open the Packages database, which in
+the current version can be done by setting the `justPkgs` to 1.

@@ -33,8 +33,8 @@
 #define SIZEOF_UNSIGNED_LONG_LONG 8
 
 /*
- * If we lack int64_t, define it to the first of __int64, int, long, and long long
- * that exists and is the right size.
+ * If we lack int64_t, define it to the first of __int64, int, long, and long
+ * long that exists and is the right size.
  */
 #if !defined(HAVE_INT64_T) && defined(HAVE___INT64)
 typedef __int64 int64_t;
@@ -120,7 +120,6 @@ typedef unsigned long long uint64_t;
 #if !defined(HAVE_UINT64_T)
 #error No 64-bit unsigned integer type was found.
 #endif
-
 
 /*
  * Similarly for uint32_t
@@ -449,7 +448,7 @@ typedef uint64_t uintmax_t;
 #define HAVE_DECL_INTMAX_MIN 1
 
 /* Define to 1 if you have the declaration of `SETACL', and to 0 if you don't.
-   */
+ */
 /* #undef HAVE_DECL_SETACL */
 
 /* Define to 1 if you have the declaration of `SIZE_MAX', and to 0 if you
@@ -484,7 +483,7 @@ typedef uint64_t uintmax_t;
 /* #undef HAVE_DIRECT_H */
 
 /* Define to 1 if you have the <dirent.h> header file, and it defines `DIR'.
-   */
+ */
 #define HAVE_DIRENT_H 1
 
 /* Define to 1 if you have the `dirfd' function. */
@@ -530,7 +529,7 @@ typedef uint64_t uintmax_t;
 /* #undef HAVE_DECL_EXTATTR_NAMESPACE_USER */
 
 /* Define to 1 if you have the declaration of `GETACL', and to 0 if you don't.
-   */
+ */
 /* #undef HAVE_DECL_GETACL */
 
 /* Define to 1 if you have the declaration of `GETACLCNT', and to 0 if you
@@ -1045,7 +1044,7 @@ typedef uint64_t uintmax_t;
 #define HAVE_SYS_CDEFS_H 1
 
 /* Define to 1 if you have the <sys/dir.h> header file, and it defines `DIR'.
-   */
+ */
 /* #undef HAVE_SYS_DIR_H */
 
 /* Define to 1 if you have the <sys/ea.h> header file. */
@@ -1064,7 +1063,7 @@ typedef uint64_t uintmax_t;
 /* #undef HAVE_SYS_MOUNT_H */
 
 /* Define to 1 if you have the <sys/ndir.h> header file, and it defines `DIR'.
-   */
+ */
 /* #undef HAVE_SYS_NDIR_H */
 
 /* Define to 1 if you have the <sys/param.h> header file. */
@@ -1087,7 +1086,6 @@ typedef uint64_t uintmax_t;
 
 /* Define to 1 if you have the <sys/stat.h> header file. */
 #define HAVE_SYS_STAT_H 1
-
 
 /* Define to 1 if you have the <sys/sysmacros.h> header file. */
 #define HAVE_SYS_SYSMACROS_H 1
@@ -1231,7 +1229,7 @@ typedef uint64_t uintmax_t;
 /* #undef HAVE__MKGMTIME64 */
 
 /* Define as const if the declaration of iconv() needs const. */
-#define ICONV_CONST 
+#define ICONV_CONST
 
 /* Version number of libarchive as a single integer */
 #define LIBARCHIVE_VERSION_NUMBER "3006002"
@@ -1244,7 +1242,7 @@ typedef uint64_t uintmax_t;
 /* #undef LSTAT_FOLLOWS_SLASHED_SYMLINK */
 
 /* Define to 1 if `major', `minor', and `makedev' are declared in <mkdev.h>.
-   */
+ */
 /* #undef MAJOR_IN_MKDEV */
 
 /* Define to 1 if `major', `minor', and `makedev' are declared in
@@ -1270,23 +1268,23 @@ typedef uint64_t uintmax_t;
 #ifdef SAFE_TO_DEFINE_EXTENSIONS
 /* Enable extensions on AIX 3, Interix.  */
 #ifndef _ALL_SOURCE
-# define _ALL_SOURCE 1
+#define _ALL_SOURCE 1
 #endif
 /* Enable GNU extensions on systems that have them.  */
 #ifndef _GNU_SOURCE
-# define _GNU_SOURCE 1
+#define _GNU_SOURCE 1
 #endif
 /* Enable threading extensions on Solaris.  */
 #ifndef _POSIX_PTHREAD_SEMANTICS
-# define _POSIX_PTHREAD_SEMANTICS 1
+#define _POSIX_PTHREAD_SEMANTICS 1
 #endif
 /* Enable extensions on HP NonStop.  */
 #ifndef _TANDEM_SOURCE
-# define _TANDEM_SOURCE 1
+#define _TANDEM_SOURCE 1
 #endif
 /* Enable general extensions on Solaris.  */
 #ifndef __EXTENSIONS__
-# define __EXTENSIONS__ 1
+#define __EXTENSIONS__ 1
 #endif
 #endif /* SAFE_TO_DEFINE_EXTENSIONS */
 

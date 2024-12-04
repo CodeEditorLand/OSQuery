@@ -31,10 +31,10 @@
    version 2.2 of Bison.  */
 
 #ifndef YY_AUGL_PARSER_H_INCLUDED
-# define YY_AUGL_PARSER_H_INCLUDED
+#define YY_AUGL_PARSER_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
-# define YYDEBUG 0
+#define YYDEBUG 0
 #endif
 #if YYDEBUG
 extern int augl_debug;
@@ -42,28 +42,27 @@ extern int augl_debug;
 
 /* Token type.  */
 #ifndef YYTOKENTYPE
-# define YYTOKENTYPE
-  enum yytokentype
-  {
-    DQUOTED = 258,
-    REGEXP = 259,
-    LIDENT = 260,
-    UIDENT = 261,
-    QIDENT = 262,
-    ARROW = 263,
-    KW_MODULE = 264,
-    KW_AUTOLOAD = 265,
-    KW_LET = 266,
-    KW_LET_REC = 267,
-    KW_IN = 268,
-    KW_STRING = 269,
-    KW_REGEXP = 270,
-    KW_LENS = 271,
-    KW_TEST = 272,
-    KW_GET = 273,
-    KW_PUT = 274,
-    KW_AFTER = 275
-  };
+#define YYTOKENTYPE
+enum yytokentype {
+  DQUOTED = 258,
+  REGEXP = 259,
+  LIDENT = 260,
+  UIDENT = 261,
+  QIDENT = 262,
+  ARROW = 263,
+  KW_MODULE = 264,
+  KW_AUTOLOAD = 265,
+  KW_LET = 266,
+  KW_LET_REC = 267,
+  KW_IN = 268,
+  KW_STRING = 269,
+  KW_REGEXP = 270,
+  KW_LENS = 271,
+  KW_TEST = 272,
+  KW_GET = 273,
+  KW_PUT = 274,
+  KW_AFTER = 275
+};
 #endif
 /* Tokens.  */
 #define DQUOTED 258
@@ -86,49 +85,45 @@ extern int augl_debug;
 #define KW_AFTER 275
 
 /* Value type.  */
-#if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
+#if !defined YYSTYPE && !defined YYSTYPE_IS_DECLARED
 
-union YYSTYPE
-{
+union YYSTYPE {
 #line 89 "parser.y" /* yacc.c:1909  */
 
-  struct term    *term;
-  struct type    *type;
-  struct ident   *ident;
-  struct tree    *tree;
-  char           *string;
+  struct term* term;
+  struct type* type;
+  struct ident* ident;
+  struct tree* tree;
+  char* string;
   struct {
-    int             nocase;
-    char           *pattern;
+    int nocase;
+    char* pattern;
   } regexp;
-  int            intval;
+  int intval;
   enum quant_tag quant;
 
 #line 108 "parser.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
-# define YYSTYPE_IS_TRIVIAL 1
-# define YYSTYPE_IS_DECLARED 1
+#define YYSTYPE_IS_TRIVIAL 1
+#define YYSTYPE_IS_DECLARED 1
 #endif
 
 /* Location type.  */
-#if ! defined YYLTYPE && ! defined YYLTYPE_IS_DECLARED
+#if !defined YYLTYPE && !defined YYLTYPE_IS_DECLARED
 typedef struct YYLTYPE YYLTYPE;
-struct YYLTYPE
-{
+struct YYLTYPE {
   int first_line;
   int first_column;
   int last_line;
   int last_column;
 };
-# define YYLTYPE_IS_DECLARED 1
-# define YYLTYPE_IS_TRIVIAL 1
+#define YYLTYPE_IS_DECLARED 1
+#define YYLTYPE_IS_TRIVIAL 1
 #endif
 
-
-
-int augl_parse (struct term **term, yyscan_t scanner);
+int augl_parse(struct term** term, yyscan_t scanner);
 /* "%code provides" blocks.  */
 #line 46 "parser.y" /* yacc.c:1909  */
 
@@ -136,10 +131,9 @@ int augl_parse (struct term **term, yyscan_t scanner);
 
 /* Track custom scanner state */
 struct state {
-  struct info *info;
+  struct info* info;
   unsigned int comment_depth;
 };
-
 
 #line 145 "parser.h" /* yacc.c:1909  */
 

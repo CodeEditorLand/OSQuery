@@ -144,4 +144,4 @@ TEST_F(DispatcherTests, test_stop_dispatcher) {
   auto s = Dispatcher::addService(r1);
   EXPECT_FALSE(s);
 }
-}
+} // namespace osquery

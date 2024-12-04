@@ -66,7 +66,7 @@ static void getBlockDevice(struct udev_device* dev,
                            QueryData& results,
                            std::map<std::string, std::string>& lvm_lv2pv) {
   Row r;
-  const char *name = udev_device_get_devnode(dev);
+  const char* name = udev_device_get_devnode(dev);
   if (name == nullptr) {
     // Cannot get devnode information from UDEV.
     return;
@@ -75,7 +75,7 @@ static void getBlockDevice(struct udev_device* dev,
   // The device name may be blank but will have a string value.
   r["name"] = name;
 
-  struct udev_device *subdev =
+  struct udev_device* subdev =
       udev_device_get_parent_with_subsystem_devtype(dev, "block", nullptr);
   if (subdev != nullptr) {
     r["parent"] = udev_device_get_devnode(subdev);
@@ -83,7 +83,7 @@ static void getBlockDevice(struct udev_device* dev,
     r["parent"] = lvm_lv2pv[name];
   }
 
-  const char *size = udev_device_get_sysattr_value(dev, "size");
+  const char* size = udev_device_get_sysattr_value(dev, "size");
   if (size != nullptr) {
     r["size"] = size;
   }
@@ -96,7 +96,7 @@ static void getBlockDevice(struct udev_device* dev,
 
   subdev = udev_device_get_parent_with_subsystem_devtype(dev, "scsi", nullptr);
   if (subdev != nullptr) {
-    const char *model = udev_device_get_sysattr_value(subdev, "model");
+    const char* model = udev_device_get_sysattr_value(subdev, "model");
     std::string model_string = std::string(model);
     boost::algorithm::trim(model_string);
     r["model"] = model_string;
@@ -114,7 +114,7 @@ static void getBlockDevice(struct udev_device* dev,
         pr, BLKID_SUBLKS_LABEL | BLKID_SUBLKS_UUID | BLKID_SUBLKS_TYPE);
 
     if (!blkid_do_safeprobe(pr)) {
-      const char *blk_value = nullptr;
+      const char* blk_value = nullptr;
       if (!blkid_probe_lookup_value(pr, "TYPE", &blk_value, nullptr)) {
         r["type"] = blk_value;
       }
@@ -138,14 +138,14 @@ static void getBlockDevice(struct udev_device* dev,
   results.push_back(r);
 }
 
-QueryData genBlockDevs(QueryContext &context) {
+QueryData genBlockDevs(QueryContext& context) {
   if (getuid() || geteuid()) {
     VLOG(1) << "Not running as root, LVM and other column data not available";
   }
 
   QueryData results;
 
-  struct udev *udev = udev_new();
+  struct udev* udev = udev_new();
   if (udev == nullptr) {
     return {};
   }
@@ -171,5 +171,5 @@ QueryData genBlockDevs(QueryContext &context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

@@ -139,5 +139,5 @@ std::string macAsString(const struct ifaddrs* addr) {
   return macAsString(&sdl->sdl_data[sdl->sdl_nlen]);
 #endif
 }
-}
-}
+} // namespace tables
+} // namespace osquery

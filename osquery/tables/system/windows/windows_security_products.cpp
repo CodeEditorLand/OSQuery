@@ -7,8 +7,8 @@
  * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
  */
 
-#include <windows.h>
 #include <iwscapi.h>
+#include <windows.h>
 #include <wscapi.h>
 
 #include <osquery/core/core.h>
@@ -53,7 +53,8 @@ Status GetSecurityProducts(WSC_SECURITY_PROVIDER provider,
   static HINSTANCE wscLib =
       LoadLibraryExW(L"wscapi.dll", NULL, LOAD_LIBRARY_SEARCH_SYSTEM32);
   if (wscLib != nullptr) {
-    productListClassPtr = (CLSID *)GetProcAddress(wscLib, "CLSID_WSCProductList");
+    productListClassPtr =
+        (CLSID*)GetProcAddress(wscLib, "CLSID_WSCProductList");
   }
 
   if (productListClassPtr == nullptr) {

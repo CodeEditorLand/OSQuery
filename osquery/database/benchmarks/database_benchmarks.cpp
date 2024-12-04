@@ -177,4 +177,4 @@ static void DATABASE_store_append(benchmark::State& state) {
 }
 
 BENCHMARK(DATABASE_store_append);
-}
+} // namespace osquery

@@ -109,4 +109,4 @@ Status readRawMem(size_t base, size_t length, void** buffer) {
   close(fd);
   return Status::success();
 }
-}
+} // namespace osquery

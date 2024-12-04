@@ -182,4 +182,4 @@ Status SCNetworkEventPublisher::run() {
   CFRunLoopRun();
   return Status::success();
 }
-};
+}; // namespace osquery

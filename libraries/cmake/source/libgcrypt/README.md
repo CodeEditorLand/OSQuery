@@ -9,7 +9,9 @@ ldd --version
 ldd (GNU libc) 2.12.2
 ```
 
-You will need `libgpg-error` installed. Back up into the `libgpg-error` director, follow the README and add `--prefix=/home/ubuntu/libgpg-error-prefix` followed by a `make && make install`.
+You will need `libgpg-error` installed. Back up into the `libgpg-error`
+director, follow the README and add `--prefix=/home/ubuntu/libgpg-error-prefix`
+followed by a `make && make install`.
 
 Generated with the following commands:
 
@@ -53,8 +55,8 @@ Then copy
 
 ```sh
 # Copy MPI sources
-for source in mpih-add1.c mpih-lshift.c mpih-mul1.c mpih-mul2.c mpih-mul3.c mpih-rshift.c mpih-sub1.c mod-source-info.h mpi-asm-defs.h; \
- do cp ./mpi/${source} ../generated/ARCH/mpi/${source}; \
+for source in mpih-add1.c mpih-lshift.c mpih-mul1.c mpih-mul2.c mpih-mul3.c mpih-rshift.c mpih-sub1.c mod-source-info.h mpi-asm-defs.h; do
+	cp ./mpi/${source} ../generated/ARCH/mpi/${source}
 done
 # Copy remaining headers
 cp config.h ../config/ARCH

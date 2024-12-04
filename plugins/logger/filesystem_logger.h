@@ -56,4 +56,4 @@ class FilesystemLoggerPlugin : public LoggerPlugin {
 };
 
 REGISTER(FilesystemLoggerPlugin, "logger", "filesystem");
-}
+} // namespace osquery

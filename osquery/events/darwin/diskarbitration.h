@@ -100,4 +100,4 @@ class DiskArbitrationEventPublisher
 
   mutable Mutex mutex_;
 };
-}
+} // namespace osquery

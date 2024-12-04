@@ -61,4 +61,4 @@ Status DiskEventSubscriber::Callback(const ECRef& ec, const SCRef& sc) {
   add(r);
   return Status::success();
 }
-}
+} // namespace osquery

@@ -53,7 +53,7 @@ class DynamicTableRowHolder {
   DynamicTableRowHolder(
       std::initializer_list<std::pair<const std::string, std::string>> init)
       : row(new DynamicTableRow(init)), ptr(row) {}
-  inline operator TableRowHolder &&() {
+  inline operator TableRowHolder&&() {
     return std::move(ptr);
   }
   inline std::string& operator[](const std::string& key) {

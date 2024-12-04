@@ -31,7 +31,7 @@ QueryData genTime(QueryContext& context) {
 
   time_t osquery_time = getUnixTime();
 
-  struct tm gmt {};
+  struct tm gmt{};
   gmtime_r(&osquery_time, &gmt);
   struct tm now = gmt;
   auto osquery_timestamp = toAsciiTime(&now);
@@ -51,7 +51,7 @@ QueryData genTime(QueryContext& context) {
     }
 
 #else
-    struct tm local {};
+    struct tm local{};
     localtime_r(&osquery_time, &local);
 
     std::array<char, 5> buffer{};

@@ -107,4 +107,4 @@ class IOKitEventPublisher
    */
   std::atomic<bool> publisher_started_{false};
 };
-}
+} // namespace osquery

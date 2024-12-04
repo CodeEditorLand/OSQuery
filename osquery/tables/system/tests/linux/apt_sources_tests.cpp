@@ -15,8 +15,8 @@
 
 #include <gtest/gtest.h>
 
-//#include <osquery/tables/system/posix/known_hosts.h>
-//#include <osquery/utils/scope_guard.h>
+// #include <osquery/tables/system/posix/known_hosts.h>
+// #include <osquery/utils/scope_guard.h>
 
 namespace osquery {
 namespace tables {

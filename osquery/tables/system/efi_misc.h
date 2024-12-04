@@ -37,18 +37,18 @@ typedef struct {
 #define EFI_END_DEVICE_PATH_LENGTH (sizeof(EFI_DEVICE_PATH_PROTOCOL))
 
 #define EfiDevicePathNodeLength(a) (((a)->Length[0]) | ((a)->Length[1] << 8))
-#define EfiNextDevicePathNode(a) \
-  ((EFI_DEVICE_PATH_PROTOCOL *)(((UINT8 *)(a)) + EfiDevicePathNodeLength(a)))
+#define EfiNextDevicePathNode(a)                                               \
+  ((EFI_DEVICE_PATH_PROTOCOL*)(((UINT8*)(a)) + EfiDevicePathNodeLength(a)))
 
 #define EfiDevicePathType(a) (((a)->Type) & 0x7f)
 #define EfiIsDevicePathEndType(a) (EfiDevicePathType(a) == 0x7f)
 
-#define EfiIsDevicePathEndSubType(a) \
+#define EfiIsDevicePathEndSubType(a)                                           \
   ((a)->SubType == EFI_END_ENTIRE_DEVICE_PATH_SUBTYPE)
-#define EfiIsDevicePathEndInstanceSubType(a) \
+#define EfiIsDevicePathEndInstanceSubType(a)                                   \
   ((a)->SubType == EFI_END_INSTANCE_DEVICE_PATH)
 
-#define EfiIsDevicePathEnd(a) \
+#define EfiIsDevicePathEnd(a)                                                  \
   (EfiIsDevicePathEndType(a) && EfiIsDevicePathEndSubType(a))
-#define EfiIsDevicePathEndInstance(a) \
+#define EfiIsDevicePathEndInstance(a)                                          \
   (EfiIsDevicePathEndType(a) && EfiIsDevicePathEndInstanceSubType(a))

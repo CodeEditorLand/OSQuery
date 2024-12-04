@@ -18,26 +18,26 @@ set +e
 # can be as malformed as possible and it doesn't matter.
 # So we make a good effort to extract complete statements, but if it misses some, that's okay.
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 function usage() {
-  echo "${BASH_SOURCE[0]} destination-file"
+	echo "${BASH_SOURCE[0]} destination-file"
 }
 
 function main() {
-  if [[ $# < 1 ]]; then
-    usage
-    exit 1
-  fi
+	if [[ $# < 1 ]]; then
+		usage
+		exit 1
+	fi
 
-  # We put this above the current directory to avoid accidentally grabbing the file
-  RESULTDEST=../tmp
-  RESULTFILE=results.txt
-  mkdir $RESULTDEST
-  echo "" > $RESULTDEST/$RESULTFILE
-  # Find all the files containing "select and pass them to this beast of an awk script
-  # Only look in a few directories to avoid stuff like libraries, build, etc
-  grep -R "\"select" $SCRIPT_DIR/../../tests $SCRIPT_DIR/../../packs $SCRIPT_DIR/../../osquery $SCRIPT_DIR/../../plugins -l | xargs -I [] -- awk '
+	# We put this above the current directory to avoid accidentally grabbing the file
+	RESULTDEST=../tmp
+	RESULTFILE=results.txt
+	mkdir $RESULTDEST
+	echo "" >$RESULTDEST/$RESULTFILE
+	# Find all the files containing "select and pass them to this beast of an awk script
+	# Only look in a few directories to avoid stuff like libraries, build, etc
+	grep -R "\"select" $SCRIPT_DIR/../../tests $SCRIPT_DIR/../../packs $SCRIPT_DIR/../../osquery $SCRIPT_DIR/../../plugins -l | xargs -I [] -- awk '
 function ltrim(s) { sub(/^[ \t\r\n]+/, "", s); return s }
 function rtrim(s) { sub(/[ \t\r\n]+$/, "", s); return s }
 function trim(s) { return rtrim(ltrim(s)); }
@@ -86,20 +86,20 @@ BEGIN {
     next;
 }
 END {
-}' [] >> $RESULTDEST/$RESULTFILE
+}' [] >>$RESULTDEST/$RESULTFILE
 
-  pushd $RESULTDEST
+	pushd $RESULTDEST
 
-  # Find any \" and replace them with just "
-  sed -i 's/\\\"/\"/g' $RESULTFILE
+	# Find any \" and replace them with just "
+	sed -i 's/\\\"/\"/g' $RESULTFILE
 
-  # Okay we now have a file containing one SQL statement per line.
-  # The corpus needs to be a zip file containing one statement per file.
-  split -l 1 $RESULTFILE
-  rm $RESULTFILE
-  popd
-  zip -j $1 $RESULTDEST/*
-  rm -r $RESULTDEST
+	# Okay we now have a file containing one SQL statement per line.
+	# The corpus needs to be a zip file containing one statement per file.
+	split -l 1 $RESULTFILE
+	rm $RESULTFILE
+	popd
+	zip -j $1 $RESULTDEST/*
+	rm -r $RESULTDEST
 }
 
 main $@

@@ -35,7 +35,8 @@ enum class PlatformType {
 };
 
 /// The build-defined set of platform types.
-constexpr PlatformType kPlatformType = static_cast<PlatformType>(0u
+constexpr PlatformType kPlatformType = static_cast<PlatformType>(
+    0u
 #ifdef POSIX
     | static_cast<unsigned>(PlatformType::TYPE_POSIX)
 #endif

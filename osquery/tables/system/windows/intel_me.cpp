@@ -28,8 +28,8 @@
 #include <osquery/core/tables.h>
 #include <osquery/logger/logger.h>
 
-#include <osquery/utils/conversions/tryto.h>
 #include <osquery/tables/system/intel_me.hpp>
+#include <osquery/utils/conversions/tryto.h>
 
 // The AMT documentation can be found at the following address:
 // https://software.intel.com/sites/manageability/AMT_Implementation_and_Reference_Guide/default.htm

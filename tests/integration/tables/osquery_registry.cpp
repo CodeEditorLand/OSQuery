@@ -16,10 +16,10 @@ namespace osquery {
 namespace table_tests {
 
 class osqueryRegistry : public testing::Test {
-  protected:
-    void SetUp() override {
-      setUpEnvironment();
-    }
+ protected:
+  void SetUp() override {
+    setUpEnvironment();
+  }
 };
 
 TEST_F(osqueryRegistry, test_sanity) {

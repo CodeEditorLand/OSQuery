@@ -77,4 +77,4 @@ TEST_F(ViewsConfigParserPluginTests, test_update_view) {
 
   c.reset();
 }
-}
+} // namespace osquery

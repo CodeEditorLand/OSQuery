@@ -148,5 +148,5 @@ QueryData genSIPConfig(QueryContext& context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

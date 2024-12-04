@@ -66,4 +66,4 @@ TEST_F(EventsConfigParserPluginTests, test_get_event) {
   // Reset the configuration.
   c.reset();
 }
-}
+} // namespace osquery

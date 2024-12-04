@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include <string>
 #include <CoreFoundation/CoreFoundation.h>
+#include <string>
 
 namespace osquery {
 /**
@@ -18,4 +18,4 @@ namespace osquery {
  */
 std::string stringFromCFString(const CFStringRef& cf_string);
 
-}
+} // namespace osquery

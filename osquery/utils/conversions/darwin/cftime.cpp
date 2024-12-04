@@ -9,8 +9,8 @@
 
 #include "cftime.h"
 
-#include <cmath>
 #include <boost/lexical_cast.hpp>
+#include <cmath>
 
 namespace osquery {
 
@@ -29,4 +29,4 @@ std::string stringFromCFAbsoluteTime(const CFDataRef& cf_abstime) {
   return "0";
 }
 
-}
+} // namespace osquery

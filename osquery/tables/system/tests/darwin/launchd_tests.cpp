@@ -70,5 +70,5 @@ TEST_F(LaunchdTests, test_parse_launchd_item) {
     EXPECT_EQ(results[0][column.first], column.second);
   }
 }
-}
-}
+} // namespace tables
+} // namespace osquery

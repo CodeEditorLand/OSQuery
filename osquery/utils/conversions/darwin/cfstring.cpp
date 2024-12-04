@@ -29,4 +29,4 @@ std::string stringFromCFString(const CFStringRef& cf_string) {
   return result;
 }
 
-}
+} // namespace osquery

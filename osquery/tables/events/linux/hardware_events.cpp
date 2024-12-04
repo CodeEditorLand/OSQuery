@@ -80,4 +80,4 @@ Status HardwareEventSubscriber::Callback(const ECRef& ec, const SCRef& sc) {
   add(r);
   return Status(0);
 }
-}
+} // namespace osquery

@@ -140,7 +140,7 @@
 /* #undef HAVE_GMTIME_R */
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+ */
 /* #undef LT_OBJDIR */
 
 /* Name of package */
@@ -206,7 +206,6 @@
 /* TODO(rodrigoq): remove this workaround once bazel#3979 is resolved:
  * https://github.com/bazelbuild/bazel/issues/3979 */
 #define _START_GOOGLE_NAMESPACE_ namespace GOOGLE_NAMESPACE {
-
 #define _END_GOOGLE_NAMESPACE_ }
 
 #else
@@ -216,7 +215,6 @@
 
 /* Puts following code inside the Google namespace */
 #define _START_GOOGLE_NAMESPACE_ namespace google {
-
 #endif
 
-#endif  // GLOG_CONFIG_H
+#endif // GLOG_CONFIG_H

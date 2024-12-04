@@ -83,4 +83,4 @@ static void LOGGER_logstring_plugin(benchmark::State& state) {
 }
 
 BENCHMARK(LOGGER_logstring_plugin);
-}
+} // namespace osquery

@@ -17,15 +17,15 @@
 
 #include <boost/property_tree/ptree.hpp>
 
-#include <osquery/remote/enroll/enroll.h>
-#include <osquery/core/flags.h>
 #include <osquery/core/flagalias.h>
+#include <osquery/core/flags.h>
 #include <osquery/registry/registry.h>
+#include <osquery/remote/enroll/enroll.h>
 
 #include <osquery/remote/serializers/json.h>
 
-#include <plugins/config/parsers/decorators.h>
 #include <osquery/utils/json/json.h>
+#include <plugins/config/parsers/decorators.h>
 
 namespace osquery {
 

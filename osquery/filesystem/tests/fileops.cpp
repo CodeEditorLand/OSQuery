@@ -723,7 +723,8 @@ TEST_F(FileOpsTests, test_glob) {
   {
     std::vector<fs::path> expected{fake_directory_ / "deep1/",
                                    fake_directory_ / "root.txt"};
-    auto result = platformGlob((fake_directory_ / "{deep,root}{1,.txt}").string());
+    auto result =
+        platformGlob((fake_directory_ / "{deep,root}{1,.txt}").string());
     EXPECT_TRUE(globResultsMatch(result, expected));
   }
 
@@ -741,8 +742,8 @@ TEST_F(FileOpsTests, test_glob) {
                                    fake_directory_ / "deep11/deep2/",
                                    fake_directory_ / "deep11/level1.txt",
                                    fake_directory_ / "deep11/not_bash"};
-    auto result =
-        platformGlob((fake_directory_ / "*/{deep2,level1,not_bash}{,.txt}").string());
+    auto result = platformGlob(
+        (fake_directory_ / "*/{deep2,level1,not_bash}{,.txt}").string());
     EXPECT_TRUE(globResultsMatch(result, expected));
   }
 }

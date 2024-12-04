@@ -36,37 +36,39 @@
  */
 
 #ifndef alloca
-# ifdef __GNUC__
-   /* Some version of mingw have an <alloca.h> that causes trouble when
-      included after 'alloca' gets defined as a macro.  As a workaround, include
-      this <alloca.h> first and define 'alloca' as a macro afterwards.  */
-#  if (defined _WIN32 && ! defined __CYGWIN__) && 1
-#   include_next <alloca.h>
-#  endif
-#  define alloca __builtin_alloca
-# elif defined _AIX
-#  define alloca __alloca
-# elif defined _MSC_VER
-#  include <malloc.h>
-#  define alloca _alloca
-# elif defined __DECC && defined __VMS
-#  define alloca __ALLOCA
-# elif defined __TANDEM && defined _TNS_E_TARGET
-#  ifdef  __cplusplus
+#ifdef __GNUC__
+/* Some version of mingw have an <alloca.h> that causes trouble when
+   included after 'alloca' gets defined as a macro.  As a workaround, include
+   this <alloca.h> first and define 'alloca' as a macro afterwards.  */
+#if (defined _WIN32 && !defined __CYGWIN__) && 1
+#include_next <alloca.h>
+#endif
+#define alloca __builtin_alloca
+#elif defined _AIX
+#define alloca __alloca
+#elif defined _MSC_VER
+#include <malloc.h>
+#define alloca _alloca
+#elif defined __DECC && defined __VMS
+#define alloca __ALLOCA
+#elif defined __TANDEM && defined _TNS_E_TARGET
+#ifdef __cplusplus
 extern "C"
-#  endif
-void *_alloca (unsigned short);
-#  pragma intrinsic (_alloca)
-#  define alloca _alloca
-# elif defined __MVS__
-#  include <stdlib.h>
-# else
-#  include <stddef.h>
-#  ifdef  __cplusplus
+#endif
+    void*
+    _alloca(unsigned short);
+#pragma intrinsic(_alloca)
+#define alloca _alloca
+#elif defined __MVS__
+#include <stdlib.h>
+#else
+#include <stddef.h>
+#ifdef __cplusplus
 extern "C"
-#  endif
-void *alloca (size_t);
-# endif
+#endif
+    void*
+    alloca(size_t);
+#endif
 #endif
 
 #endif /* _GL_ALLOCA_H */

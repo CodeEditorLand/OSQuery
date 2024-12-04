@@ -47,5 +47,5 @@ QueryData pidsFromContext(const QueryContext& context, bool all) {
   }
   return procs;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

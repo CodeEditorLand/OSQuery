@@ -21,7 +21,7 @@ namespace osquery {
 
 #if !defined(OSQUERY_BUILD_VERSION)
 #warning The build should define OSQUERY_BUILD_VERSION.
-#define OSQUERY_BUILD_VERSION 1.0.0-unknown
+#define OSQUERY_BUILD_VERSION 1.0.0 - unknown
 #endif
 
 #if !defined(OSQUERY_BUILD_SDK_VERSION)

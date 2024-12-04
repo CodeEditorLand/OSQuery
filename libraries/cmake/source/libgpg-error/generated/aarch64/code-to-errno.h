@@ -20,1281 +20,1279 @@
    Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
    02111-1307, USA.  */
 
-
-
 #include <errno.h>
 #ifdef _WIN32
 #include <winsock2.h>
 #endif
 
-static const int err_code_to_errno [] = {
+static const int err_code_to_errno[] = {
 #ifdef E2BIG
-  E2BIG,
+    E2BIG,
 #else
 #ifdef WSAE2BIG
-  WSAE2BIG,
+    WSAE2BIG,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EACCES
-  EACCES,
+    EACCES,
 #else
 #ifdef WSAEACCES
-  WSAEACCES,
+    WSAEACCES,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EADDRINUSE
-  EADDRINUSE,
+    EADDRINUSE,
 #else
 #ifdef WSAEADDRINUSE
-  WSAEADDRINUSE,
+    WSAEADDRINUSE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EADDRNOTAVAIL
-  EADDRNOTAVAIL,
+    EADDRNOTAVAIL,
 #else
 #ifdef WSAEADDRNOTAVAIL
-  WSAEADDRNOTAVAIL,
+    WSAEADDRNOTAVAIL,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EADV
-  EADV,
+    EADV,
 #else
 #ifdef WSAEADV
-  WSAEADV,
+    WSAEADV,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EAFNOSUPPORT
-  EAFNOSUPPORT,
+    EAFNOSUPPORT,
 #else
 #ifdef WSAEAFNOSUPPORT
-  WSAEAFNOSUPPORT,
+    WSAEAFNOSUPPORT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EAGAIN
-  EAGAIN,
+    EAGAIN,
 #else
 #ifdef WSAEAGAIN
-  WSAEAGAIN,
+    WSAEAGAIN,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EALREADY
-  EALREADY,
+    EALREADY,
 #else
 #ifdef WSAEALREADY
-  WSAEALREADY,
+    WSAEALREADY,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EAUTH
-  EAUTH,
+    EAUTH,
 #else
 #ifdef WSAEAUTH
-  WSAEAUTH,
+    WSAEAUTH,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EBACKGROUND
-  EBACKGROUND,
+    EBACKGROUND,
 #else
 #ifdef WSAEBACKGROUND
-  WSAEBACKGROUND,
+    WSAEBACKGROUND,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EBADE
-  EBADE,
+    EBADE,
 #else
 #ifdef WSAEBADE
-  WSAEBADE,
+    WSAEBADE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EBADF
-  EBADF,
+    EBADF,
 #else
 #ifdef WSAEBADF
-  WSAEBADF,
+    WSAEBADF,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EBADFD
-  EBADFD,
+    EBADFD,
 #else
 #ifdef WSAEBADFD
-  WSAEBADFD,
+    WSAEBADFD,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EBADMSG
-  EBADMSG,
+    EBADMSG,
 #else
 #ifdef WSAEBADMSG
-  WSAEBADMSG,
+    WSAEBADMSG,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EBADR
-  EBADR,
+    EBADR,
 #else
 #ifdef WSAEBADR
-  WSAEBADR,
+    WSAEBADR,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EBADRPC
-  EBADRPC,
+    EBADRPC,
 #else
 #ifdef WSAEBADRPC
-  WSAEBADRPC,
+    WSAEBADRPC,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EBADRQC
-  EBADRQC,
+    EBADRQC,
 #else
 #ifdef WSAEBADRQC
-  WSAEBADRQC,
+    WSAEBADRQC,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EBADSLT
-  EBADSLT,
+    EBADSLT,
 #else
 #ifdef WSAEBADSLT
-  WSAEBADSLT,
+    WSAEBADSLT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EBFONT
-  EBFONT,
+    EBFONT,
 #else
 #ifdef WSAEBFONT
-  WSAEBFONT,
+    WSAEBFONT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EBUSY
-  EBUSY,
+    EBUSY,
 #else
 #ifdef WSAEBUSY
-  WSAEBUSY,
+    WSAEBUSY,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ECANCELED
-  ECANCELED,
+    ECANCELED,
 #else
 #ifdef WSAECANCELED
-  WSAECANCELED,
+    WSAECANCELED,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ECHILD
-  ECHILD,
+    ECHILD,
 #else
 #ifdef WSAECHILD
-  WSAECHILD,
+    WSAECHILD,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ECHRNG
-  ECHRNG,
+    ECHRNG,
 #else
 #ifdef WSAECHRNG
-  WSAECHRNG,
+    WSAECHRNG,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ECOMM
-  ECOMM,
+    ECOMM,
 #else
 #ifdef WSAECOMM
-  WSAECOMM,
+    WSAECOMM,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ECONNABORTED
-  ECONNABORTED,
+    ECONNABORTED,
 #else
 #ifdef WSAECONNABORTED
-  WSAECONNABORTED,
+    WSAECONNABORTED,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ECONNREFUSED
-  ECONNREFUSED,
+    ECONNREFUSED,
 #else
 #ifdef WSAECONNREFUSED
-  WSAECONNREFUSED,
+    WSAECONNREFUSED,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ECONNRESET
-  ECONNRESET,
+    ECONNRESET,
 #else
 #ifdef WSAECONNRESET
-  WSAECONNRESET,
+    WSAECONNRESET,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ED
-  ED,
+    ED,
 #else
 #ifdef WSAED
-  WSAED,
+    WSAED,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EDEADLK
-  EDEADLK,
+    EDEADLK,
 #else
 #ifdef WSAEDEADLK
-  WSAEDEADLK,
+    WSAEDEADLK,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EDEADLOCK
-  EDEADLOCK,
+    EDEADLOCK,
 #else
 #ifdef WSAEDEADLOCK
-  WSAEDEADLOCK,
+    WSAEDEADLOCK,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EDESTADDRREQ
-  EDESTADDRREQ,
+    EDESTADDRREQ,
 #else
 #ifdef WSAEDESTADDRREQ
-  WSAEDESTADDRREQ,
+    WSAEDESTADDRREQ,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EDIED
-  EDIED,
+    EDIED,
 #else
 #ifdef WSAEDIED
-  WSAEDIED,
+    WSAEDIED,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EDOM
-  EDOM,
+    EDOM,
 #else
 #ifdef WSAEDOM
-  WSAEDOM,
+    WSAEDOM,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EDOTDOT
-  EDOTDOT,
+    EDOTDOT,
 #else
 #ifdef WSAEDOTDOT
-  WSAEDOTDOT,
+    WSAEDOTDOT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EDQUOT
-  EDQUOT,
+    EDQUOT,
 #else
 #ifdef WSAEDQUOT
-  WSAEDQUOT,
+    WSAEDQUOT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EEXIST
-  EEXIST,
+    EEXIST,
 #else
 #ifdef WSAEEXIST
-  WSAEEXIST,
+    WSAEEXIST,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EFAULT
-  EFAULT,
+    EFAULT,
 #else
 #ifdef WSAEFAULT
-  WSAEFAULT,
+    WSAEFAULT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EFBIG
-  EFBIG,
+    EFBIG,
 #else
 #ifdef WSAEFBIG
-  WSAEFBIG,
+    WSAEFBIG,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EFTYPE
-  EFTYPE,
+    EFTYPE,
 #else
 #ifdef WSAEFTYPE
-  WSAEFTYPE,
+    WSAEFTYPE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EGRATUITOUS
-  EGRATUITOUS,
+    EGRATUITOUS,
 #else
 #ifdef WSAEGRATUITOUS
-  WSAEGRATUITOUS,
+    WSAEGRATUITOUS,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EGREGIOUS
-  EGREGIOUS,
+    EGREGIOUS,
 #else
 #ifdef WSAEGREGIOUS
-  WSAEGREGIOUS,
+    WSAEGREGIOUS,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EHOSTDOWN
-  EHOSTDOWN,
+    EHOSTDOWN,
 #else
 #ifdef WSAEHOSTDOWN
-  WSAEHOSTDOWN,
+    WSAEHOSTDOWN,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EHOSTUNREACH
-  EHOSTUNREACH,
+    EHOSTUNREACH,
 #else
 #ifdef WSAEHOSTUNREACH
-  WSAEHOSTUNREACH,
+    WSAEHOSTUNREACH,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EIDRM
-  EIDRM,
+    EIDRM,
 #else
 #ifdef WSAEIDRM
-  WSAEIDRM,
+    WSAEIDRM,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EIEIO
-  EIEIO,
+    EIEIO,
 #else
 #ifdef WSAEIEIO
-  WSAEIEIO,
+    WSAEIEIO,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EILSEQ
-  EILSEQ,
+    EILSEQ,
 #else
 #ifdef WSAEILSEQ
-  WSAEILSEQ,
+    WSAEILSEQ,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EINPROGRESS
-  EINPROGRESS,
+    EINPROGRESS,
 #else
 #ifdef WSAEINPROGRESS
-  WSAEINPROGRESS,
+    WSAEINPROGRESS,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EINTR
-  EINTR,
+    EINTR,
 #else
 #ifdef WSAEINTR
-  WSAEINTR,
+    WSAEINTR,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EINVAL
-  EINVAL,
+    EINVAL,
 #else
 #ifdef WSAEINVAL
-  WSAEINVAL,
+    WSAEINVAL,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EIO
-  EIO,
+    EIO,
 #else
 #ifdef WSAEIO
-  WSAEIO,
+    WSAEIO,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EISCONN
-  EISCONN,
+    EISCONN,
 #else
 #ifdef WSAEISCONN
-  WSAEISCONN,
+    WSAEISCONN,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EISDIR
-  EISDIR,
+    EISDIR,
 #else
 #ifdef WSAEISDIR
-  WSAEISDIR,
+    WSAEISDIR,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EISNAM
-  EISNAM,
+    EISNAM,
 #else
 #ifdef WSAEISNAM
-  WSAEISNAM,
+    WSAEISNAM,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EL2HLT
-  EL2HLT,
+    EL2HLT,
 #else
 #ifdef WSAEL2HLT
-  WSAEL2HLT,
+    WSAEL2HLT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EL2NSYNC
-  EL2NSYNC,
+    EL2NSYNC,
 #else
 #ifdef WSAEL2NSYNC
-  WSAEL2NSYNC,
+    WSAEL2NSYNC,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EL3HLT
-  EL3HLT,
+    EL3HLT,
 #else
 #ifdef WSAEL3HLT
-  WSAEL3HLT,
+    WSAEL3HLT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EL3RST
-  EL3RST,
+    EL3RST,
 #else
 #ifdef WSAEL3RST
-  WSAEL3RST,
+    WSAEL3RST,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ELIBACC
-  ELIBACC,
+    ELIBACC,
 #else
 #ifdef WSAELIBACC
-  WSAELIBACC,
+    WSAELIBACC,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ELIBBAD
-  ELIBBAD,
+    ELIBBAD,
 #else
 #ifdef WSAELIBBAD
-  WSAELIBBAD,
+    WSAELIBBAD,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ELIBEXEC
-  ELIBEXEC,
+    ELIBEXEC,
 #else
 #ifdef WSAELIBEXEC
-  WSAELIBEXEC,
+    WSAELIBEXEC,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ELIBMAX
-  ELIBMAX,
+    ELIBMAX,
 #else
 #ifdef WSAELIBMAX
-  WSAELIBMAX,
+    WSAELIBMAX,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ELIBSCN
-  ELIBSCN,
+    ELIBSCN,
 #else
 #ifdef WSAELIBSCN
-  WSAELIBSCN,
+    WSAELIBSCN,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ELNRNG
-  ELNRNG,
+    ELNRNG,
 #else
 #ifdef WSAELNRNG
-  WSAELNRNG,
+    WSAELNRNG,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ELOOP
-  ELOOP,
+    ELOOP,
 #else
 #ifdef WSAELOOP
-  WSAELOOP,
+    WSAELOOP,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EMEDIUMTYPE
-  EMEDIUMTYPE,
+    EMEDIUMTYPE,
 #else
 #ifdef WSAEMEDIUMTYPE
-  WSAEMEDIUMTYPE,
+    WSAEMEDIUMTYPE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EMFILE
-  EMFILE,
+    EMFILE,
 #else
 #ifdef WSAEMFILE
-  WSAEMFILE,
+    WSAEMFILE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EMLINK
-  EMLINK,
+    EMLINK,
 #else
 #ifdef WSAEMLINK
-  WSAEMLINK,
+    WSAEMLINK,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EMSGSIZE
-  EMSGSIZE,
+    EMSGSIZE,
 #else
 #ifdef WSAEMSGSIZE
-  WSAEMSGSIZE,
+    WSAEMSGSIZE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EMULTIHOP
-  EMULTIHOP,
+    EMULTIHOP,
 #else
 #ifdef WSAEMULTIHOP
-  WSAEMULTIHOP,
+    WSAEMULTIHOP,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENAMETOOLONG
-  ENAMETOOLONG,
+    ENAMETOOLONG,
 #else
 #ifdef WSAENAMETOOLONG
-  WSAENAMETOOLONG,
+    WSAENAMETOOLONG,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENAVAIL
-  ENAVAIL,
+    ENAVAIL,
 #else
 #ifdef WSAENAVAIL
-  WSAENAVAIL,
+    WSAENAVAIL,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENEEDAUTH
-  ENEEDAUTH,
+    ENEEDAUTH,
 #else
 #ifdef WSAENEEDAUTH
-  WSAENEEDAUTH,
+    WSAENEEDAUTH,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENETDOWN
-  ENETDOWN,
+    ENETDOWN,
 #else
 #ifdef WSAENETDOWN
-  WSAENETDOWN,
+    WSAENETDOWN,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENETRESET
-  ENETRESET,
+    ENETRESET,
 #else
 #ifdef WSAENETRESET
-  WSAENETRESET,
+    WSAENETRESET,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENETUNREACH
-  ENETUNREACH,
+    ENETUNREACH,
 #else
 #ifdef WSAENETUNREACH
-  WSAENETUNREACH,
+    WSAENETUNREACH,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENFILE
-  ENFILE,
+    ENFILE,
 #else
 #ifdef WSAENFILE
-  WSAENFILE,
+    WSAENFILE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOANO
-  ENOANO,
+    ENOANO,
 #else
 #ifdef WSAENOANO
-  WSAENOANO,
+    WSAENOANO,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOBUFS
-  ENOBUFS,
+    ENOBUFS,
 #else
 #ifdef WSAENOBUFS
-  WSAENOBUFS,
+    WSAENOBUFS,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOCSI
-  ENOCSI,
+    ENOCSI,
 #else
 #ifdef WSAENOCSI
-  WSAENOCSI,
+    WSAENOCSI,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENODATA
-  ENODATA,
+    ENODATA,
 #else
 #ifdef WSAENODATA
-  WSAENODATA,
+    WSAENODATA,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENODEV
-  ENODEV,
+    ENODEV,
 #else
 #ifdef WSAENODEV
-  WSAENODEV,
+    WSAENODEV,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOENT
-  ENOENT,
+    ENOENT,
 #else
 #ifdef WSAENOENT
-  WSAENOENT,
+    WSAENOENT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOEXEC
-  ENOEXEC,
+    ENOEXEC,
 #else
 #ifdef WSAENOEXEC
-  WSAENOEXEC,
+    WSAENOEXEC,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOLCK
-  ENOLCK,
+    ENOLCK,
 #else
 #ifdef WSAENOLCK
-  WSAENOLCK,
+    WSAENOLCK,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOLINK
-  ENOLINK,
+    ENOLINK,
 #else
 #ifdef WSAENOLINK
-  WSAENOLINK,
+    WSAENOLINK,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOMEDIUM
-  ENOMEDIUM,
+    ENOMEDIUM,
 #else
 #ifdef WSAENOMEDIUM
-  WSAENOMEDIUM,
+    WSAENOMEDIUM,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOMEM
-  ENOMEM,
+    ENOMEM,
 #else
 #ifdef WSAENOMEM
-  WSAENOMEM,
+    WSAENOMEM,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOMSG
-  ENOMSG,
+    ENOMSG,
 #else
 #ifdef WSAENOMSG
-  WSAENOMSG,
+    WSAENOMSG,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENONET
-  ENONET,
+    ENONET,
 #else
 #ifdef WSAENONET
-  WSAENONET,
+    WSAENONET,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOPKG
-  ENOPKG,
+    ENOPKG,
 #else
 #ifdef WSAENOPKG
-  WSAENOPKG,
+    WSAENOPKG,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOPROTOOPT
-  ENOPROTOOPT,
+    ENOPROTOOPT,
 #else
 #ifdef WSAENOPROTOOPT
-  WSAENOPROTOOPT,
+    WSAENOPROTOOPT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOSPC
-  ENOSPC,
+    ENOSPC,
 #else
 #ifdef WSAENOSPC
-  WSAENOSPC,
+    WSAENOSPC,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOSR
-  ENOSR,
+    ENOSR,
 #else
 #ifdef WSAENOSR
-  WSAENOSR,
+    WSAENOSR,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOSTR
-  ENOSTR,
+    ENOSTR,
 #else
 #ifdef WSAENOSTR
-  WSAENOSTR,
+    WSAENOSTR,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOSYS
-  ENOSYS,
+    ENOSYS,
 #else
 #ifdef WSAENOSYS
-  WSAENOSYS,
+    WSAENOSYS,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOTBLK
-  ENOTBLK,
+    ENOTBLK,
 #else
 #ifdef WSAENOTBLK
-  WSAENOTBLK,
+    WSAENOTBLK,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOTCONN
-  ENOTCONN,
+    ENOTCONN,
 #else
 #ifdef WSAENOTCONN
-  WSAENOTCONN,
+    WSAENOTCONN,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOTDIR
-  ENOTDIR,
+    ENOTDIR,
 #else
 #ifdef WSAENOTDIR
-  WSAENOTDIR,
+    WSAENOTDIR,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOTEMPTY
-  ENOTEMPTY,
+    ENOTEMPTY,
 #else
 #ifdef WSAENOTEMPTY
-  WSAENOTEMPTY,
+    WSAENOTEMPTY,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOTNAM
-  ENOTNAM,
+    ENOTNAM,
 #else
 #ifdef WSAENOTNAM
-  WSAENOTNAM,
+    WSAENOTNAM,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOTSOCK
-  ENOTSOCK,
+    ENOTSOCK,
 #else
 #ifdef WSAENOTSOCK
-  WSAENOTSOCK,
+    WSAENOTSOCK,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOTSUP
-  ENOTSUP,
+    ENOTSUP,
 #else
 #ifdef WSAENOTSUP
-  WSAENOTSUP,
+    WSAENOTSUP,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOTTY
-  ENOTTY,
+    ENOTTY,
 #else
 #ifdef WSAENOTTY
-  WSAENOTTY,
+    WSAENOTTY,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENOTUNIQ
-  ENOTUNIQ,
+    ENOTUNIQ,
 #else
 #ifdef WSAENOTUNIQ
-  WSAENOTUNIQ,
+    WSAENOTUNIQ,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ENXIO
-  ENXIO,
+    ENXIO,
 #else
 #ifdef WSAENXIO
-  WSAENXIO,
+    WSAENXIO,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EOPNOTSUPP
-  EOPNOTSUPP,
+    EOPNOTSUPP,
 #else
 #ifdef WSAEOPNOTSUPP
-  WSAEOPNOTSUPP,
+    WSAEOPNOTSUPP,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EOVERFLOW
-  EOVERFLOW,
+    EOVERFLOW,
 #else
 #ifdef WSAEOVERFLOW
-  WSAEOVERFLOW,
+    WSAEOVERFLOW,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EPERM
-  EPERM,
+    EPERM,
 #else
 #ifdef WSAEPERM
-  WSAEPERM,
+    WSAEPERM,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EPFNOSUPPORT
-  EPFNOSUPPORT,
+    EPFNOSUPPORT,
 #else
 #ifdef WSAEPFNOSUPPORT
-  WSAEPFNOSUPPORT,
+    WSAEPFNOSUPPORT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EPIPE
-  EPIPE,
+    EPIPE,
 #else
 #ifdef WSAEPIPE
-  WSAEPIPE,
+    WSAEPIPE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EPROCLIM
-  EPROCLIM,
+    EPROCLIM,
 #else
 #ifdef WSAEPROCLIM
-  WSAEPROCLIM,
+    WSAEPROCLIM,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EPROCUNAVAIL
-  EPROCUNAVAIL,
+    EPROCUNAVAIL,
 #else
 #ifdef WSAEPROCUNAVAIL
-  WSAEPROCUNAVAIL,
+    WSAEPROCUNAVAIL,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EPROGMISMATCH
-  EPROGMISMATCH,
+    EPROGMISMATCH,
 #else
 #ifdef WSAEPROGMISMATCH
-  WSAEPROGMISMATCH,
+    WSAEPROGMISMATCH,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EPROGUNAVAIL
-  EPROGUNAVAIL,
+    EPROGUNAVAIL,
 #else
 #ifdef WSAEPROGUNAVAIL
-  WSAEPROGUNAVAIL,
+    WSAEPROGUNAVAIL,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EPROTO
-  EPROTO,
+    EPROTO,
 #else
 #ifdef WSAEPROTO
-  WSAEPROTO,
+    WSAEPROTO,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EPROTONOSUPPORT
-  EPROTONOSUPPORT,
+    EPROTONOSUPPORT,
 #else
 #ifdef WSAEPROTONOSUPPORT
-  WSAEPROTONOSUPPORT,
+    WSAEPROTONOSUPPORT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EPROTOTYPE
-  EPROTOTYPE,
+    EPROTOTYPE,
 #else
 #ifdef WSAEPROTOTYPE
-  WSAEPROTOTYPE,
+    WSAEPROTOTYPE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ERANGE
-  ERANGE,
+    ERANGE,
 #else
 #ifdef WSAERANGE
-  WSAERANGE,
+    WSAERANGE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EREMCHG
-  EREMCHG,
+    EREMCHG,
 #else
 #ifdef WSAEREMCHG
-  WSAEREMCHG,
+    WSAEREMCHG,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EREMOTE
-  EREMOTE,
+    EREMOTE,
 #else
 #ifdef WSAEREMOTE
-  WSAEREMOTE,
+    WSAEREMOTE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EREMOTEIO
-  EREMOTEIO,
+    EREMOTEIO,
 #else
 #ifdef WSAEREMOTEIO
-  WSAEREMOTEIO,
+    WSAEREMOTEIO,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ERESTART
-  ERESTART,
+    ERESTART,
 #else
 #ifdef WSAERESTART
-  WSAERESTART,
+    WSAERESTART,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EROFS
-  EROFS,
+    EROFS,
 #else
 #ifdef WSAEROFS
-  WSAEROFS,
+    WSAEROFS,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ERPCMISMATCH
-  ERPCMISMATCH,
+    ERPCMISMATCH,
 #else
 #ifdef WSAERPCMISMATCH
-  WSAERPCMISMATCH,
+    WSAERPCMISMATCH,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ESHUTDOWN
-  ESHUTDOWN,
+    ESHUTDOWN,
 #else
 #ifdef WSAESHUTDOWN
-  WSAESHUTDOWN,
+    WSAESHUTDOWN,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ESOCKTNOSUPPORT
-  ESOCKTNOSUPPORT,
+    ESOCKTNOSUPPORT,
 #else
 #ifdef WSAESOCKTNOSUPPORT
-  WSAESOCKTNOSUPPORT,
+    WSAESOCKTNOSUPPORT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ESPIPE
-  ESPIPE,
+    ESPIPE,
 #else
 #ifdef WSAESPIPE
-  WSAESPIPE,
+    WSAESPIPE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ESRCH
-  ESRCH,
+    ESRCH,
 #else
 #ifdef WSAESRCH
-  WSAESRCH,
+    WSAESRCH,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ESRMNT
-  ESRMNT,
+    ESRMNT,
 #else
 #ifdef WSAESRMNT
-  WSAESRMNT,
+    WSAESRMNT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ESTALE
-  ESTALE,
+    ESTALE,
 #else
 #ifdef WSAESTALE
-  WSAESTALE,
+    WSAESTALE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ESTRPIPE
-  ESTRPIPE,
+    ESTRPIPE,
 #else
 #ifdef WSAESTRPIPE
-  WSAESTRPIPE,
+    WSAESTRPIPE,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ETIME
-  ETIME,
+    ETIME,
 #else
 #ifdef WSAETIME
-  WSAETIME,
+    WSAETIME,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ETIMEDOUT
-  ETIMEDOUT,
+    ETIMEDOUT,
 #else
 #ifdef WSAETIMEDOUT
-  WSAETIMEDOUT,
+    WSAETIMEDOUT,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ETOOMANYREFS
-  ETOOMANYREFS,
+    ETOOMANYREFS,
 #else
 #ifdef WSAETOOMANYREFS
-  WSAETOOMANYREFS,
+    WSAETOOMANYREFS,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef ETXTBSY
-  ETXTBSY,
+    ETXTBSY,
 #else
 #ifdef WSAETXTBSY
-  WSAETXTBSY,
+    WSAETXTBSY,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EUCLEAN
-  EUCLEAN,
+    EUCLEAN,
 #else
 #ifdef WSAEUCLEAN
-  WSAEUCLEAN,
+    WSAEUCLEAN,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EUNATCH
-  EUNATCH,
+    EUNATCH,
 #else
 #ifdef WSAEUNATCH
-  WSAEUNATCH,
+    WSAEUNATCH,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EUSERS
-  EUSERS,
+    EUSERS,
 #else
 #ifdef WSAEUSERS
-  WSAEUSERS,
+    WSAEUSERS,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EWOULDBLOCK
-  EWOULDBLOCK,
+    EWOULDBLOCK,
 #else
 #ifdef WSAEWOULDBLOCK
-  WSAEWOULDBLOCK,
+    WSAEWOULDBLOCK,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EXDEV
-  EXDEV,
+    EXDEV,
 #else
 #ifdef WSAEXDEV
-  WSAEXDEV,
+    WSAEXDEV,
 #else
-  0,
+    0,
 #endif
 #endif
 #ifdef EXFULL
-  EXFULL,
+    EXFULL,
 #else
 #ifdef WSAEXFULL
-  WSAEXFULL,
+    WSAEXFULL,
 #else
-  0,
+    0,
 #endif
 #endif
 };

@@ -39,5 +39,5 @@ void genControlInfo(int* oid,
 void genControlInfoFromName(const std::string& name,
                             QueryData& results,
                             const std::map<std::string, std::string>& config);
-}
-}
+} // namespace tables
+} // namespace osquery

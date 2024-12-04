@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include <string>
 #include <CoreServices/CoreServices.h>
+#include <string>
 
 namespace osquery {
 

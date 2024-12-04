@@ -96,7 +96,7 @@ boost::optional<std::time_t> convertAsn1TimeToEpochTime(
   const auto& string_time = opt_string_time.value();
 
   // b := abbr month, e := day with leading space instead of leading zero
-  struct tm tm {};
+  struct tm tm{};
   if (strptime(string_time.c_str(), "%b %e %H:%M:%S %Y %Z", &tm) == nullptr) {
     return boost::none;
   }

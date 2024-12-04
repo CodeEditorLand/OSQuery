@@ -22,7 +22,6 @@
 
 namespace osquery {
 
-
 CREATE_LAZY_REGISTRY(SQLPlugin, "sql");
 
 SQL::SQL(const std::string& query, bool use_cache) {
@@ -224,4 +223,4 @@ Status getQueryTables(const std::string& q, std::vector<std::string>& tables) {
   }
   return status;
 }
-}
+} // namespace osquery

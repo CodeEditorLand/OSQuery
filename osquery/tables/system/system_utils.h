@@ -35,5 +35,5 @@ QueryData usersFromContext(const QueryContext& context, bool all = false);
  * @return A complete set of rows for each process.
  */
 QueryData pidsFromContext(const QueryContext& context, bool all = true);
-}
-}
+} // namespace tables
+} // namespace osquery

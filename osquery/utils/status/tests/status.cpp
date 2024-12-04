@@ -102,4 +102,4 @@ TEST_F(StatusTests, test_expected_to_status_success) {
   EXPECT_TRUE(s.ok());
   EXPECT_EQ(s, Status::success());
 }
-}
+} // namespace osquery

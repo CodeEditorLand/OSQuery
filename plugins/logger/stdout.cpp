@@ -41,4 +41,4 @@ void StdoutLoggerPlugin::init(const std::string& name,
   // Now funnel the intermediate status logs provided to `init`.
   logStatus(log);
 }
-}
+} // namespace osquery

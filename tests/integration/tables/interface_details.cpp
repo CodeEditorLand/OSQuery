@@ -21,10 +21,10 @@ namespace osquery {
 namespace table_tests {
 
 class InterfaceDetailsTest : public testing::Test {
-  protected:
-    void SetUp() override {
-      setUpEnvironment();
-    }
+ protected:
+  void SetUp() override {
+    setUpEnvironment();
+  }
 };
 
 TEST_F(InterfaceDetailsTest, test_sanity) {

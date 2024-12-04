@@ -44,7 +44,7 @@ export CC=clang
 Then copy:
 
 ```sh
-cp ./config.h ../config/linux/<arch>/config.h
+cp ./config.h ../config/linux/ < arch > /config.h
 ```
 
 To the build also add the defines:
@@ -79,7 +79,7 @@ CFLAGS="-isysroot /Applications/Xcode_14.0.app/Contents/Developer/Platforms/MacO
 Then copy:
 
 ```sh
-cp ./config.h ../config/macos/<arch>/config.h
+cp ./config.h ../config/macos/ < arch > /config.h
 ```
 
 To the build also add the defines:
@@ -91,7 +91,8 @@ TUKLIB_SYMBOL_PREFIX=lzma_
 
 ## Windows (x86_64, ARM64)
 
-Copy `windows\vs2019\config.h` from the `lzma` source to `config\<arch>\windows`.
+Copy `windows\vs2019\config.h` from the `lzma` source to
+`config\<arch>\windows`.
 
 Then comment these defines inside the `config.h` file:
 

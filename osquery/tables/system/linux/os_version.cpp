@@ -107,7 +107,7 @@ QueryData genOSVersionImpl(QueryContext& context, Logger& logger) {
     }
   }
 
-  struct utsname uname_buf {};
+  struct utsname uname_buf{};
 
   if (uname(&uname_buf) == 0) {
     r["arch"] = SQL_TEXT(uname_buf.machine);

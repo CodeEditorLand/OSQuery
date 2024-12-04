@@ -122,4 +122,4 @@ TEST_F(OptionsConfigParserPluginTests, test_json_option) {
   EXPECT_EQ(R"raw({"foo":1,"bar":"baz"})raw",
             Flag::getValue("custom_nested_json"));
 }
-}
+} // namespace osquery

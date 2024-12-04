@@ -20,4 +20,4 @@ class SQLiteDatabasePluginTests : public DatabasePluginTests {
 
 // Define the default set of database plugin operation tests.
 CREATE_DATABASE_TESTS(SQLiteDatabasePluginTests);
-}
+} // namespace osquery

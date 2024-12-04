@@ -18,9 +18,9 @@
 
 #include <boost/numeric/conversion/cast.hpp>
 
+#include <osquery/core/tables.h>
 #include <osquery/logger/logger.h>
 #include <osquery/utils/status/status.h>
-#include <osquery/core/tables.h>
 
 namespace osquery {
 namespace tables {

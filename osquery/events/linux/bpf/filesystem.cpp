@@ -143,7 +143,7 @@ bool Filesystem::enumFiles(int dirfd, EnumFilesCallback callback) const {
 bool Filesystem::fileExists(bool& exists,
                             int dirfd,
                             const std::string& name) const {
-  struct stat file_stats {};
+  struct stat file_stats{};
   if (fstatat(dirfd, name.c_str(), &file_stats, 0) == 0) {
     exists = true;
     return true;

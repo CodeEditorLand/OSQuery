@@ -116,4 +116,4 @@ bool EventTappingEventPublisher::shouldFire(
     const EventTappingEventContextRef& ec) const {
   return true;
 }
-}
+} // namespace osquery

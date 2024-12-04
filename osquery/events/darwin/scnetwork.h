@@ -64,7 +64,9 @@ class SCNetworkEventPublisher
 
   void configure() override;
 
-  Status setUp() override { return Status(1, "Publisher not used"); }
+  Status setUp() override {
+    return Status(1, "Publisher not used");
+  }
   void tearDown() override;
 
   // Entrypoint to the run loop
@@ -115,4 +117,4 @@ class SCNetworkEventPublisher
   /// Storage/container operations protection mutex.
   mutable Mutex mutex_;
 };
-}
+} // namespace osquery

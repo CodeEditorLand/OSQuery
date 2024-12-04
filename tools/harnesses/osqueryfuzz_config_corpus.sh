@@ -9,19 +9,19 @@
 
 set -e
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 function usage() {
-  echo "${BASH_SOURCE[0]} destination-file"
+	echo "${BASH_SOURCE[0]} destination-file"
 }
 
 function main() {
-  if [[ $# < 1 ]]; then
-    usage
-    exit 1
-  fi
+	if [[ $# < 1 ]]; then
+		usage
+		exit 1
+	fi
 
-  zip -j $1 $SCRIPT_DIR/../tests/configs/*.conf
+	zip -j $1 $SCRIPT_DIR/../tests/configs/*.conf
 }
 
 main $@

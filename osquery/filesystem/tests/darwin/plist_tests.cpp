@@ -101,4 +101,4 @@ TEST_F(PlistTests, test_parse_plist_content_with_blobs) {
   // Verify we parsed the binary blob correctly
   EXPECT_NE(alias.find("Applications/Flux.app"), std::string::npos);
 }
-}
+} // namespace osquery

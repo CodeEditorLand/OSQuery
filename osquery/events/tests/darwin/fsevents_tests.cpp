@@ -453,4 +453,4 @@ TEST_F(FSEventsTests, test_fsevents_embedded_wildcards) {
   s = EventFactory::deregisterEventPublisher("fsevents");
   ASSERT_TRUE(s.ok());
 }
-}
+} // namespace osquery

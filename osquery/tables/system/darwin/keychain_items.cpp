@@ -205,5 +205,5 @@ QueryData genKeychainItems(QueryContext& context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

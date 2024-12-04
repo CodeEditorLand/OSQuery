@@ -61,4 +61,4 @@ std::string toAsciiTimeUTC(const struct tm* tm_time);
  */
 std::string getAsciiTime();
 
-}
+} // namespace osquery

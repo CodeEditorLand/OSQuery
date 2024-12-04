@@ -31,4 +31,3 @@ cp ./config.h ../config/config.h
 Set the following defines:
 
 - `#define USE_INTERNAL_PBKDF2 0`
-

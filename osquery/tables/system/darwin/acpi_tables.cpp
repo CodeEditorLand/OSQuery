@@ -59,5 +59,5 @@ QueryData genACPITables(QueryContext& context) {
   IOObjectRelease(service);
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

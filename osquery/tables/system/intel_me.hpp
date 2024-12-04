@@ -24,7 +24,22 @@ namespace tables {
  * FW version.
  */
 const std::vector<uint8_t> kMEIUpdateGUID{
-    232, 205, 157, 48, 177, 204, 98, 64, 143, 120, 96, 1, 21, 163, 67, 39,
+    232,
+    205,
+    157,
+    48,
+    177,
+    204,
+    98,
+    64,
+    143,
+    120,
+    96,
+    1,
+    21,
+    163,
+    67,
+    39,
 };
 
 struct mei_response {
@@ -44,5 +59,5 @@ struct mei_version {
   uint16_t r_build;
   uint16_t codes[6];
 };
-}
-}
+} // namespace tables
+} // namespace osquery

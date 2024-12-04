@@ -114,7 +114,7 @@ std::string getStringFromToken(const es_string_token_t* t) {
 }
 
 std::string getCwdPathFromPid(pid_t pid) {
-  struct proc_vnodepathinfo vpi {};
+  struct proc_vnodepathinfo vpi{};
   auto bytes = proc_pidinfo(pid, PROC_PIDVNODEPATHINFO, 0, &vpi, sizeof(vpi));
   return bytes <= 0 ? "" : vpi.pvi_cdir.vip_path;
 }

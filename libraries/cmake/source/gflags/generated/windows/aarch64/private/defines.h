@@ -1,12 +1,13 @@
 /* Generated from defines.h.in during build configuration using CMake. */
 
-// Note: This header file is only used internally. It is not part of public interface!
-//       Any cmakedefine is defined using the -D flag instead when Bazel is used.
-//       For Bazel, this file is thus not used to avoid a private file in $(GENDIR).
+// Note: This header file is only used internally. It is not part of public
+// interface!
+//       Any cmakedefine is defined using the -D flag instead when Bazel is
+//       used. For Bazel, this file is thus not used to avoid a private file in
+//       $(GENDIR).
 
 #ifndef GFLAGS_DEFINES_H_
 #define GFLAGS_DEFINES_H_
-
 
 // Define if you build this library for a MS Windows OS.
 #define OS_WINDOWS
@@ -43,6 +44,5 @@
 
 // Define if your pthread library defines the type pthread_rwlock_t
 /* #undef HAVE_RWLOCK */
-
 
 #endif // GFLAGS_DEFINES_H_

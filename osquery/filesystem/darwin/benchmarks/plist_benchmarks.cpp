@@ -12,8 +12,8 @@
 #include <boost/filesystem.hpp>
 
 #include <osquery/filesystem/filesystem.h>
-#include <osquery/utils/conversions/split.h>
 #include <osquery/tests/test_util.h>
+#include <osquery/utils/conversions/split.h>
 
 namespace fs = boost::filesystem;
 namespace pt = boost::property_tree;
@@ -41,4 +41,4 @@ static void PLIST_parse_file(benchmark::State& state) {
 }
 
 BENCHMARK(PLIST_parse_file);
-}
+} // namespace osquery

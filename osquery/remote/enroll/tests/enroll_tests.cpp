@@ -95,4 +95,4 @@ TEST_F(EnrollTests, test_enroll_key_caching) {
   getDatabaseValue(kPersistentSettings, "nodeKeyTime", key_time2);
   EXPECT_EQ(key_time2, key_time);
 }
-}
+} // namespace osquery

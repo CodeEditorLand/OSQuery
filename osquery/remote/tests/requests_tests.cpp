@@ -177,4 +177,4 @@ TEST_F(RequestsTests, test_compression) {
   EXPECT_EQ(compressed.substr(10), expected2);
   EXPECT_LT(compressed.size(), uncompressed.size());
 }
-}
+} // namespace osquery

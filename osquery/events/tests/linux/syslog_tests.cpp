@@ -204,4 +204,4 @@ TEST_F(SyslogTests, test_csv_separator) {
   ASSERT_EQ(std::vector<std::string>({"\",f\\ø\"o,", "\",bá\\'r", "baz\\,\""}),
             splitCsv("\"\"\",f\\ø\"\"o,\",\"\"\",bá\\'r\",\"baz\\,\"\"\""));
 }
-}
+} // namespace osquery

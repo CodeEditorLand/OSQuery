@@ -29,74 +29,75 @@
 #define GT_ISUPPER(X) ((X) >= 'A' && (X) <= 'Z')
 #define GT_ISLOWER(X) ((X) >= 'a' && (X) <= 'z')
 
-inline static int s2i__(const char *strings, const unsigned *s_table,
-			const int *i_table, size_t n, const char *s, int *value)
-{
-	ssize_t left, right;
+inline static int s2i__(const char* strings,
+                        const unsigned* s_table,
+                        const int* i_table,
+                        size_t n,
+                        const char* s,
+                        int* value) {
+  ssize_t left, right;
 
-	left = 0;
-	right = n - 1;
-	while (left <= right) {	/* invariant: left <= x <= right */
-		size_t mid;
-		int r;
+  left = 0;
+  right = n - 1;
+  while (left <= right) { /* invariant: left <= x <= right */
+    size_t mid;
+    int r;
 
-		mid = (left + right) / 2;
-		/* FIXME? avoid recomparing a common prefix */
-		r = strcmp(s, strings + s_table[mid]);
-		if (r == 0) {
-			*value = i_table[mid];
-			return 1;
-		}
-		if (r < 0)
-			right = mid - 1;
-		else
-			left = mid + 1;
-	}
-	return 0;
+    mid = (left + right) / 2;
+    /* FIXME? avoid recomparing a common prefix */
+    r = strcmp(s, strings + s_table[mid]);
+    if (r == 0) {
+      *value = i_table[mid];
+      return 1;
+    }
+    if (r < 0)
+      right = mid - 1;
+    else
+      left = mid + 1;
+  }
+  return 0;
 }
 
-inline static const char *i2s_direct__(const char *strings,
-				       const unsigned *table, int min, int max,
-				       int v)
-{
-	unsigned off;
+inline static const char* i2s_direct__(
+    const char* strings, const unsigned* table, int min, int max, int v) {
+  unsigned off;
 
-	if (v < min || v > max)
-		return NULL;
-	off = table[v - min];
-	if (off != -1u)
-		return strings + off;
-	return NULL;
+  if (v < min || v > max)
+    return NULL;
+  off = table[v - min];
+  if (off != -1u)
+    return strings + off;
+  return NULL;
 }
 
-inline static const char *i2s_bsearch__(const char *strings,
-					const int *i_table,
-					const unsigned *s_table, size_t n,
-					int v)
-{
-	ssize_t left, right;
+inline static const char* i2s_bsearch__(const char* strings,
+                                        const int* i_table,
+                                        const unsigned* s_table,
+                                        size_t n,
+                                        int v) {
+  ssize_t left, right;
 
-	left = 0;
-	right = n - 1;
-	while (left <= right) {	/* invariant: left <= x <= right */
-		size_t mid;
-		int mid_val;
+  left = 0;
+  right = n - 1;
+  while (left <= right) { /* invariant: left <= x <= right */
+    size_t mid;
+    int mid_val;
 
-		mid = (left + right) / 2;
-		mid_val = i_table[mid];
-		if (v == mid_val)
-			return strings + s_table[mid];
-		if (v < mid_val)
-			right = mid - 1;
-		else
-			left = mid + 1;
-	}
-	return NULL;
+    mid = (left + right) / 2;
+    mid_val = i_table[mid];
+    if (v == mid_val)
+      return strings + s_table[mid];
+    if (v < mid_val)
+      right = mid - 1;
+    else
+      left = mid + 1;
+  }
+  return NULL;
 }
 
 struct transtab {
-	int value;
-	unsigned offset;
+  int value;
+  unsigned offset;
 };
 
 #endif

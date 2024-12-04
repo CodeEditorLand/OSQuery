@@ -8,9 +8,9 @@
  */
 
 #include <dirent.h>
-#include <sys/stat.h>
 #include <fcntl.h>
 #include <stdio.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 #include <osquery/core/core.h>
@@ -36,7 +36,7 @@
 #define MSR_TURBO_RATIO_LIMIT 0x000001ad
 
 #define MSR_IA32_MISC_ENABLE_TURBO_DISABLE_BIT 38
-#define MSR_IA32_MISC_ENABLE_TURBO_DISABLE \
+#define MSR_IA32_MISC_ENABLE_TURBO_DISABLE                                     \
   (1ULL << MSR_IA32_MISC_ENABLE_TURBO_DISABLE_BIT)
 
 // Run Time Average Power Limiting (RAPL).
@@ -49,7 +49,7 @@ namespace tables {
 
 // These are the entries to retrieve from the model specific register
 struct msr_record_t {
-  const char *name;
+  const char* name;
   const off_t offset;
   const uint64_t mask;
   const int is_flag;
@@ -92,9 +92,9 @@ const static msr_record_t fields[] = {
      .mask = NO_MASK,
      .is_flag = false}};
 
-void getModelSpecificRegisterData(QueryData &results, int cpu_number) {
+void getModelSpecificRegisterData(QueryData& results, int cpu_number) {
   auto msr_filename =
-    std::string("/dev/cpu/") + std::to_string(cpu_number) + "/msr";
+      std::string("/dev/cpu/") + std::to_string(cpu_number) + "/msr";
 
   int fd = open(msr_filename.c_str(), O_RDONLY);
   if (fd < 0) {
@@ -109,7 +109,7 @@ void getModelSpecificRegisterData(QueryData &results, int cpu_number) {
 
   Row r;
   r["processor_number"] = BIGINT(cpu_number);
-  for (const msr_record_t &field : fields) {
+  for (const msr_record_t& field : fields) {
     uint64_t output;
     ssize_t size = pread(fd, &output, sizeof(uint64_t), field.offset);
     if (size != sizeof(uint64_t)) {
@@ -129,7 +129,7 @@ void getModelSpecificRegisterData(QueryData &results, int cpu_number) {
 }
 
 // Filter only for filenames starting with a digit.
-int msrScandirFilter(const struct dirent *entry) {
+int msrScandirFilter(const struct dirent* entry) {
   if (isdigit(entry->d_name[0])) {
     return 1;
   } else {
@@ -137,10 +137,10 @@ int msrScandirFilter(const struct dirent *entry) {
   }
 }
 
-QueryData genModelSpecificRegister(QueryContext &context) {
+QueryData genModelSpecificRegister(QueryContext& context) {
   QueryData results;
 
-  struct dirent **entries = nullptr;
+  struct dirent** entries = nullptr;
   int num_entries = scandir("/dev/cpu", &entries, msrScandirFilter, 0);
   if (num_entries < 1) {
     TLOG << "No msr information check msr kernel module is enabled.";
@@ -154,5 +154,5 @@ QueryData genModelSpecificRegister(QueryContext &context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

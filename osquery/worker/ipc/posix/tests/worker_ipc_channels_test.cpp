@@ -50,10 +50,9 @@ class WorkerIPCChannelsTest : public testing::Test {
   void setRelativeFDLimit(int fd_num) {
     auto current_fds_amount = getFdsOpen();
 
-    struct rlimit file_limits {
-      static_cast<rlim_t>(current_fds_amount + fd_num + 1),
-          static_cast<rlim_t>(current_fds_amount + fd_num + 1)
-    };
+    struct rlimit file_limits{
+        static_cast<rlim_t>(current_fds_amount + fd_num + 1),
+        static_cast<rlim_t>(current_fds_amount + fd_num + 1)};
     auto result = setrlimit(RLIMIT_NOFILE, &file_limits);
 
     ASSERT_TRUE(result == 0)

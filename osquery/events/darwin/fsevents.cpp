@@ -379,4 +379,4 @@ bool FSEventsEventPublisher::isStreamRunning() const {
 
   return CFRunLoopIsWaiting(run_loop_);
 }
-}
+} // namespace osquery

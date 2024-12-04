@@ -2,7 +2,8 @@
 
 ## Linux
 
-Patch the configure.ac file to use the gettext version 0.17 on the system; also remove the unsupported usage of `AM_GNU_GETTEXT_REQUIRE_VERSION`
+Patch the configure.ac file to use the gettext version 0.17 on the system; also
+remove the unsupported usage of `AM_GNU_GETTEXT_REQUIRE_VERSION`
 
 ```sh
 sed -i 's/0\.19\.8/0\.17/g' configure.ac
@@ -31,7 +32,8 @@ Then build with:
 make
 ```
 
-And keep track of the preprocessor defines used, which will have to be put in our CMakeLists.txt
+And keep track of the preprocessor defines used, which will have to be put in
+our CMakeLists.txt
 
 Then copy
 

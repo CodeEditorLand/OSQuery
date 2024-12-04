@@ -38,9 +38,9 @@ class NoneLoggerPlugin : public LoggerPlugin {
 REGISTER(NoneLoggerPlugin, "logger", "none");
 
 DECLARE_string(logger_plugin);
-}
+} // namespace osquery
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
   osquery::FLAGS_logger_plugin = "none";
 
   osquery::initTesting();

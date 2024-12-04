@@ -16,10 +16,10 @@ namespace osquery {
 namespace table_tests {
 
 class deviceHash : public testing::Test {
-  protected:
-    void SetUp() override {
-      setUpEnvironment();
-    }
+ protected:
+  void SetUp() override {
+    setUpEnvironment();
+  }
 };
 
 TEST_F(deviceHash, test_sanity) {

@@ -247,4 +247,4 @@ TEST_F(RegistryTests, test_real_registry) {
   }
   EXPECT_TRUE(has_one_registered);
 }
-}
+} // namespace osquery

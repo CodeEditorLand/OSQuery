@@ -32,4 +32,4 @@ TEST_F(TimeTests, test_asciitimeutc) {
 
   EXPECT_EQ(expected, toAsciiTimeUTC(result));
 }
-}
+} // namespace osquery

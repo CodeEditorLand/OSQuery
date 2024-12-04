@@ -111,7 +111,7 @@ class Hash : boost::noncopyable {
    *
    * The osquery::Hash class should only ever be instantiated with a HashType
    */
-  Hash(){};
+  Hash() {};
 
  private:
   /// The hashing algorithm which is used to compute the hash

@@ -1,10 +1,12 @@
 # zlib library build notes
 
-Check that the defines we are hardcoding in the CMakeLists.txt corresponds to the ones that are enabled during compilation.
-Also verify that if there are preprocessors `#if/#ifdef` checks in `zconf.h` that are modified to `#if 1`,
-the respective define checked is also present among the defines we are hardcoding.
+Check that the defines we are hardcoding in the CMakeLists.txt corresponds to
+the ones that are enabled during compilation. Also verify that if there are
+preprocessors `#if/#ifdef` checks in `zconf.h` that are modified to `#if 1`, the
+respective define checked is also present among the defines we are hardcoding.
 
 For instance if
+
 ```
 #ifdef HAVE_UNISTD_H    /* may be set to #if 1 by ./configure */
 #  define Z_HAVE_UNISTD_H
@@ -12,6 +14,7 @@ For instance if
 ```
 
 becomes
+
 ```
 #if 1    /* was set to #if 1 by ./configure */
 #  define Z_HAVE_UNISTD_H
@@ -20,7 +23,9 @@ becomes
 
 Add `HAVE_UNISTD_H` in the hardcoded defines.
 
-On Windows, when using CMake to configure, the `zconf.h` file is in the build folder, and it should be compared with the `zconf.h.included` file in the source folder.
+On Windows, when using CMake to configure, the `zconf.h` file is in the build
+folder, and it should be compared with the `zconf.h.included` file in the source
+folder.
 
 ## Linux
 
@@ -76,6 +81,7 @@ cmake --build build --verbose
 ### Windows arm64
 
 Prepare a `cross.cmake` file with
+
 ```cmake
 set(CMAKE_SYSTEM_NAME Windows)
 set(CMAKE_SYSTEM_PROCESSOR ARM64)

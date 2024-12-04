@@ -20,11 +20,11 @@
 // clang-format on
 
 #include <boost/algorithm/string/join.hpp>
-#include <osquery/logger/logger.h>
 #include <osquery/core/tables.h>
+#include <osquery/logger/logger.h>
 
-#include <osquery/utils/conversions/tryto.h>
 #include "osquery/core/windows/wmi.h"
+#include <osquery/utils/conversions/tryto.h>
 
 #include <memory>
 #include <string>
@@ -162,5 +162,5 @@ QueryData genRoutes(QueryContext& context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

@@ -16,12 +16,11 @@ namespace osquery {
 namespace table_tests {
 
 class osqueryFlags : public testing::Test {
-  protected:
-    void SetUp() override {
-      setUpEnvironment();
-    }
+ protected:
+  void SetUp() override {
+    setUpEnvironment();
+  }
 };
-
 
 TEST_F(osqueryFlags, test_sanity) {
   // 1. Query data

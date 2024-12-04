@@ -7,8 +7,8 @@
  * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
  */
 
-#include <sys/shm.h>
 #include <pwd.h>
+#include <sys/shm.h>
 
 #include <osquery/core/core.h>
 #include <osquery/core/tables.h>
@@ -27,12 +27,12 @@ struct shm_info {
   unsigned long swap_successes;
 } __attribute__((unused));
 
-QueryData genSharedMemory(QueryContext &context) {
+QueryData genSharedMemory(QueryContext& context) {
   QueryData results;
 
   // Use shared memory control (shmctl) to get the max SHMID.
   struct shm_info shm_info;
-  int maxid = shmctl(0, SHM_INFO, (struct shmid_ds *)(void *)&shm_info);
+  int maxid = shmctl(0, SHM_INFO, (struct shmid_ds*)(void*)&shm_info);
   if (maxid < 0) {
     VLOG(1) << "Linux kernel not configured for shared memory";
     return {};
@@ -40,7 +40,7 @@ QueryData genSharedMemory(QueryContext &context) {
 
   // Use a static pointer to access IPC permissions structure.
   struct shmid_ds shmseg;
-  struct ipc_perm *ipcp = &shmseg.shm_perm;
+  struct ipc_perm* ipcp = &shmseg.shm_perm;
 
   // Then iterate each shared memory ID up to the max.
   for (int id = 0; id <= maxid; id++) {
@@ -52,7 +52,7 @@ QueryData genSharedMemory(QueryContext &context) {
     Row r;
     r["shmid"] = INTEGER(shmid);
 
-    struct passwd *pw = getpwuid(shmseg.shm_perm.uid);
+    struct passwd* pw = getpwuid(shmseg.shm_perm.uid);
     if (pw != nullptr) {
       r["owner_uid"] = BIGINT(pw->pw_uid);
     }
@@ -82,5 +82,5 @@ QueryData genSharedMemory(QueryContext &context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

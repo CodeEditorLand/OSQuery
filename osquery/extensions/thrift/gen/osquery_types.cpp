@@ -11,22 +11,22 @@
 
 #include <thrift/TToString.h>
 
-namespace osquery { namespace extensions {
+namespace osquery {
+namespace extensions {
 
-int _kExtensionCodeValues[] = {
-  ExtensionCode::EXT_SUCCESS,
-  ExtensionCode::EXT_FAILED,
-  ExtensionCode::EXT_FATAL
-};
-const char* _kExtensionCodeNames[] = {
-  "EXT_SUCCESS",
-  "EXT_FAILED",
-  "EXT_FATAL"
-};
-const std::map<int, const char*> _ExtensionCode_VALUES_TO_NAMES(::apache::thrift::TEnumIterator(3, _kExtensionCodeValues, _kExtensionCodeNames), ::apache::thrift::TEnumIterator(-1, NULL, NULL));
+int _kExtensionCodeValues[] = {ExtensionCode::EXT_SUCCESS,
+                               ExtensionCode::EXT_FAILED,
+                               ExtensionCode::EXT_FATAL};
+const char* _kExtensionCodeNames[] = {"EXT_SUCCESS", "EXT_FAILED", "EXT_FATAL"};
+const std::map<int, const char*> _ExtensionCode_VALUES_TO_NAMES(
+    ::apache::thrift::TEnumIterator(3,
+                                    _kExtensionCodeValues,
+                                    _kExtensionCodeNames),
+    ::apache::thrift::TEnumIterator(-1, NULL, NULL));
 
 std::ostream& operator<<(std::ostream& out, const ExtensionCode::type& val) {
-  std::map<int, const char*>::const_iterator it = _ExtensionCode_VALUES_TO_NAMES.find(val);
+  std::map<int, const char*>::const_iterator it =
+      _ExtensionCode_VALUES_TO_NAMES.find(val);
   if (it != _ExtensionCode_VALUES_TO_NAMES.end()) {
     out << it->second;
   } else {
@@ -58,15 +58,13 @@ void InternalOptionInfo::__set_default_value(const std::string& val) {
 void InternalOptionInfo::__set_type(const std::string& val) {
   this->type = val;
 }
-std::ostream& operator<<(std::ostream& out, const InternalOptionInfo& obj)
-{
+std::ostream& operator<<(std::ostream& out, const InternalOptionInfo& obj) {
   obj.printTo(out);
   return out;
 }
 
-
-uint32_t InternalOptionInfo::read(::apache::thrift::protocol::TProtocol* iprot) {
-
+uint32_t InternalOptionInfo::read(
+    ::apache::thrift::protocol::TProtocol* iprot) {
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
   std::string fname;
@@ -77,42 +75,39 @@ uint32_t InternalOptionInfo::read(::apache::thrift::protocol::TProtocol* iprot) 
 
   using ::apache::thrift::protocol::TProtocolException;
 
-
-  while (true)
-  {
+  while (true) {
     xfer += iprot->readFieldBegin(fname, ftype, fid);
     if (ftype == ::apache::thrift::protocol::T_STOP) {
       break;
     }
-    switch (fid)
-    {
-      case 1:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readString(this->value);
-          this->__isset.value = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 2:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readString(this->default_value);
-          this->__isset.default_value = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 3:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readString(this->type);
-          this->__isset.type = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      default:
+    switch (fid) {
+    case 1:
+      if (ftype == ::apache::thrift::protocol::T_STRING) {
+        xfer += iprot->readString(this->value);
+        this->__isset.value = true;
+      } else {
         xfer += iprot->skip(ftype);
-        break;
+      }
+      break;
+    case 2:
+      if (ftype == ::apache::thrift::protocol::T_STRING) {
+        xfer += iprot->readString(this->default_value);
+        this->__isset.default_value = true;
+      } else {
+        xfer += iprot->skip(ftype);
+      }
+      break;
+    case 3:
+      if (ftype == ::apache::thrift::protocol::T_STRING) {
+        xfer += iprot->readString(this->type);
+        this->__isset.type = true;
+      } else {
+        xfer += iprot->skip(ftype);
+      }
+      break;
+    default:
+      xfer += iprot->skip(ftype);
+      break;
     }
     xfer += iprot->readFieldEnd();
   }
@@ -122,20 +117,24 @@ uint32_t InternalOptionInfo::read(::apache::thrift::protocol::TProtocol* iprot) 
   return xfer;
 }
 
-uint32_t InternalOptionInfo::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t InternalOptionInfo::write(
+    ::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
   xfer += oprot->writeStructBegin("InternalOptionInfo");
 
-  xfer += oprot->writeFieldBegin("value", ::apache::thrift::protocol::T_STRING, 1);
+  xfer +=
+      oprot->writeFieldBegin("value", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeString(this->value);
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("default_value", ::apache::thrift::protocol::T_STRING, 2);
+  xfer += oprot->writeFieldBegin(
+      "default_value", ::apache::thrift::protocol::T_STRING, 2);
   xfer += oprot->writeString(this->default_value);
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("type", ::apache::thrift::protocol::T_STRING, 3);
+  xfer +=
+      oprot->writeFieldBegin("type", ::apache::thrift::protocol::T_STRING, 3);
   xfer += oprot->writeString(this->type);
   xfer += oprot->writeFieldEnd();
 
@@ -144,7 +143,7 @@ uint32_t InternalOptionInfo::write(::apache::thrift::protocol::TProtocol* oprot)
   return xfer;
 }
 
-void swap(InternalOptionInfo &a, InternalOptionInfo &b) {
+void swap(InternalOptionInfo& a, InternalOptionInfo& b) {
   using ::std::swap;
   swap(a.value, b.value);
   swap(a.default_value, b.default_value);
@@ -205,15 +204,13 @@ void InternalExtensionInfo::__set_sdk_version(const std::string& val) {
 void InternalExtensionInfo::__set_min_sdk_version(const std::string& val) {
   this->min_sdk_version = val;
 }
-std::ostream& operator<<(std::ostream& out, const InternalExtensionInfo& obj)
-{
+std::ostream& operator<<(std::ostream& out, const InternalExtensionInfo& obj) {
   obj.printTo(out);
   return out;
 }
 
-
-uint32_t InternalExtensionInfo::read(::apache::thrift::protocol::TProtocol* iprot) {
-
+uint32_t InternalExtensionInfo::read(
+    ::apache::thrift::protocol::TProtocol* iprot) {
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
   std::string fname;
@@ -224,50 +221,47 @@ uint32_t InternalExtensionInfo::read(::apache::thrift::protocol::TProtocol* ipro
 
   using ::apache::thrift::protocol::TProtocolException;
 
-
-  while (true)
-  {
+  while (true) {
     xfer += iprot->readFieldBegin(fname, ftype, fid);
     if (ftype == ::apache::thrift::protocol::T_STOP) {
       break;
     }
-    switch (fid)
-    {
-      case 1:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readString(this->name);
-          this->__isset.name = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 2:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readString(this->version);
-          this->__isset.version = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 3:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readString(this->sdk_version);
-          this->__isset.sdk_version = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 4:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readString(this->min_sdk_version);
-          this->__isset.min_sdk_version = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      default:
+    switch (fid) {
+    case 1:
+      if (ftype == ::apache::thrift::protocol::T_STRING) {
+        xfer += iprot->readString(this->name);
+        this->__isset.name = true;
+      } else {
         xfer += iprot->skip(ftype);
-        break;
+      }
+      break;
+    case 2:
+      if (ftype == ::apache::thrift::protocol::T_STRING) {
+        xfer += iprot->readString(this->version);
+        this->__isset.version = true;
+      } else {
+        xfer += iprot->skip(ftype);
+      }
+      break;
+    case 3:
+      if (ftype == ::apache::thrift::protocol::T_STRING) {
+        xfer += iprot->readString(this->sdk_version);
+        this->__isset.sdk_version = true;
+      } else {
+        xfer += iprot->skip(ftype);
+      }
+      break;
+    case 4:
+      if (ftype == ::apache::thrift::protocol::T_STRING) {
+        xfer += iprot->readString(this->min_sdk_version);
+        this->__isset.min_sdk_version = true;
+      } else {
+        xfer += iprot->skip(ftype);
+      }
+      break;
+    default:
+      xfer += iprot->skip(ftype);
+      break;
     }
     xfer += iprot->readFieldEnd();
   }
@@ -277,24 +271,29 @@ uint32_t InternalExtensionInfo::read(::apache::thrift::protocol::TProtocol* ipro
   return xfer;
 }
 
-uint32_t InternalExtensionInfo::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t InternalExtensionInfo::write(
+    ::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
   xfer += oprot->writeStructBegin("InternalExtensionInfo");
 
-  xfer += oprot->writeFieldBegin("name", ::apache::thrift::protocol::T_STRING, 1);
+  xfer +=
+      oprot->writeFieldBegin("name", ::apache::thrift::protocol::T_STRING, 1);
   xfer += oprot->writeString(this->name);
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("version", ::apache::thrift::protocol::T_STRING, 2);
+  xfer += oprot->writeFieldBegin(
+      "version", ::apache::thrift::protocol::T_STRING, 2);
   xfer += oprot->writeString(this->version);
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("sdk_version", ::apache::thrift::protocol::T_STRING, 3);
+  xfer += oprot->writeFieldBegin(
+      "sdk_version", ::apache::thrift::protocol::T_STRING, 3);
   xfer += oprot->writeString(this->sdk_version);
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("min_sdk_version", ::apache::thrift::protocol::T_STRING, 4);
+  xfer += oprot->writeFieldBegin(
+      "min_sdk_version", ::apache::thrift::protocol::T_STRING, 4);
   xfer += oprot->writeString(this->min_sdk_version);
   xfer += oprot->writeFieldEnd();
 
@@ -303,7 +302,7 @@ uint32_t InternalExtensionInfo::write(::apache::thrift::protocol::TProtocol* opr
   return xfer;
 }
 
-void swap(InternalExtensionInfo &a, InternalExtensionInfo &b) {
+void swap(InternalExtensionInfo& a, InternalExtensionInfo& b) {
   using ::std::swap;
   swap(a.name, b.name);
   swap(a.version, b.version);
@@ -368,15 +367,12 @@ void ExtensionStatus::__set_message(const std::string& val) {
 void ExtensionStatus::__set_uuid(const ExtensionRouteUUID val) {
   this->uuid = val;
 }
-std::ostream& operator<<(std::ostream& out, const ExtensionStatus& obj)
-{
+std::ostream& operator<<(std::ostream& out, const ExtensionStatus& obj) {
   obj.printTo(out);
   return out;
 }
 
-
 uint32_t ExtensionStatus::read(::apache::thrift::protocol::TProtocol* iprot) {
-
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
   std::string fname;
@@ -387,42 +383,39 @@ uint32_t ExtensionStatus::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   using ::apache::thrift::protocol::TProtocolException;
 
-
-  while (true)
-  {
+  while (true) {
     xfer += iprot->readFieldBegin(fname, ftype, fid);
     if (ftype == ::apache::thrift::protocol::T_STOP) {
       break;
     }
-    switch (fid)
-    {
-      case 1:
-        if (ftype == ::apache::thrift::protocol::T_I32) {
-          xfer += iprot->readI32(this->code);
-          this->__isset.code = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 2:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readString(this->message);
-          this->__isset.message = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 3:
-        if (ftype == ::apache::thrift::protocol::T_I64) {
-          xfer += iprot->readI64(this->uuid);
-          this->__isset.uuid = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      default:
+    switch (fid) {
+    case 1:
+      if (ftype == ::apache::thrift::protocol::T_I32) {
+        xfer += iprot->readI32(this->code);
+        this->__isset.code = true;
+      } else {
         xfer += iprot->skip(ftype);
-        break;
+      }
+      break;
+    case 2:
+      if (ftype == ::apache::thrift::protocol::T_STRING) {
+        xfer += iprot->readString(this->message);
+        this->__isset.message = true;
+      } else {
+        xfer += iprot->skip(ftype);
+      }
+      break;
+    case 3:
+      if (ftype == ::apache::thrift::protocol::T_I64) {
+        xfer += iprot->readI64(this->uuid);
+        this->__isset.uuid = true;
+      } else {
+        xfer += iprot->skip(ftype);
+      }
+      break;
+    default:
+      xfer += iprot->skip(ftype);
+      break;
     }
     xfer += iprot->readFieldEnd();
   }
@@ -432,7 +425,8 @@ uint32_t ExtensionStatus::read(::apache::thrift::protocol::TProtocol* iprot) {
   return xfer;
 }
 
-uint32_t ExtensionStatus::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t ExtensionStatus::write(
+    ::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
   xfer += oprot->writeStructBegin("ExtensionStatus");
@@ -441,7 +435,8 @@ uint32_t ExtensionStatus::write(::apache::thrift::protocol::TProtocol* oprot) co
   xfer += oprot->writeI32(this->code);
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("message", ::apache::thrift::protocol::T_STRING, 2);
+  xfer += oprot->writeFieldBegin(
+      "message", ::apache::thrift::protocol::T_STRING, 2);
   xfer += oprot->writeString(this->message);
   xfer += oprot->writeFieldEnd();
 
@@ -454,7 +449,7 @@ uint32_t ExtensionStatus::write(::apache::thrift::protocol::TProtocol* oprot) co
   return xfer;
 }
 
-void swap(ExtensionStatus &a, ExtensionStatus &b) {
+void swap(ExtensionStatus& a, ExtensionStatus& b) {
   using ::std::swap;
   swap(a.code, b.code);
   swap(a.message, b.message);
@@ -506,15 +501,12 @@ void ExtensionResponse::__set_status(const ExtensionStatus& val) {
 void ExtensionResponse::__set_response(const ExtensionPluginResponse& val) {
   this->response = val;
 }
-std::ostream& operator<<(std::ostream& out, const ExtensionResponse& obj)
-{
+std::ostream& operator<<(std::ostream& out, const ExtensionResponse& obj) {
   obj.printTo(out);
   return out;
 }
 
-
 uint32_t ExtensionResponse::read(::apache::thrift::protocol::TProtocol* iprot) {
-
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
   std::string fname;
@@ -525,59 +517,56 @@ uint32_t ExtensionResponse::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   using ::apache::thrift::protocol::TProtocolException;
 
-
-  while (true)
-  {
+  while (true) {
     xfer += iprot->readFieldBegin(fname, ftype, fid);
     if (ftype == ::apache::thrift::protocol::T_STOP) {
       break;
     }
-    switch (fid)
-    {
-      case 1:
-        if (ftype == ::apache::thrift::protocol::T_STRUCT) {
-          xfer += this->status.read(iprot);
-          this->__isset.status = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 2:
-        if (ftype == ::apache::thrift::protocol::T_LIST) {
-          {
-            this->response.clear();
-            uint32_t _size12;
-            ::apache::thrift::protocol::TType _etype15;
-            xfer += iprot->readListBegin(_etype15, _size12);
-            this->response.resize(_size12);
-            uint32_t _i16;
-            for (_i16 = 0; _i16 < _size12; ++_i16) {
-              {
-                this->response[_i16].clear();
-                uint32_t _size17;
-                ::apache::thrift::protocol::TType _ktype18;
-                ::apache::thrift::protocol::TType _vtype19;
-                xfer += iprot->readMapBegin(_ktype18, _vtype19, _size17);
-                uint32_t _i21;
-                for (_i21 = 0; _i21 < _size17; ++_i21) {
-                  std::string _key22;
-                  xfer += iprot->readString(_key22);
-                  std::string& _val23 = this->response[_i16][_key22];
-                  xfer += iprot->readString(_val23);
-                }
-                xfer += iprot->readMapEnd();
-              }
-            }
-            xfer += iprot->readListEnd();
-          }
-          this->__isset.response = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      default:
+    switch (fid) {
+    case 1:
+      if (ftype == ::apache::thrift::protocol::T_STRUCT) {
+        xfer += this->status.read(iprot);
+        this->__isset.status = true;
+      } else {
         xfer += iprot->skip(ftype);
-        break;
+      }
+      break;
+    case 2:
+      if (ftype == ::apache::thrift::protocol::T_LIST) {
+        {
+          this->response.clear();
+          uint32_t _size12;
+          ::apache::thrift::protocol::TType _etype15;
+          xfer += iprot->readListBegin(_etype15, _size12);
+          this->response.resize(_size12);
+          uint32_t _i16;
+          for (_i16 = 0; _i16 < _size12; ++_i16) {
+            {
+              this->response[_i16].clear();
+              uint32_t _size17;
+              ::apache::thrift::protocol::TType _ktype18;
+              ::apache::thrift::protocol::TType _vtype19;
+              xfer += iprot->readMapBegin(_ktype18, _vtype19, _size17);
+              uint32_t _i21;
+              for (_i21 = 0; _i21 < _size17; ++_i21) {
+                std::string _key22;
+                xfer += iprot->readString(_key22);
+                std::string& _val23 = this->response[_i16][_key22];
+                xfer += iprot->readString(_val23);
+              }
+              xfer += iprot->readMapEnd();
+            }
+          }
+          xfer += iprot->readListEnd();
+        }
+        this->__isset.response = true;
+      } else {
+        xfer += iprot->skip(ftype);
+      }
+      break;
+    default:
+      xfer += iprot->skip(ftype);
+      break;
     }
     xfer += iprot->readFieldEnd();
   }
@@ -587,18 +576,22 @@ uint32_t ExtensionResponse::read(::apache::thrift::protocol::TProtocol* iprot) {
   return xfer;
 }
 
-uint32_t ExtensionResponse::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t ExtensionResponse::write(
+    ::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
   xfer += oprot->writeStructBegin("ExtensionResponse");
 
-  xfer += oprot->writeFieldBegin("status", ::apache::thrift::protocol::T_STRUCT, 1);
+  xfer +=
+      oprot->writeFieldBegin("status", ::apache::thrift::protocol::T_STRUCT, 1);
   xfer += this->status.write(oprot);
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("response", ::apache::thrift::protocol::T_LIST, 2);
+  xfer +=
+      oprot->writeFieldBegin("response", ::apache::thrift::protocol::T_LIST, 2);
   {
-    xfer += oprot->writeListBegin(::apache::thrift::protocol::T_MAP, static_cast<uint32_t>(this->response.size()));
+    xfer += oprot->writeListBegin(::apache::thrift::protocol::T_MAP,
+                                  static_cast<uint32_t>(this->response.size()));
     std::vector<std::map<std::string, std::string>>::const_iterator _iter24;
     for (_iter24 = this->response.begin(); _iter24 != this->response.end();
          ++_iter24) {
@@ -624,7 +617,7 @@ uint32_t ExtensionResponse::write(::apache::thrift::protocol::TProtocol* oprot) 
   return xfer;
 }
 
-void swap(ExtensionResponse &a, ExtensionResponse &b) {
+void swap(ExtensionResponse& a, ExtensionResponse& b) {
   using ::std::swap;
   swap(a.status, b.status);
   swap(a.response, b.response);
@@ -675,15 +668,13 @@ void ExtensionException::__set_message(const std::string& val) {
 void ExtensionException::__set_uuid(const ExtensionRouteUUID val) {
   this->uuid = val;
 }
-std::ostream& operator<<(std::ostream& out, const ExtensionException& obj)
-{
+std::ostream& operator<<(std::ostream& out, const ExtensionException& obj) {
   obj.printTo(out);
   return out;
 }
 
-
-uint32_t ExtensionException::read(::apache::thrift::protocol::TProtocol* iprot) {
-
+uint32_t ExtensionException::read(
+    ::apache::thrift::protocol::TProtocol* iprot) {
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
   std::string fname;
@@ -694,42 +685,39 @@ uint32_t ExtensionException::read(::apache::thrift::protocol::TProtocol* iprot) 
 
   using ::apache::thrift::protocol::TProtocolException;
 
-
-  while (true)
-  {
+  while (true) {
     xfer += iprot->readFieldBegin(fname, ftype, fid);
     if (ftype == ::apache::thrift::protocol::T_STOP) {
       break;
     }
-    switch (fid)
-    {
-      case 1:
-        if (ftype == ::apache::thrift::protocol::T_I32) {
-          xfer += iprot->readI32(this->code);
-          this->__isset.code = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 2:
-        if (ftype == ::apache::thrift::protocol::T_STRING) {
-          xfer += iprot->readString(this->message);
-          this->__isset.message = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      case 3:
-        if (ftype == ::apache::thrift::protocol::T_I64) {
-          xfer += iprot->readI64(this->uuid);
-          this->__isset.uuid = true;
-        } else {
-          xfer += iprot->skip(ftype);
-        }
-        break;
-      default:
+    switch (fid) {
+    case 1:
+      if (ftype == ::apache::thrift::protocol::T_I32) {
+        xfer += iprot->readI32(this->code);
+        this->__isset.code = true;
+      } else {
         xfer += iprot->skip(ftype);
-        break;
+      }
+      break;
+    case 2:
+      if (ftype == ::apache::thrift::protocol::T_STRING) {
+        xfer += iprot->readString(this->message);
+        this->__isset.message = true;
+      } else {
+        xfer += iprot->skip(ftype);
+      }
+      break;
+    case 3:
+      if (ftype == ::apache::thrift::protocol::T_I64) {
+        xfer += iprot->readI64(this->uuid);
+        this->__isset.uuid = true;
+      } else {
+        xfer += iprot->skip(ftype);
+      }
+      break;
+    default:
+      xfer += iprot->skip(ftype);
+      break;
     }
     xfer += iprot->readFieldEnd();
   }
@@ -739,7 +727,8 @@ uint32_t ExtensionException::read(::apache::thrift::protocol::TProtocol* iprot) 
   return xfer;
 }
 
-uint32_t ExtensionException::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t ExtensionException::write(
+    ::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
   xfer += oprot->writeStructBegin("ExtensionException");
@@ -748,7 +737,8 @@ uint32_t ExtensionException::write(::apache::thrift::protocol::TProtocol* oprot)
   xfer += oprot->writeI32(this->code);
   xfer += oprot->writeFieldEnd();
 
-  xfer += oprot->writeFieldBegin("message", ::apache::thrift::protocol::T_STRING, 2);
+  xfer += oprot->writeFieldBegin(
+      "message", ::apache::thrift::protocol::T_STRING, 2);
   xfer += oprot->writeString(this->message);
   xfer += oprot->writeFieldEnd();
 
@@ -761,7 +751,7 @@ uint32_t ExtensionException::write(::apache::thrift::protocol::TProtocol* oprot)
   return xfer;
 }
 
-void swap(ExtensionException &a, ExtensionException &b) {
+void swap(ExtensionException& a, ExtensionException& b) {
   using ::std::swap;
   swap(a.code, b.code);
   swap(a.message, b.message);
@@ -818,4 +808,5 @@ const char* ExtensionException::what() const noexcept {
     return "TException - service has thrown: ExtensionException";
   }
 }
-}} // namespace
+} // namespace extensions
+} // namespace osquery

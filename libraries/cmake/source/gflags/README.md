@@ -52,7 +52,9 @@ cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_gflags_LIB=ON -DBUILD_gflags_nothre
 
 ## All platforms
 
-Copy the generated files under `include` from the build folder, to the respective folders in the osquery source under `libraries/cmake/source/gflags/generated`
+Copy the generated files under `include` from the build folder, to the
+respective folders in the osquery source under
+`libraries/cmake/source/gflags/generated`
 
 Copy only once (it's the same for all platforms)
 

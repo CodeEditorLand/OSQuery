@@ -292,4 +292,4 @@ class INotifyEventPublisher
   FRIEND_TEST(INotifyTests, test_inotify_match_subscription);
   FRIEND_TEST(INotifyTests, test_inotify_embedded_wildcards);
 };
-}
+} // namespace osquery

@@ -23,4 +23,4 @@ class PrometheusMetricsConfigParserPlugin : public ConfigParserPlugin {
   std::vector<std::string> keys() const override;
   Status update(const std::string& source, const ParserConfig& config) override;
 };
-}
+} // namespace osquery

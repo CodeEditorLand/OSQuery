@@ -339,4 +339,4 @@ bool Pack::checkDiscovery() {
 bool Pack::isActive() const {
   return active_;
 }
-}
+} // namespace osquery

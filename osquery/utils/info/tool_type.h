@@ -37,4 +37,4 @@ bool isDaemon();
 
 /// Check the program is the osquery shell.
 bool isShell();
-}
+} // namespace osquery

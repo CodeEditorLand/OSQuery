@@ -31,6 +31,4 @@ class StdoutLoggerPlugin : public LoggerPlugin {
 
 REGISTER(StdoutLoggerPlugin, "logger", "stdout");
 
-
-}
-
+} // namespace osquery

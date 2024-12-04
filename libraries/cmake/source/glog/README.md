@@ -52,11 +52,13 @@ cmake ../ -DCMAKE_BUILD_TYPE=Release -DWITH_TLS=OFF -DWITH_GFLAGS=OFF -DWITH_THR
 
 ## All platforms
 
-Copy the generated files from the build folder, to the respective folders in the osquery source under `libraries/cmake/source/glog/generated`
+Copy the generated files from the build folder, to the respective folders in the
+osquery source under `libraries/cmake/source/glog/generated`
 
 ```text
 glog -> libraries/cmake/source/glog/generated/<os>/<architecture>/public/glog
 config.h -> libraries/cmake/source/glog/generated/<os>/<architecture>private/config.h
 ```
 
-Edit `TEST_SRC_DIR` in `generated/<os>/<architecture>/private/config.h` and set it to `""`, since it's not necessary
+Edit `TEST_SRC_DIR` in `generated/<os>/<architecture>/private/config.h` and set
+it to `""`, since it's not necessary

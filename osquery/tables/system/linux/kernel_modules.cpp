@@ -66,5 +66,5 @@ QueryData genKernelModules(QueryContext& context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

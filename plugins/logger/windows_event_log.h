@@ -50,4 +50,4 @@ class WindowsEventLoggerPlugin : public LoggerPlugin {
  private:
   REGHANDLE registration_handle_{0};
 };
-}
+} // namespace osquery

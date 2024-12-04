@@ -33,6 +33,8 @@ class JSONSerializer : public Serializer {
    *
    * @return The content type
    */
-  std::string getContentType() const { return "application/json"; }
+  std::string getContentType() const {
+    return "application/json";
+  }
 };
-}
+} // namespace osquery

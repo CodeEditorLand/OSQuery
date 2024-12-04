@@ -13,15 +13,17 @@
 
 #include <osquery/utils/conversions/join.h>
 
-namespace osquery{
+namespace osquery {
 
 class ConversionsTests : public testing::Test {};
 
 TEST_F(ConversionsTests, test_join) {
   std::vector<std::string> content = {
-      "one", "two", "three",
+      "one",
+      "two",
+      "three",
   };
   EXPECT_EQ(join(content, ", "), "one, two, three");
 }
 
-}
+} // namespace osquery

@@ -52,5 +52,5 @@ void parseScrapeResults(
  */
 void scrapeTargets(std::map<std::string, PrometheusResponseData>& scrapeResults,
                    size_t timeoutS = 1);
-}
-}
+} // namespace tables
+} // namespace osquery

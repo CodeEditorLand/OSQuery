@@ -28,6 +28,7 @@ class EventTappingEventPublisher
     : public EventPublisher<EventTappingSubscriptionContext,
                             EventTappingEventContext> {
   DECLARE_PUBLISHER("event_tapping");
+
  public:
   Status setUp() override;
 

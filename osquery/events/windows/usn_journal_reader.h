@@ -28,7 +28,6 @@
 #include <Windows.h>
 #include <winioctl.h>
 
-
 namespace osquery {
 
 /// The USN File Reference Number uniquely identifies a file within a volume

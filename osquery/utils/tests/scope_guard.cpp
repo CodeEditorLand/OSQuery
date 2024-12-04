@@ -59,7 +59,7 @@ TEST_F(ScopeGuardTests, example_temporary_file) {
   }
   {
     const auto guard = scope_guard::create(
-        [& file_path = tmp_file_path]() { fs::remove(file_path); });
+        [&file_path = tmp_file_path]() { fs::remove(file_path); });
     ASSERT_TRUE(fs::exists(tmp_file_path)); // let's check file exists
   }
   // context is closed, file should be removed

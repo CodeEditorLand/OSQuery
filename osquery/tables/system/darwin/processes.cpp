@@ -309,9 +309,7 @@ void genProcArch(QueryContext& context, int pid, ProcessesRow& r) {
     cpu_subtype_t p_cpusubtype;
   };
 
-  struct proc_archinfo archinfo {
-    0, 0
-  };
+  struct proc_archinfo archinfo{0, 0};
   // 19 is the flavor for this API call. It is normally used by Apple code
   // under the constant PROC_PIDARCHINFO but is unexported
   size_t status = proc_pidinfo(pid, 19, 0, &archinfo, sizeof(archinfo));
@@ -324,7 +322,7 @@ void genProcArch(QueryContext& context, int pid, ProcessesRow& r) {
   }
 
   if (archinfo.p_cputype == CPU_TYPE_ARM64) {
-    struct kinfo_proc kinfo {};
+    struct kinfo_proc kinfo{};
     int mib[] = {CTL_KERN, KERN_PROC, KERN_PROC_PID, pid};
     size_t size = sizeof(kinfo);
 

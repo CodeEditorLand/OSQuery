@@ -65,11 +65,11 @@
 
 // Annoying stuff for windows -- makes sure clients can import these functions
 #ifndef GOOGLE_GLOG_DLL_DECL
-# if defined(_WIN32) && !defined(__CYGWIN__)
-#   define GOOGLE_GLOG_DLL_DECL  __declspec(dllimport)
-# else
-#   define GOOGLE_GLOG_DLL_DECL
-# endif
+#if defined(_WIN32) && !defined(__CYGWIN__)
+#define GOOGLE_GLOG_DLL_DECL __declspec(dllimport)
+#else
+#define GOOGLE_GLOG_DLL_DECL
+#endif
 #endif
 
 #if defined(__GNUC__)
@@ -79,12 +79,13 @@
 // it's either FLAGS_v or an appropriate internal variable
 // matching the current source file that represents results of
 // parsing of --vmodule flag and/or SetVLOGLevel calls.
-#define VLOG_IS_ON(verboselevel)                                \
-  __extension__  \
-  ({ static google::int32* vlocal__ = NULL;           \
-     google::int32 verbose_level__ = (verboselevel);                    \
-     (vlocal__ == NULL ? google::InitVLOG3__(&vlocal__, &FLAGS_v, \
-                        __FILE__, verbose_level__) : *vlocal__ >= verbose_level__); \
+#define VLOG_IS_ON(verboselevel)                                               \
+  __extension__({                                                              \
+    static google::int32* vlocal__ = NULL;                                     \
+    google::int32 verbose_level__ = (verboselevel);                            \
+    (vlocal__ == NULL                                                          \
+         ? google::InitVLOG3__(&vlocal__, &FLAGS_v, __FILE__, verbose_level__) \
+         : *vlocal__ >= verbose_level__);                                      \
   })
 #else
 // GNU extensions not available, so we do not support --vmodule.
@@ -113,10 +114,9 @@ extern GOOGLE_GLOG_DLL_DECL int SetVLOGLevel(const char* module_pattern,
 //   verbose_level is the argument to VLOG_IS_ON
 // We will return the return value for VLOG_IS_ON
 // and if possible set *site_flag appropriately.
-extern GOOGLE_GLOG_DLL_DECL bool InitVLOG3__(
-    google::int32** site_flag,
-    google::int32* site_default,
-    const char* fname,
-    google::int32 verbose_level);
+extern GOOGLE_GLOG_DLL_DECL bool InitVLOG3__(google::int32** site_flag,
+                                             google::int32* site_default,
+                                             const char* fname,
+                                             google::int32 verbose_level);
 
-#endif  // BASE_VLOG_IS_ON_H_
+#endif // BASE_VLOG_IS_ON_H_

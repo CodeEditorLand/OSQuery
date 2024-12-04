@@ -56,4 +56,4 @@ std::string compressString(const std::string& data) {
 
   return output;
 }
-}
+} // namespace osquery

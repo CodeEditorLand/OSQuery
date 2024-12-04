@@ -24,7 +24,8 @@ class memoryDeviceMappedAddresses : public testing::Test {
 
 TEST_F(memoryDeviceMappedAddresses, test_sanity) {
   // 1. Query data
-  auto const data = execute_query("select * from memory_device_mapped_addresses");
+  auto const data =
+      execute_query("select * from memory_device_mapped_addresses");
   // 2. Check size before validation
   // ASSERT_GE(data.size(), 0ul);
   // ASSERT_EQ(data.size(), 1ul);

@@ -360,7 +360,7 @@ Status BPFEventPublisher::run() {
 
     auto& state = *d->system_state_tracker.get();
 
-    struct sysinfo system_info {};
+    struct sysinfo system_info{};
     sysinfo(&system_info);
 
     for (auto event_it = d->event_queue.begin();

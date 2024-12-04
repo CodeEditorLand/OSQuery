@@ -2,9 +2,12 @@
 
 ## Linux, macOS
 
-You will need to have the osquery source code on the machine used for configuring and build the following osquery targets first: thirdparty_libmagic, thidparty_lzma, thirdparty_zlib, openssl.
+You will need to have the osquery source code on the machine used for
+configuring and build the following osquery targets first: thirdparty_libmagic,
+thidparty_lzma, thirdparty_zlib, openssl.
 
-Then create the following symlinks for each library, excluded openssl (run from the build folder):
+Then create the following symlinks for each library, excluded openssl (run from
+the build folder):
 
 ```sh
 ln -s libthirdparty_libmagic.a libs/src/libmagic/libmagic.a
@@ -12,7 +15,8 @@ ln -s libthirdparty_lzma.a libs/src/lzma/liblzma.a
 ln -s libthirdparty_zlib.a libs/src/zlib/libz.a
 ```
 
-Then set the `LIBS_SRC` and `LIBS_BUILD` to the respective osquery source and build folder.
+Then set the `LIBS_SRC` and `LIBS_BUILD` to the respective osquery source and
+build folder.
 
 ## Linux
 
@@ -37,21 +41,23 @@ export LDFLAGS="${CFLAGS} -L${OPENSSL_LINK} -L${LIBMAGIC_LINK} -L${LZMA_LINK}"
 export CC=${TOOLCHAIN}/usr/bin/clang
 ```
 
-On aarch64 use `export LIBS="-llzma -lz -ldl"` on x86_64 use `export LIBS="-llzma -lz -ldl -lrt"`
+On aarch64 use `export LIBS="-llzma -lz -ldl"` on x86_64 use
+`export LIBS="-llzma -lz -ldl -lrt"`
 
 Then configure with:
 
 ```sh
 ./bootstrap.sh
 ./configure \
-  --disable-shared \
-  --enable-static \
-  --enable-magic \
-  --enable-dex \
-  --enable-macho
+	--disable-shared \
+	--enable-static \
+	--enable-magic \
+	--enable-dex \
+	--enable-macho
 ```
 
 And build with:
+
 ```sh
 make -j$(nproc) V=1
 ```
@@ -97,11 +103,11 @@ Then on x86_64 configure with:
 ```sh
 ./bootstrap.sh
 ./configure \
-  --disable-shared \
-  --enable-static \
-  --enable-magic \
-  --enable-dex \
-  --enable-macho
+	--disable-shared \
+	--enable-static \
+	--enable-magic \
+	--enable-dex \
+	--enable-macho
 ```
 
 On arm64 use:
@@ -109,12 +115,12 @@ On arm64 use:
 ```sh
 ./bootstrap.sh
 ./configure \
-  --disable-shared \
-  --enable-static \
-  --enable-magic \
-  --enable-dex \
-  --enable-macho \
-  --host=arm64-apple-darwin19.0.0
+	--disable-shared \
+	--enable-static \
+	--enable-magic \
+	--enable-dex \
+	--enable-macho \
+	--host=arm64-apple-darwin19.0.0
 ```
 
 And build with:
@@ -129,10 +135,20 @@ Refer to the `libyara.vcxproj` file in `windows/vs2017`.
 
 ## Linux, macOS
 
-Look at the `config.log` file, at the end where there are the preprocessor defines in `confdefs.h`. These should be used in our CMakeLists.txt, but we can skip all the `PACKAGE*` ones, `VERSION` and `LT_OBJDIR`.
-While not all remaining defines are used, for simplicity we keep them. Additionally look at the `Output variables` section and the `CFLAGS` variable content, adding those preprocessor defines too.
-Finally check the verbose build output to see if there are additional preprocessor defines not seen anywhere else, like `_GNU_SOURCE`.
+Look at the `config.log` file, at the end where there are the preprocessor
+defines in `confdefs.h`. These should be used in our CMakeLists.txt, but we can
+skip all the `PACKAGE*` ones, `VERSION` and `LT_OBJDIR`. While not all remaining
+defines are used, for simplicity we keep them. Additionally look at the
+`Output variables` section and the `CFLAGS` variable content, adding those
+preprocessor defines too. Finally check the verbose build output to see if there
+are additional preprocessor defines not seen anywhere else, like `_GNU_SOURCE`.
 
 ## Additional notes
 
-A patch to `strutils.c` is required since we normally want to rename common functions like `strlcat` and `strlcpy` if they are needed and implemented by the library itself. Since we do that with a preprocessor define and since the `strutils.c` not only checks for `!HAVE_STRLCAT` but also `!defined(strlcat)` before implementing the function, we need to remove the second check, otherwise it won't be implemented (because already defined by our preprocessor trick, although there's no actual function with that name being compiled in).
+A patch to `strutils.c` is required since we normally want to rename common
+functions like `strlcat` and `strlcpy` if they are needed and implemented by the
+library itself. Since we do that with a preprocessor define and since the
+`strutils.c` not only checks for `!HAVE_STRLCAT` but also `!defined(strlcat)`
+before implementing the function, we need to remove the second check, otherwise
+it won't be implemented (because already defined by our preprocessor trick,
+although there's no actual function with that name being compiled in).

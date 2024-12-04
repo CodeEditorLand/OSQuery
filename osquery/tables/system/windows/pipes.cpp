@@ -82,5 +82,5 @@ QueryData genPipes(QueryContext& context) {
   FindClose(findHandle);
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

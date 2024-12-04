@@ -54,8 +54,8 @@ export CC=gcc
 Then copy
 
 ```sh
-for header in code-from-errno code-to-errno err-codes-sym err-codes err-sources-sym err-sources errnos-sym gpg-error gpgrt mkerrcodes; \
- do cp ./src/${header}.h ../generated/ARCH/${header}.h; \
+for header in code-from-errno code-to-errno err-codes-sym err-codes err-sources-sym err-sources errnos-sym gpg-error gpgrt mkerrcodes; do
+	cp ./src/${header}.h ../generated/ARCH/${header}.h
 done
 cp ./config.h ../config/ARCH
 ```

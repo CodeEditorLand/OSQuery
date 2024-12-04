@@ -20,68 +20,64 @@
    Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
    02111-1307, USA.  */
 
-
 /* The purpose of this complex string table is to produce
    optimal code with a minimum of relocations.  */
 
-static const char msgstr[] = 
-  "GPG_ERR_SOURCE_UNKNOWN" "\0"
-  "GPG_ERR_SOURCE_GCRYPT" "\0"
-  "GPG_ERR_SOURCE_GPG" "\0"
-  "GPG_ERR_SOURCE_GPGSM" "\0"
-  "GPG_ERR_SOURCE_GPGAGENT" "\0"
-  "GPG_ERR_SOURCE_PINENTRY" "\0"
-  "GPG_ERR_SOURCE_SCD" "\0"
-  "GPG_ERR_SOURCE_GPGME" "\0"
-  "GPG_ERR_SOURCE_KEYBOX" "\0"
-  "GPG_ERR_SOURCE_KSBA" "\0"
-  "GPG_ERR_SOURCE_DIRMNGR" "\0"
-  "GPG_ERR_SOURCE_GSTI" "\0"
-  "GPG_ERR_SOURCE_GPA" "\0"
-  "GPG_ERR_SOURCE_KLEO" "\0"
-  "GPG_ERR_SOURCE_G13" "\0"
-  "GPG_ERR_SOURCE_ASSUAN" "\0"
-  "GPG_ERR_SOURCE_TLS" "\0"
-  "GPG_ERR_SOURCE_ANY" "\0"
-  "GPG_ERR_SOURCE_USER_1" "\0"
-  "GPG_ERR_SOURCE_USER_2" "\0"
-  "GPG_ERR_SOURCE_USER_3" "\0"
-  "GPG_ERR_SOURCE_USER_4" "\0"
-  "GPG_ERR_SOURCE_DIM";
+static const char msgstr[] =
+    "GPG_ERR_SOURCE_UNKNOWN"
+    "\0"
+    "GPG_ERR_SOURCE_GCRYPT"
+    "\0"
+    "GPG_ERR_SOURCE_GPG"
+    "\0"
+    "GPG_ERR_SOURCE_GPGSM"
+    "\0"
+    "GPG_ERR_SOURCE_GPGAGENT"
+    "\0"
+    "GPG_ERR_SOURCE_PINENTRY"
+    "\0"
+    "GPG_ERR_SOURCE_SCD"
+    "\0"
+    "GPG_ERR_SOURCE_GPGME"
+    "\0"
+    "GPG_ERR_SOURCE_KEYBOX"
+    "\0"
+    "GPG_ERR_SOURCE_KSBA"
+    "\0"
+    "GPG_ERR_SOURCE_DIRMNGR"
+    "\0"
+    "GPG_ERR_SOURCE_GSTI"
+    "\0"
+    "GPG_ERR_SOURCE_GPA"
+    "\0"
+    "GPG_ERR_SOURCE_KLEO"
+    "\0"
+    "GPG_ERR_SOURCE_G13"
+    "\0"
+    "GPG_ERR_SOURCE_ASSUAN"
+    "\0"
+    "GPG_ERR_SOURCE_TLS"
+    "\0"
+    "GPG_ERR_SOURCE_ANY"
+    "\0"
+    "GPG_ERR_SOURCE_USER_1"
+    "\0"
+    "GPG_ERR_SOURCE_USER_2"
+    "\0"
+    "GPG_ERR_SOURCE_USER_3"
+    "\0"
+    "GPG_ERR_SOURCE_USER_4"
+    "\0"
+    "GPG_ERR_SOURCE_DIM";
 
-static const int msgidx[] =
-  {
-    0,
-    23,
-    45,
-    64,
-    85,
-    109,
-    133,
-    152,
-    173,
-    195,
-    215,
-    238,
-    258,
-    277,
-    297,
-    316,
-    338,
-    357,
-    376,
-    398,
-    420,
-    442,
-    464
-  };
+static const int msgidx[] = {0,   23,  45,  64,  85,  109, 133, 152,
+                             173, 195, 215, 238, 258, 277, 297, 316,
+                             338, 357, 376, 398, 420, 442, 464};
 
-static GPG_ERR_INLINE int
-msgidxof (int code)
-{
-  return (0 ? 0
-  : ((code >= 0) && (code <= 15)) ? (code - 0)
-  : ((code >= 17) && (code <= 17)) ? (code - 1)
-  : ((code >= 31) && (code <= 35)) ? (code - 14)
-  : 36 - 14);
+static GPG_ERR_INLINE int msgidxof(int code) {
+  return (0                                ? 0
+          : ((code >= 0) && (code <= 15))  ? (code - 0)
+          : ((code >= 17) && (code <= 17)) ? (code - 1)
+          : ((code >= 31) && (code <= 35)) ? (code - 14)
+                                           : 36 - 14);
 }

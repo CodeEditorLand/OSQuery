@@ -152,4 +152,4 @@ TEST_F(ResultsTests, test_adding_duplicate_rows_to_query_data) {
   EXPECT_FALSE(s);
   EXPECT_EQ(q.size(), 2U);
 }
-}
+} // namespace osquery

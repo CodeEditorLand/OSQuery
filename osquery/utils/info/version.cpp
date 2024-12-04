@@ -7,10 +7,9 @@
  * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
  */
 
-#include <osquery/utils/info/version.h>
 #include <osquery/utils/conversions/split.h>
+#include <osquery/utils/info/version.h>
 
-#include <stdexcept>
 #include <stdexcept>
 
 namespace osquery {

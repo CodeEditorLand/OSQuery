@@ -262,4 +262,4 @@ TEST_F(QueryTests, test_report_removed_rows) {
   sq.options["removed"] = false;
   EXPECT_FALSE(sq.reportRemovedRows());
 }
-}
+} // namespace osquery

@@ -88,4 +88,4 @@ class TLSLoggerPlugin : public LoggerPlugin {
  private:
   friend class TLSLoggerTests;
 };
-}
+} // namespace osquery

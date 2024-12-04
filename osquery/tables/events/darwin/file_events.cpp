@@ -108,4 +108,4 @@ Status FileEventSubscriber::Callback(const FSEventsEventContextRef& ec,
   add(r);
   return Status::success();
 }
-}
+} // namespace osquery

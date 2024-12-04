@@ -30,7 +30,7 @@ const std::string kUSBKeyAddress = "BUSNUM";
 const std::string kUSBKeyPort = "DEVNUM";
 const std::string kUSBKeyType = "TYPE";
 
-QueryData genUSBDevices(QueryContext &context) {
+QueryData genUSBDevices(QueryContext& context) {
   QueryData results;
 
   auto udev_handle = udev_new();
@@ -49,7 +49,7 @@ QueryData genUSBDevices(QueryContext &context) {
   device_entries = udev_enumerate_get_list_entry(enumerate);
 
   udev_list_entry_foreach(entry, device_entries) {
-    const char *path = udev_list_entry_get_name(entry);
+    const char* path = udev_list_entry_get_name(entry);
     auto device = udev_device_new_from_syspath(udev_handle, path);
 
     Row r;
@@ -104,5 +104,5 @@ QueryData genUSBDevices(QueryContext &context) {
 
   return results;
 }
-}
-}
+} // namespace tables
+} // namespace osquery

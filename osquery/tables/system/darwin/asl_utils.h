@@ -24,11 +24,17 @@ namespace osquery {
 namespace tables {
 
 #ifdef OLD_ASL_API
-inline void asl_release(aslmsg msg) { asl_free(msg); }
+inline void asl_release(aslmsg msg) {
+  asl_free(msg);
+}
 
-inline void asl_release(aslresponse resp) { aslresponse_free(resp); }
+inline void asl_release(aslresponse resp) {
+  aslresponse_free(resp);
+}
 
-inline aslmsg asl_next(aslresponse resp) { return aslresponse_next(resp); }
+inline aslmsg asl_next(aslresponse resp) {
+  return aslresponse_next(resp);
+}
 #endif
 
 /**
@@ -74,5 +80,5 @@ void readAslRow(aslmsg row, Row& r);
  * @return A regex corresponding to the input LIKE string
  */
 std::string convertLikeRegex(const std::string& like_str);
-}
-}
+} // namespace tables
+} // namespace osquery
