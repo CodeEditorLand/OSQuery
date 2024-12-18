@@ -296,7 +296,7 @@ jobs:
                   git checkout ${{ env.PACKAGING_COMMIT }}
 
             - name: Update the cache (ccache)
-              uses: actions/cache@v4
+              uses: actions/cache@v4.2.0
               with:
                   path: ${{ steps.build_paths.outputs.CCACHE }}
 
@@ -307,7 +307,7 @@ jobs:
                       ccache_${{ matrix.cache_key }}_${{ matrix.build_type }}
 
             - name: Update the cache (git submodules)
-              uses: actions/cache@v4
+              uses: actions/cache@v4.2.0
               with:
                   path: ${{ steps.build_paths.outputs.SOURCE }}/.git/modules
 
@@ -423,7 +423,7 @@ jobs:
 
             - name: Store the unsigned release package data artifact
               if: matrix.build_type == 'RelWithDebInfo'
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: linux_unsigned_release_package_data_aarch64
                   path:
@@ -433,7 +433,7 @@ jobs:
 
             - name: Store the unsigned release DEB artifact
               if: matrix.build_type == 'RelWithDebInfo'
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: linux_unsigned_release_deb_aarch64
                   path:
@@ -442,7 +442,7 @@ jobs:
 
             - name: Store the unsigned debug DEB artifact
               if: matrix.build_type == 'RelWithDebInfo'
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: linux_unsigned_debug_deb_aarch64
                   path:
@@ -450,7 +450,7 @@ jobs:
 
             - name: Store the unsigned release RPM artifact
               if: matrix.build_type == 'RelWithDebInfo'
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: linux_unsigned_release_rpm_aarch64
                   path:
@@ -459,7 +459,7 @@ jobs:
 
             - name: Store the unsigned debug RPM artifact
               if: matrix.build_type == 'RelWithDebInfo'
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: linux_unsigned_debug_rpm_aarch64
                   path:
@@ -467,7 +467,7 @@ jobs:
 
             - name: Store the unsigned release TGZ artifact
               if: matrix.build_type == 'RelWithDebInfo'
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: linux_unsigned_release_tgz_aarch64
                   path:

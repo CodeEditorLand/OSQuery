@@ -167,7 +167,7 @@ jobs:
                   fetch-depth: 0
 
             - name: Update the cache (git submodules)
-              uses: actions/cache@v4
+              uses: actions/cache@v4.2.0
               with:
                   path: ${{ steps.build_paths.outputs.SOURCE }}/.git/modules
 
@@ -206,7 +206,7 @@ jobs:
                   cmake --build . --target cppcheck 2>&1 | tee cppcheck_release.txt
 
             - name: Store the cppcheck log (Release)
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: cppcheck-release
                   path:
@@ -237,7 +237,7 @@ jobs:
                   cmake --build . --target cppcheck 2>&1 | tee cppcheck_debug.txt
 
             - name: Store the cppcheck log (Debug)
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: cppcheck-debug
                   path:
@@ -351,7 +351,7 @@ jobs:
                   git checkout ${{ env.PACKAGING_COMMIT }}
 
             - name: Update the cache (ccache)
-              uses: actions/cache@v4
+              uses: actions/cache@v4.2.0
               with:
                   path: ${{ steps.build_paths.outputs.CCACHE }}
 
@@ -362,7 +362,7 @@ jobs:
                       ccache_${{ matrix.os }}_${{ matrix.build_type }}
 
             - name: Update the cache (git submodules)
-              uses: actions/cache@v4
+              uses: actions/cache@v4.2.0
               with:
                   path: ${{ steps.build_paths.outputs.SOURCE }}/.git/modules
 
@@ -475,7 +475,7 @@ jobs:
 
             - name: Store the unsigned release package data artifact
               if: matrix.build_type == 'RelWithDebInfo'
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: linux_unsigned_release_package_data
                   path:
@@ -485,7 +485,7 @@ jobs:
 
             - name: Store the unsigned release DEB artifact
               if: matrix.build_type == 'RelWithDebInfo'
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: linux_unsigned_release_deb
                   path:
@@ -494,7 +494,7 @@ jobs:
 
             - name: Store the unsigned debug DEB artifact
               if: matrix.build_type == 'RelWithDebInfo'
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: linux_unsigned_debug_deb
                   path:
@@ -502,7 +502,7 @@ jobs:
 
             - name: Store the unsigned release RPM artifact
               if: matrix.build_type == 'RelWithDebInfo'
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: linux_unsigned_release_rpm
                   path:
@@ -511,7 +511,7 @@ jobs:
 
             - name: Store the unsigned debug RPM artifact
               if: matrix.build_type == 'RelWithDebInfo'
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: linux_unsigned_debug_rpm
                   path:
@@ -519,7 +519,7 @@ jobs:
 
             - name: Store the unsigned release TGZ artifact
               if: matrix.build_type == 'RelWithDebInfo'
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: linux_unsigned_release_tgz
                   path:
@@ -598,7 +598,7 @@ jobs:
                   vm_stat
 
             - name: Update the cache (ccache)
-              uses: actions/cache@v4
+              uses: actions/cache@v4.2.0
               with:
                   path: ${{ steps.build_paths.outputs.CCACHE }}
 
@@ -609,7 +609,7 @@ jobs:
                       ccache_${{ matrix.os }}_${{ matrix.architecture }}_${{ matrix.build_type }}
 
             - name: Update the cache (git submodules)
-              uses: actions/cache@v4
+              uses: actions/cache@v4.2.0
               with:
                   path: ${{ steps.build_paths.outputs.SOURCE }}/.git/modules
 
@@ -620,7 +620,7 @@ jobs:
                       gitmodules_${{ matrix.os }}_${{ matrix.architecture }}_${{env.SUBMODULE_CACHE_VERSION}}
 
             - name: Update the cache (downloads)
-              uses: actions/cache@v4
+              uses: actions/cache@v4.2.0
               with:
                   path: ${{ steps.build_paths.outputs.DOWNLOADS }}
 
@@ -772,7 +772,7 @@ jobs:
                   Store the ${{ matrix.architecture }} unsigned release package
                   data artifact
               if: matrix.build_type == 'Release' && matrix.os == 'macos-14'
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name:
                       macos_unsigned_release_package_data_${{
@@ -791,7 +791,7 @@ jobs:
 
             - name: Store the packaged tests for older x86_64 macOS workers
               if: matrix.architecture == 'x86_64' && matrix.os == 'macos-14'
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: macos_tests_${{ matrix.build_type }}
                   path: workspace/macos_tests_${{ matrix.build_type }}.tar.gz
@@ -907,7 +907,7 @@ jobs:
                   tools/ci/scripts/macos/build_universal_package_data.sh
 
             - name: Store the universal unsigned release package data artifact
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: macos_unsigned_release_package_data_universal
                   path: package_data.tar.gz
@@ -945,7 +945,7 @@ jobs:
                   echo "REL_UNSIGNED_RELEASE_TGZ_PATH=$(ls package_build/*.tar.gz)" >> $GITHUB_OUTPUT
 
             - name: Store the PKG unsigned release packages
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: macos_unsigned_pkg_universal
                   path:
@@ -953,7 +953,7 @@ jobs:
                       }}
 
             - name: Store the TGZ unsigned release packages
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: macos_unsigned_tgz_universal
                   path:
@@ -1064,7 +1064,7 @@ jobs:
                   git checkout ${{ env.PACKAGING_COMMIT }}
 
             - name: Update the cache (git submodules)
-              uses: actions/cache@v4
+              uses: actions/cache@v4.2.0
               with:
                   path: ${{ steps.build_paths.outputs.SOURCE }}\.git\modules
 
@@ -1075,7 +1075,7 @@ jobs:
                       gitmodules_${{ matrix.os }}_${{env.SUBMODULE_CACHE_VERSION}}
 
             - name: Update the cache (downloads)
-              uses: actions/cache@v4
+              uses: actions/cache@v4.2.0
               with:
                   path: ${{ steps.build_paths.outputs.DOWNLOADS }}
 
@@ -1243,7 +1243,7 @@ jobs:
                   echo "COMPILER_VERSION=$version" >> $env:GITHUB_OUTPUT
 
             - name: Update the cache (sccache)
-              uses: actions/cache@v4
+              uses: actions/cache@v4.2.0
               with:
                   path: ${{ steps.build_paths.outputs.SCCACHE }}
 
@@ -1356,7 +1356,7 @@ jobs:
                   echo "REL_UNSIGNED_RELEASE_NUPKG_PATH=$((ls ${{ steps.build_paths.outputs.PACKAGE_BUILD }}\*.nupkg).FullName)" >> $env:GITHUB_OUTPUT
 
             - name: Store the unsigned release package data artifact
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name:
                       windows${{ matrix.bitness }}_unsigned_release_package_data
@@ -1367,7 +1367,7 @@ jobs:
 
             - name: Store the unsigned release MSI artifact
               if: matrix.bitness != 'arm64'
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: windows${{ matrix.bitness }}_unsigned_release_msi
                   path:
@@ -1376,7 +1376,7 @@ jobs:
 
             - name: Store the unsigned release NUPKG artifact
               if: matrix.bitness != 'arm64'
-              uses: actions/upload-artifact@v4.4.0
+              uses: actions/upload-artifact@v4.5.0
               with:
                   name: windows${{ matrix.bitness }}_unsigned_release_nupkg
                   path:
