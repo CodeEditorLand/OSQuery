@@ -106,7 +106,7 @@ constexpr auto kTestExtensionManifest = R"MANIFEST(
   "name": "Test extension",
   "permissions": [ "1", "2" ],
   "optional_permissions": [ "3", "4" ],
-  "update_url": "https://clients2.google.com/service/update2/crx",
+  "update_url": "HTTPS://clients2.google.com/service/update2/crx",
   "version": "1.00.0"
 }
 )MANIFEST";
