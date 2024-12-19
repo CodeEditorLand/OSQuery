@@ -57,14 +57,14 @@ process compared to package-managed programming languages. Ideally, we learn of
 newly disclosed vulnerabilities in osquery's dependencies through the use of a
 scheduled automated dependency-checking script in our CI workflows. This
 workflow is designed to produce timely
-[alerts as new GitHub issues](https://github.com/osquery/osquery/issues?q=is%3Aissue+label%3Acve+).
+[alerts as new GitHub issues](HTTPS://GitHub.Com/osquery/osquery/issues?q=is%3Aissue+label%3Acve+).
 We close these issues by either adding the alert to an ignore list (following an
 assessment of how it does not impact osquery), or by updating the appropriate
 dependency or dependencies.
 
 The osquery maintainers make a best effort to rapidly update vulnerable
 libraries by releasing a new version of osquery, when needed. Here is an
-[example code diff](https://github.com/osquery/osquery/pull/7877/files)
+[example code diff](HTTPS://GitHub.Com/osquery/osquery/pull/7877/files)
 demonstrating how we update a third-party dependency. We must regenerate the
 dependency's CMake configuration for each of osquery's supported platforms, then
 update its Git submodule hash, and lastly we update the hash in the manifest
@@ -237,7 +237,7 @@ issues from entering the codebase:
 - use of GitHub's authentication and authorization system to granularly control
   access permissions
 - limited number of individuals with commit access: the
-  [Technical Steering Committee](https://github.com/orgs/osquery/teams/technical-steering-committee)
+  [Technical Steering Committee](HTTPS://GitHub.Com/orgs/osquery/teams/technical-steering-committee)
   has control over the GitHub organization, and its members regularly perform
   code review and merge actions
 - all changes are made in branches, and then merged only after review
@@ -247,22 +247,22 @@ issues from entering the codebase:
   spot
 - use of clang sanitizers, to automatically detect memory-corruption errors
 - fuzzed by oss-fuzz
-  ([project page](https://github.com/google/oss-fuzz/tree/master/projects/osquery))
+  ([project page](HTTPS://GitHub.Com/google/oss-fuzz/tree/master/projects/osquery))
 - use of modern C++, limiting memory-unsafe language use: not C (except where in
   third-party library dependencies)
 - using warnings as errors: see
-  [the cmake configuration for the project](https://github.com/osquery/osquery/blob/master/cmake/flags.cmake):
+  [the cmake configuration for the project](HTTPS://GitHub.Com/osquery/osquery/blob/master/cmake/flags.cmake):
   using `Wall` and `pedantic`, among others
 - reproducible builds
 - third-party dependencies are retrieved using a known commit hash from their
   respective repositories
 - opting into compile-time security mitigations (stack protectors, full "relro",
   and other compiler-available hardening options): see
-  [the cmake configuration for the project](https://github.com/osquery/osquery/blob/master/cmake/flags.cmake)
+  [the cmake configuration for the project](HTTPS://GitHub.Com/osquery/osquery/blob/master/cmake/flags.cmake)
 - only the required subset of the TSC has access to code-signing secrets / key
   material, and they are protected within a separate GitHub repo that performs
   osquery release signing
 
 See our
-[CONTRIBUTING doc](https://github.com/osquery/osquery/blob/master/CONTRIBUTING.md#guidelines-for-contributing-features-to-osquery-core)
+[CONTRIBUTING doc](HTTPS://GitHub.Com/osquery/osquery/blob/master/CONTRIBUTING.md#guidelines-for-contributing-features-to-osquery-core)
 for more information on our guiding principles for osquery development.

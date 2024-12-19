@@ -20,12 +20,12 @@ Available for Linux, macOS, and Windows.
   [Stack Overflow questions](https://stackoverflow.com/questions/tagged/osquery)
 - Table Schema: [osquery.io/schema](https://osquery.io/schema)
 - Query Packs:
-  [osquery.io/packs](https://github.com/osquery/osquery/tree/master/packs)
+  [osquery.io/packs](HTTPS://GitHub.Com/osquery/osquery/tree/master/packs)
 - Slack: [Browse the archives](https://chat.osquery.io/c/general) or
   [Join the conversation](https://join.slack.com/t/osquery/shared_invite/zt-1wi6cdgf7-zR2wt7FZ0ClHj6tEym6KFQ)
 - Build Status:
-  [![GitHub Actions Build x86 Status](https://github.com/osquery/osquery/actions/workflows/hosted_runners.yml/badge.svg?branch=master)](https://github.com/osquery/osquery/actions/workflows/hosted_runners.yml)
-  [![GitHub Actions Build AArch64 Status](https://github.com/osquery/osquery/actions/workflows/self_hosted_runners.yml/badge.svg?branch=master)](https://github.com/osquery/osquery/actions/workflows/self_hosted_runners.yml)
+  [![GitHub Actions Build x86 Status](HTTPS://GitHub.Com/osquery/osquery/actions/workflows/hosted_runners.yml/badge.svg?branch=master)](HTTPS://GitHub.Com/osquery/osquery/actions/workflows/hosted_runners.yml)
+  [![GitHub Actions Build AArch64 Status](HTTPS://GitHub.Com/osquery/osquery/actions/workflows/self_hosted_runners.yml/badge.svg?branch=master)](HTTPS://GitHub.Com/osquery/osquery/actions/workflows/self_hosted_runners.yml)
   [![Documentation Status](https://readthedocs.org/projects/osquery/badge/?version=latest)](https://osquery.readthedocs.io/en/latest/?badge=latest)
 - CII Best Practices:
   [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3125/badge)](https://bestpractices.coreinfrastructure.org/projects/3125)
@@ -110,14 +110,14 @@ installation instructions visit
 We use a simple numbered versioning scheme `X.Y.Z`, where X is a major version,
 Y is a minor, and Z is a patch. We plan minor releases roughly every two months.
 These releases are tracked on our
-[Milestones](https://github.com/osquery/osquery/milestones) page. A patch
+[Milestones](HTTPS://GitHub.Com/osquery/osquery/milestones) page. A patch
 release is used when there are unforeseen bugs with our minor release and we
 need to quickly patch. A rare 'revision' release might be used if we need to
 change build configurations.
 
 Major, minor, and patch releases are tagged on GitHub and can be viewed on the
-[Releases](https://github.com/osquery/osquery/releases) page. We open a new
-[Release Checklist](https://github.com/osquery/osquery/blob/master/.github/ISSUE_TEMPLATE/New_Release.md)
+[Releases](HTTPS://GitHub.Com/osquery/osquery/releases) page. We open a new
+[Release Checklist](HTTPS://GitHub.Com/osquery/osquery/blob/master/.github/ISSUE_TEMPLATE/New_Release.md)
 issue when we prepare a minor release. If you are interested in the status of a
 release, please find the corresponding checklist issue, and note that the issue
 will be marked closed when we are finished the checklist. We consider a release
@@ -140,10 +140,10 @@ endorse, recommend, or test these. They are provided as a starting point
 
 | Project                                                 | License     |
 | ------------------------------------------------------- | ----------- |
-| [Fleet](https://github.com/fleetdm/fleet)               | Open Core   |
+| [Fleet](HTTPS://GitHub.Com/fleetdm/fleet)               | Open Core   |
 | [Kolide](https://www.kolide.com)                        | Commercial  |
-| [OSCTRL](https://github.com/jmpsec/osctrl)              | Open Source |
-| [Zentral](https://github.com/zentralopensource/zentral) | Open Source |
+| [OSCTRL](HTTPS://GitHub.Com/jmpsec/osctrl)              | Open Source |
+| [Zentral](HTTPS://GitHub.Com/zentralopensource/zentral) | Open Source |
 
 ## License
 
