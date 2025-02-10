@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script is meant to test that format-check.py and git-clang-format.py format all the files they should.
 
