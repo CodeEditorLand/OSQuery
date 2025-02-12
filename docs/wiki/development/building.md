@@ -90,7 +90,7 @@ cmake -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15 -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_C
 cmake --build . -j $(sysctl -n hw.ncpu)
 ```
 
-### Features Requiring Special Build Entitlements
+### Feature Requiring Special Build Entitlements
 
 Certain functionality on macOS requires an entitled and code-signed executable. By default, macOS builds from source will be _unsigned_ and these particular features will be disabled at runtime.
 

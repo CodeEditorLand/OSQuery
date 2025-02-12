@@ -49,7 +49,7 @@ Azure.
   ([#8398](HTTPS://GitHub.Com/osquery/osquery/pull/8398))
 - Refactor `readFile` ([#8410](HTTPS://GitHub.Com/osquery/osquery/pull/8410))
 
-### Bug Fixes
+### Fix
 
 - Fix `unified_log` handling of timestamp formats
   ([#8451](HTTPS://GitHub.Com/osquery/osquery/pull/8451))
@@ -127,7 +127,7 @@ signing certificate.
 - Add verbose logging when distributed requests fail and retry
   ([#8321](HTTPS://GitHub.Com/osquery/osquery/pull/8321))
 
-### Bug Fixes
+### Fix
 
 - Fix crash in `rpm_packages` table by upgrading librpm from 4.18.0 to 4.18.2
   [#8388](HTTPS://GitHub.Com/osquery/osquery/pull/8388)
@@ -199,7 +199,7 @@ tables under some conditions.
 
 Representing commits from 3 contributors! Thank you all.
 
-### Bug Fixes
+### Fix
 
 - Revert Don't add ATC table name to registry until after sqlite DB
   initialization #8233 ([#8334](HTTPS://GitHub.Com/osquery/osquery/pull/8334))
@@ -252,7 +252,7 @@ Representing commits from 11 contributors! Thank you all.
 - Clear performance stats when modifying scheduled/pack query
   ([#8239](HTTPS://GitHub.Com/osquery/osquery/pull/8239))
 
-### Bug Fixes
+### Fix
 
 - Fix version collate returning incorrect value when last character is a
   delimiter ([#8283](HTTPS://GitHub.Com/osquery/osquery/pull/8283))
@@ -335,7 +335,7 @@ Representing commits from 11 contributors! Thank you all.
 - process_open_sockets: Mark pid column as additional instead of index
   ([#8191](HTTPS://GitHub.Com/osquery/osquery/pull/8191))
 
-### Bug Fixes
+### Fix
 
 - Add stricter checks to JSON parsing
   ([#8229](HTTPS://GitHub.Com/osquery/osquery/pull/8229))
@@ -457,7 +457,7 @@ Representing commits from 18 contributors! Thank you all.
 - watchdog: Use virtual cores to calculate CPU utilization limit
   ([#8104](HTTPS://GitHub.Com/osquery/osquery/pull/8104))
 
-### Bug Fixes
+### Fix
 
 - Always lock event_index_mutex when accessing event_index map
   ([#8077](HTTPS://GitHub.Com/osquery/osquery/pull/8077))
@@ -580,7 +580,7 @@ Representing commits from 14 contributors! Thank you all.
 - Do not copy process arguments into vector for CreateProcess call
   ([#7956](HTTPS://GitHub.Com/osquery/osquery/pull/7956))
 
-### Bug Fixes
+### Fix
 
 - Fix `version` column in `homebrew_packages`
   ([#8057](HTTPS://GitHub.Com/osquery/osquery/pull/8057))
@@ -626,7 +626,7 @@ Representing commits from 14 contributors! Thank you all.
 
 Representing commits from 6 contributors! Thank you all.
 
-### Bug Fixes
+### Fix
 
 - Fix empty batch result set reporting
   ([#7958](HTTPS://GitHub.Com/osquery/osquery/pull/7958))
@@ -699,7 +699,7 @@ Representing commits from 22 contributors! Thank you all.
 - profile.py: Log # of queries loaded and raise an error if 0 are loaded
   ([#7934](HTTPS://GitHub.Com/osquery/osquery/pull/7934))
 
-### Bug Fixes
+### Fix
 
 - Clear cached constraints and columns in xBestIndex
   ([#7435](HTTPS://GitHub.Com/osquery/osquery/pull/7435))
@@ -836,7 +836,7 @@ Ignored due to not affecting osquery:
 - `processes`: Stabilize the `start_time` column value on macOS and Linux
   ([#7788](HTTPS://GitHub.Com/osquery/osquery/pull/7788))
 
-### Bug Fixes
+### Fix
 
 - Do not access the AWS SDK request content type if missing
   ([#7834](HTTPS://GitHub.Com/osquery/osquery/pull/7834))
@@ -995,7 +995,7 @@ Representing commits from 14 contributors! Thank you all.
 - carves: use full pathnames while creating an archive
   ([#7681](HTTPS://GitHub.Com/osquery/osquery/pull/7681))
 
-### Bug Fixes
+### Fix
 
 - Fix `GetMemorySize` for Windows `memory_devices` table
   ([#7711](HTTPS://GitHub.Com/osquery/osquery/pull/7711))
@@ -1100,7 +1100,7 @@ Representing commits from 15 contributors! Thank you all.
 - Remove unnecessary string copy
   ([#7625](HTTPS://GitHub.Com/osquery/osquery/pull/7625))
 
-### Bug Fixes
+### Fix
 
 - Add linwin to list of supported PLATFORM_DIRS
   ([#7646](HTTPS://GitHub.Com/osquery/osquery/pull/7646))
@@ -1222,7 +1222,7 @@ This release represents commits from 15 contributors! Thank you all.
 - Add `original filename` column to `file` table on Windows
   [#7156](HTTPS://GitHub.Com/osquery/osquery/pull/7156)
 
-### Bug Fixes
+### Fix
 
 - Fix watchdog not killing unhealthy worker/extension fast enough
   [#7474](HTTPS://GitHub.Com/osquery/osquery/pull/7474)
@@ -1399,7 +1399,7 @@ This release represents commits from 24 contributors! Thank you all.
 - Add `windows_firewall_rules` table for windows
   ([#7403](HTTPS://GitHub.Com/osquery/osquery/pull/7403))
 
-### Bug Fixes
+### Fix
 
 - Update the ATC table `path` column check to be case insensitive
   ([#7442](HTTPS://GitHub.Com/osquery/osquery/pull/7442))
@@ -1505,7 +1505,7 @@ Representing commits from 20 contributors! Thank you all.
 - Respect `read_max` flag when hashing using ssdeep
   ([#7367](HTTPS://GitHub.Com/osquery/osquery/pull/7367))
 
-### Bug Fixes
+### Fix
 
 - Detect when an extension has not started correctly on Windows
   ([#7355](HTTPS://GitHub.Com/osquery/osquery/pull/7355))
@@ -1632,7 +1632,7 @@ There are several breaking changes:
 - socket_events improvements in Linux audit system
   ([#7269](HTTPS://GitHub.Com/osquery/osquery/pull/7269))
 
-### Bug Fixes
+### Fix
 
 - Add case sensitive pragma to the pragma/actions authorizer allow list
   ([#7267](HTTPS://GitHub.Com/osquery/osquery/pull/7267))
@@ -1767,7 +1767,7 @@ Representing commits from 16 contributors! Thank you all.
 - Consolidate syscalls to a single audit rule
   ([#7063](HTTPS://GitHub.Com/osquery/osquery/pull/7063))
 
-### Bug Fixes
+### Fix
 
 - Add current WMI location for Dell BIOS info
   ([#7103](HTTPS://GitHub.Com/osquery/osquery/pull/7103))
@@ -1867,7 +1867,7 @@ to be effected by any security issues in OpenSSL.
 - Setting non-required `deb_packages` fields as optional in test
   ([#7001](HTTPS://GitHub.Com/osquery/osquery/pull/7001))
 
-### Bug Fixes
+### Fix
 
 - Handle events optimization edge cases
   ([#7060](HTTPS://GitHub.Com/osquery/osquery/pull/7060))
@@ -2001,7 +2001,7 @@ Commits from 21 contributors! Thank you all!
 - Refactor the eventing framework to reduce disk IO and improve
   performance([#6610](HTTPS://GitHub.Com/osquery/osquery/pull/6610))
 
-### Bug Fixes
+### Fix
 
 - Add `journal_mode` to the sqlite authorizer PRAGMAs
   ([#6999](HTTPS://GitHub.Com/osquery/osquery/pull/6999))
@@ -2256,7 +2256,7 @@ Commits from 21 contributors! Thank you all!
 - Add systemd support for startup_items on Linux
   ([#6562](HTTPS://GitHub.Com/osquery/osquery/pull/6562))
 
-### Bug Fixes
+### Fix
 
 - Do not use memset on VirtualTable, a non-POD type
   ([#6760](HTTPS://GitHub.Com/osquery/osquery/pull/6760))
@@ -2365,7 +2365,7 @@ Commits from 21 contributors! Thank you all!
 - Add additional AWS regions
   ([#6666](HTTPS://GitHub.Com/osquery/osquery/pull/6666))
 
-### Bug Fixes
+### Fix
 
 - Fix container overflow in `curl_certificate`
   ([#6664](HTTPS://GitHub.Com/osquery/osquery/pull/6664))
@@ -2483,7 +2483,7 @@ improvements, and new features. Thank you! :clap:
 - Refactor `shell_history` to use generators (it will use less memory)
   ([#6541](HTTPS://GitHub.Com/osquery/osquery/pull/6541))
 
-### Bug Fixes
+### Fix
 
 - Set thread names correctly on macOS and Linux
   ([#6627](HTTPS://GitHub.Com/osquery/osquery/pull/6627))
@@ -2616,7 +2616,7 @@ improvements, and new features. Thank you! :clap:
   ([#5282](https://github.com/osquery/osquery/pull/5282))
 - Add Azure tables ([#6507](https://github.com/osquery/osquery/pull/6507))
 
-### Bug Fixes
+### Fix
 
 - Update hash cache inode number in query cache
   ([#6440](https://github.com/osquery/osquery/pull/6440))
@@ -2791,7 +2791,7 @@ improvements, and new features. Thank you! :clap:
 - Removed the Buck build system
   ([#6361](https://github.com/osquery/osquery/pull/6361))
 
-### Bug Fixes
+### Fix
 
 - Fix CFNumber conversion when the type was a Float64/32 instead of a Double
   ([#6273](https://github.com/osquery/osquery/pull/6273))
@@ -2897,7 +2897,7 @@ improvements, and new features. Thank you! :clap:
 - [CVE-2020-1887] osquery does not properly verify the SNI hostname
   ([#6197](https://github.com/osquery/osquery/pull/6197))
 
-### Bug Fixes
+### Fix
 
 - Carver no longer returns empty carves for hidden files
   ([#6183](https://github.com/osquery/osquery/pull/6183))
@@ -2980,7 +2980,7 @@ improvements, and new features. Thank you! :clap:
 - Restore osqueryd integration test
   ([#6116](https://github.com/osquery/osquery/pull/6116))
 
-### Bug Fixes
+### Fix
 
 - Continue to use `com.facebook.osquery.plist` for Launch Daemon configuration
   ([#6093](https://github.com/osquery/osquery/pull/6093))
@@ -3033,7 +3033,7 @@ improvements, and new features. Thank you! :clap:
 - Recommend building with MacOS 10.11 SDK
   ([#6000](https://github.com/osquery/osquery/pull/6000))
 
-### Bug Fixes
+### Fix
 
 - Fix Linux audit incorrect read and handle leak
   ([#5959](https://github.com/osquery/osquery/pull/5959))
@@ -3135,7 +3135,7 @@ improvements, and new features. Thank you! :clap:
   ([#5893](https://github.com/osquery/osquery/pull/5893)),
   ([#5913](https://github.com/osquery/osquery/pull/5913))
 
-### Bug Fixes
+### Fix
 
 - Set Windows MSI ErrorControl to normal instead of critical
   ([#5818](https://github.com/osquery/osquery/pull/5818))
@@ -3192,7 +3192,7 @@ functionality.
 
 [Git Commits](https://github.com/osquery/osquery/compare/4.0.1...4.0.2)
 
-### Bug Fixes
+### Fix
 
 - Fix configuration of AWS libraries to address crash in Linux
   ([#5799](https://github.com/osquery/osquery/pull/5799))
