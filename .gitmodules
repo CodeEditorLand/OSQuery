@@ -1,259 +1,207 @@
 [submodule "libraries/cmake/source/bzip2/src"]
 path = libraries/cmake/source/bzip2/src
 url = https://github.com/osquery/third-party-bzip2
-ignore = all
 
 [submodule "libraries/cmake/source/libarchive/src"]
 path = libraries/cmake/source/libarchive/src
 url = https://github.com/libarchive/libarchive
-ignore = all
 
 [submodule "libraries/cmake/source/libmagic/src"]
 path = libraries/cmake/source/libmagic/src
 url = https://github.com/file/file
-ignore = all
 
 [submodule "libraries/cmake/source/libudev/src"]
 path = libraries/cmake/source/libudev/src
 url = https://github.com/systemd/systemd
-ignore = all
 
 [submodule "libraries/cmake/source/linenoise-ng/src"]
 path = libraries/cmake/source/linenoise-ng/src
 url = https://github.com/arangodb/linenoise-ng
-ignore = all
 
 [submodule "libraries/cmake/source/lzma/src"]
 path = libraries/cmake/source/lzma/src
 url = https://github.com/tukaani-project/xz
-ignore = all
 
 [submodule "libraries/cmake/source/rapidjson/src"]
 path = libraries/cmake/source/rapidjson/src
 url = https://github.com/Tencent/rapidjson
-ignore = all
 
 [submodule "libraries/cmake/source/rocksdb/src"]
 path = libraries/cmake/source/rocksdb/src
 url = https://github.com/facebook/rocksdb
-ignore = all
 
 [submodule "libraries/cmake/source/sleuthkit/src"]
 path = libraries/cmake/source/sleuthkit/src
 url = https://github.com/sleuthkit/sleuthkit
-ignore = all
 
 [submodule "libraries/cmake/source/sqlite/src"]
 path = libraries/cmake/source/sqlite/src
 url = https://github.com/osquery/third-party-sqlite
-ignore = all
 
 [submodule "libraries/cmake/source/thrift/src"]
 path = libraries/cmake/source/thrift/src
 url = https://github.com/apache/thrift
-ignore = all
 
 [submodule "libraries/cmake/source/util-linux/src"]
 path = libraries/cmake/source/util-linux/src
 url = https://git.kernel.org/pub/scm/utils/util-linux/util-linux.git
-ignore = all
 
 [submodule "libraries/cmake/source/yara/src"]
 path = libraries/cmake/source/yara/src
 url = https://github.com/VirusTotal/yara
-ignore = all
 
 [submodule "libraries/cmake/source/zlib/src"]
 path = libraries/cmake/source/zlib/src
 url = https://github.com/madler/zlib
-ignore = all
 
 [submodule "libraries/cmake/source/zstd/src"]
 path = libraries/cmake/source/zstd/src
 url = https://github.com/facebook/zstd
-ignore = all
 
 [submodule "libraries/cmake/source/augeas/src"]
 path = libraries/cmake/source/augeas/src
 url = https://github.com/hercules-team/augeas
-ignore = all
 
 [submodule "libraries/cmake/source/librpm/src"]
 path = libraries/cmake/source/librpm/src
 url = https://github.com/rpm-software-management/rpm
-ignore = all
 
 [submodule "libraries/cmake/source/popt/src"]
 path = libraries/cmake/source/popt/src
 url = https://github.com/rpm-software-management/popt.git
-ignore = all
 
 [submodule "libraries/cmake/source/libdpkg/src"]
 path = libraries/cmake/source/libdpkg/src
 url = https://github.com/osquery/third-party-libdpkg
-ignore = all
 
 [submodule "libraries/cmake/source/libaudit/src"]
 path = libraries/cmake/source/libaudit/src
 url = https://github.com/linux-audit/audit-userspace
-ignore = all
 
 [submodule "libraries/cmake/source/libgcrypt/src"]
 path = libraries/cmake/source/libgcrypt/src
 url = https://github.com/osquery/third-party-libgcrypt.git
-ignore = all
 
 [submodule "libraries/cmake/source/libgpg-error/src"]
 path = libraries/cmake/source/libgpg-error/src
 url = https://github.com/osquery/third-party-libgpg-error.git
-ignore = all
 
 [submodule "libraries/cmake/source/libcryptsetup/src"]
 path = libraries/cmake/source/libcryptsetup/src
 url = https://gitlab.com/cryptsetup/cryptsetup.git
-ignore = all
 
 [submodule "libraries/cmake/source/libdevmapper/src"]
 path = libraries/cmake/source/libdevmapper/src
 url = https://github.com/lvmteam/lvm2
-ignore = all
 
 [submodule "libraries/cmake/source/libiptables/src"]
 path = libraries/cmake/source/libiptables/src
 url = https://github.com/osquery/third-party-iptables
-ignore = all
 
 [submodule "libraries/cmake/source/librdkafka/src"]
 path = libraries/cmake/source/librdkafka/src
 url = https://github.com/edenhill/librdkafka
-ignore = all
 
 [submodule "libraries/cmake/source/googletest/src"]
 path = libraries/cmake/source/googletest/src
 url = https://github.com/google/googletest
-ignore = all
 
 [submodule "libraries/cmake/source/glog/src"]
 path = libraries/cmake/source/glog/src
 url = https://github.com/google/glog
-ignore = all
 
 [submodule "libraries/cmake/source/gflags/src"]
 path = libraries/cmake/source/gflags/src
 url = https://github.com/gflags/gflags
-ignore = all
 
 [submodule "libraries/cmake/source/boost/src"]
 path = libraries/cmake/source/boost/src
 url = https://github.com/boostorg/boost
-ignore = all
 
 [submodule "libraries/cmake/source/augeas/gnulib/src"]
 path = libraries/cmake/source/augeas/gnulib/src
 url = https://github.com/osquery/third-party-gnulib
-ignore = all
 
 [submodule "libraries/cmake/source/ebpfpub/src"]
 path = libraries/cmake/source/ebpfpub/src
 url = https://github.com/trailofbits/ebpfpub
-ignore = all
 
 [submodule "libraries/cmake/source/dbus/src"]
 path = libraries/cmake/source/dbus/src
 url = https://gitlab.freedesktop.org/dbus/dbus.git
-ignore = all
 
 [submodule "libraries/cmake/source/expat/src"]
 path = libraries/cmake/source/expat/src
 url = https://github.com/libexpat/libexpat
-ignore = all
 
 [submodule "libraries/cmake/source/libcap/src"]
 path = libraries/cmake/source/libcap/src
 url = https://kernel.googlesource.com/pub/scm/libs/libcap/libcap.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-crt-cpp"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-crt-cpp
 url = https://github.com/awslabs/aws-crt-cpp.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-c-auth"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-c-auth
 url = https://github.com/awslabs/aws-c-auth.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-c-cal"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-c-cal
 url = https://github.com/awslabs/aws-c-cal.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-c-common"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-c-common
 url = https://github.com/awslabs/aws-c-common.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-c-compression"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-c-compression
 url = https://github.com/awslabs/aws-c-compression.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-c-event-stream"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-c-event-stream
 url = https://github.com/awslabs/aws-c-event-stream.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-c-http"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-c-http
 url = https://github.com/awslabs/aws-c-http.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-c-io"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-c-io
 url = https://github.com/awslabs/aws-c-io.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-c-mqtt"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-c-mqtt
 url = https://github.com/awslabs/aws-c-mqtt.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-c-s3"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-c-s3
 url = https://github.com/awslabs/aws-c-s3.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-checksums"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-checksums
 url = https://github.com/awslabs/aws-checksums.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-lc"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-lc
 url = https://github.com/awslabs/aws-lc.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/s2n"]
 path = libraries/cmake/source/aws-sdk-cpp/src/s2n
 url = https://github.com/awslabs/s2n.git
-ignore = all
 
 [submodule "libraries/cmake/source/aws-sdk-cpp/src/aws-sdk-cpp"]
 path = libraries/cmake/source/aws-sdk-cpp/src/aws-sdk-cpp
 url = https://github.com/aws/aws-sdk-cpp
-ignore = all
 
 [submodule "libraries/cmake/source/krabsetw/src"]
 path = libraries/cmake/source/krabsetw/src
 url = https://github.com/microsoft/krabsetw.git
-ignore = all
 
 [submodule "osquery/experimental/experiments/linuxevents/libraries/linuxevents/src"]
 path = osquery/experimental/experiments/linuxevents/libraries/linuxevents/src
 url = https://github.com/trailofbits/linuxevents
-ignore = all
 
 [submodule "libraries/cmake/source/lz4/src"]
 path = libraries/cmake/source/lz4/src
 url = https://github.com/lz4/lz4.git
-ignore = all
