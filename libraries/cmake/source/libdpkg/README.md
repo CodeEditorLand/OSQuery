@@ -49,7 +49,7 @@ export CC=${TOOLCHAIN}/usr/bin/clang
 ### Install perl (x86 + AArch64)
 
 ```bash
-curl HTTPS://www.cpan.org/src/5.0/perl-5.34.1.tar.gz -L -O
+curl https://www.cpan.org/src/5.0/perl-5.34.1.tar.gz -L -O
 tar xzf perl-5.34.1.tar.gz
 ```
 
@@ -68,7 +68,7 @@ make install
 ### Install autoconf (x86 + AArch64)
 
 ```bash
-curl HTTPS://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.xz -L -O
+curl https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.xz -L -O
 tar xf autoconf-2.71.tar.xz
 ```
 
@@ -81,7 +81,7 @@ make install
 ### Install automake (x86 + AArch64)
 
 ```bash
-curl HTTPS://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.xz -L -O
+curl https://ftp.gnu.org/gnu/automake/automake-1.16.5.tar.xz -L -O
 tar xf automake-1.16.5.tar.xz
 ```
 
@@ -94,7 +94,7 @@ make install
 ### Install libtool (x86 + AArch64)
 
 ```bash
-curl HTTPS://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.gz -L -O
+curl https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.gz -L -O
 tar xzf libtool-2.4.6.tar.gz
 ```
 
@@ -107,7 +107,7 @@ make install
 ### Install gettext (x86 + AArch64)
 
 ```bash
-curl HTTPS://ftp.gnu.org/pub/gnu/gettext/gettext-0.21.tar.gz -L -O
+curl https://ftp.gnu.org/pub/gnu/gettext/gettext-0.21.tar.gz -L -O
 tar xfz gettext-0.21.tar.gz
 ```
 
@@ -120,7 +120,7 @@ make install
 ### Install pkg-config (AArch64)
 
 ```bash
-curl HTTPS://pkgconfig.freedesktop.org/releases/pkg-config-0.29.2.tar.gz -L -O
+curl https://pkgconfig.freedesktop.org/releases/pkg-config-0.29.2.tar.gz -L -O
 tar xzf pkg-config-0.29.2.tar.gz
 ```
 

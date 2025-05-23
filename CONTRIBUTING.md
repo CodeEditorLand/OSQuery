@@ -180,7 +180,7 @@ osquery guiding principles in order to be accepted:
 
 For new features that do not align with the mission principles of core, you may
 build outside of osquery core in separate integrated processes called
-extensions: HTTPS://osquery.readthedocs.io/en/stable/development/osquery-sdk/.
+extensions: https://osquery.readthedocs.io/en/stable/development/osquery-sdk/.
 
 ### Does my contribution belong in Core or in an Extension?
 

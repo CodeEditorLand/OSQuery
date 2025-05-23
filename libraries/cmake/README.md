@@ -136,7 +136,7 @@ The Yum package repo for CentOS 6 is no longer hosted at its default location,
 so we must configure it.
 
 ```sh
-sudo curl HTTPS://www.getpagespeed.com/files/centos6-eol.repo --output /etc/yum.repos.d/CentOS-Base.repo
+sudo curl https://www.getpagespeed.com/files/centos6-eol.repo --output /etc/yum.repos.d/CentOS-Base.repo
 sudo yum update
 ```
 
@@ -149,7 +149,7 @@ can install it from source.
 sudo yum remove git
 sudo yum -y install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker
 cd /usr/src
-sudo wget HTTPS://www.kernel.org/pub/software/scm/git/git-2.39.0.tar.gz
+sudo wget https://www.kernel.org/pub/software/scm/git/git-2.39.0.tar.gz
 sudo tar xzf git-2.39.0.tar.gz
 cd git-2.39.0
 sudo make prefix=/usr/local all
@@ -173,7 +173,7 @@ Update the repository file: `/etc/yum.repos.d/CentOS-SCLo-scl.repo`
 ```text
 [centos-sclo-sclo]
 name=CentOS-6 - SCLo sclo
-baseurl=HTTPS://vault.centos.org/centos/6.10/sclo/x86_64/rh
+baseurl=https://vault.centos.org/centos/6.10/sclo/x86_64/rh
 # baseurl=HTTP://mirror.centos.org/centos/6/sclo/$basearch/sclo/
 # mirrorlist=HTTP://mirrorlist.centos.org?arch=$basearch&release=6&repo=sclo-sclo
 gpgcheck=1

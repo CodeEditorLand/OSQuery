@@ -7,7 +7,7 @@ and osquery management servers.
 ## Download Images
 
 Generated images can be accessed at
-[HTTPS://hub.docker.com/r/osquery/osquery](https://hub.docker.com/r/osquery/osquery).
+[https://hub.docker.com/r/osquery/osquery](https://hub.docker.com/r/osquery/osquery).
 
 To run an image:
 
